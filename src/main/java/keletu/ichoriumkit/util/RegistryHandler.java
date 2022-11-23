@@ -1,0 +1,64 @@
+package keletu.ichoriumkit.util;
+
+import keletu.ichoriumkit.blocks.tiles.TileBedrockPortal;
+import keletu.ichoriumkit.init.ModBlocks;
+import keletu.ichoriumkit.init.ModItems;
+import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectEventProxy;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.aspects.AspectRegistryEvent;
+
+@Mod.EventBusSubscriber
+
+public class RegistryHandler {
+    @SubscribeEvent
+    public static void onItemRegister( RegistryEvent.Register<Item> event ) {
+        event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+    }
+    @SubscribeEvent
+    public static void onBlockRegister(RegistryEvent.Register<Block> event) {
+        event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+        TileBedrockPortal.register("bedrock_portal", TileBedrockPortal.class);
+    }
+
+    @SubscribeEvent
+    public static void onModelRegister( ModelRegistryEvent event )
+    {
+        for ( Item item : ModItems.ITEMS ) {
+            if (item instanceof IHasModel) {
+                ((IHasModel) item).registerModels();
+            }
+        }
+        for (Block block: ModBlocks.BLOCKS)
+        {
+            if (block instanceof IHasModel)
+            {
+                ((IHasModel)block).registerModels();
+            }
+        }
+
+    }
+
+    @SubscribeEvent
+    public static void registerAspects(AspectRegistryEvent event) {
+        AspectEventProxy proxy = event.register;
+        proxy.registerComplexObjectTag(new ItemStack(ModItems.ResourceKami, 1, 1), new AspectList().add(Aspect.FIRE, 2).add(Aspect.UNDEAD, 2).add(Aspect.DEATH, 2));
+        proxy.registerComplexObjectTag(new ItemStack(ModItems.ResourceKami, 1, 0), new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.DESIRE, 2).add(Aspect.DARKNESS, 2));
+    }
+
+    @SubscribeEvent
+    public static void OreRegister(RegistryEvent.Register<Enchantment> event)
+    {
+        OreDictionary.registerOre("ingotIchorium", new ItemStack(ModItems.ResourceKami, 1, 3));
+        OreDictionary.registerOre("nuggetIchorium", new ItemStack(ModItems.ResourceKami, 1, 5));
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "ichoriumkit:items/shard_end"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "meta": 1
+            },
+            "model": "ichoriumkit:item/shard_nether"
+        },
+        {
+            "predicate": {
+                "meta": 2
+            },
+            "model": "ichoriumkit:item/ichor"
+        },
+        {
+            "predicate": {
+                "meta": 3
+            },
+            "model": "ichoriumkit:item/ichor_ingot"
+        },
+        {
+            "predicate": {
+                "meta": 4
+            },
+            "model": "ichoriumkit:item/ichor_cloth"
+        },
+        {
+            "predicate": {
+                "meta": 5
+            },
+            "model": "ichoriumkit:item/ichor_nugget"
+        }
+    ]
+}

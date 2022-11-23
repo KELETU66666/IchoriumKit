@@ -1,0 +1,13 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "ichoriumkit:ichor_block"
+    }
+  ],
+  "result": {
+    "item": "ichoriumkit:resourcekami",
+    "count": 8,
+    "data": 2
+  }
+}

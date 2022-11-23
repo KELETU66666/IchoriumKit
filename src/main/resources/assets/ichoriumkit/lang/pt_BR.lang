@@ -1,0 +1,128 @@
+# Special formatting codes:
+
+# <BR> or <BR/>         Paragraph break (<BR/> is included for people using XML for their localization)
+# <LINE> or <LINE/>     Insert a fancy centered linebreak between sections of text.
+# <DIV> or <DIV/>     Insert a fancy left-justified linebreak between sections of text.
+# <PAGE> or <PAGE/>     Skip to a new page.
+# <IMG>...</IMG>  Insert a centered image into text. Parameters are separated by ':' and are:
+#                    - mod resource location name
+#                    - png file location (assumed to be a 256x256 texture, a sub-image will be grabbed from this png as specified below)
+#                    - x location of sub-image in png
+#                    - y location of sub-image in png
+#                    - x size of sub-image (255 if full x size of png must be used)
+#                    - y size of sub-image (255 if full y size of png must be used)
+#                    - scaling - 1.0 for normal 256x256 images, or smaller for proportionately smaller .png files (a 16x16 image will be 0.0625)
+#               Examples:
+#                   <IMG>thaumcraft:textures/gui/gui_researchbook.png:24:184:96:4:1.0</IMG>   <-- line break image as used in <LINE> above
+#                   <IMG>thaumcraft:textures/items/alumentum.png:0:0:255:255:0.0625</IMG>     <-- alumentum item icon
+
+#Language
+
+language.name=Português (Brasil)
+language.region=BR
+language.code=pt_BR
+
+#Items
+item.ichorium_sword.name=Espada de Icório
+item.ichorium_pick.name=Picareta de Icório
+item.ichorium_axe.name=Machado de Icório
+item.ichorium_shovel.name=Pá de Icório
+
+item.ichor_helm.name=Capuz de Tecido de Icor
+item.ichor_chest.name=Vestes de Tecido de Icor
+item.ichor_legs.name=Calças de Tecido de Icor
+item.ichor_boots.name=Botas de Tecido de Icor
+
+item.kami_helm.name=Capuz das Profundezas Abissais
+item.kami_chest.name=Vestes da Estratosfera
+item.kami_legs.name=Calças do Manto Ardente
+item.kami_boots.name=Botas do Escudo do Horizonte
+
+item.ichorium_sword_adv.name=Espada de Icório Despertada
+item.ichorium_pick_adv.name=Picareta de Icório Despertada
+item.ichorium_axe_adv.name=Machado de Icório Despertado
+item.ichorium_shovel_adv.name=Pá de Icório Despertada
+
+tile.ichor_block.name=Bloco de Icor
+tile.bedrock_portal.name=Portal do Mundo Bedrock
+
+item.resourcekami.0.name=Lasca do Ender
+item.resourcekami.1.name=Lasca do Nether
+
+item.resourcekami.2.name=Icor
+item.resourcekami.3.name=Barra de Icório
+item.resourcekami.4.name=Tecido de Icor
+item.resourcekami.5.name=Pepita de Icório
+item.ichor_pouch.name=Pouxete de Tecido de Icor
+
+#Research
+
+##Kami
+ichoriumkit.research.dimensionalshard.title=Lascas Dimensionais
+ichoriumkit.research.dimensionalshard.text=Taumaturgos da Quarta Era falavam à respeito de uma substância mítica chamada "Icor", capaz de criar algumas das mais poderosas Ferramentas e Armaduras possíveis para qualquer Taumaturgo que consiga criá-la.<BR>Eu pensava que esse processo era impossível, até eu descobrir que seja lá como as Lascas Dimensionais eram descritas nos restos de Pesquisas que encontrei parecem existir ainda. Supostamente, eles pararam repentinamente de aparecer para os Taumaturgos no final da Quarta Era, e ainda sim, de alguma forma, eles retornaram nos dias de hoje...<BR>Eu deveria recolher uma amostra dessas Lascas para ver se o Icor pode ser replicado atualmente.
+ichoriumkit.research.dimensionalshard.complete.text=A perspectiva de criar esse Icor mítico é promissora e aparenta ser possível, mas eu não sei como reproduzir isso ainda, isso requer mais Pesquisa.<BR>Essas Lascas Dimensionais podem ter outros usos também, embora nada do tipo tenha sido descrito nas escrituras da Quarta Era, os Taumaturgos da época eram muito obcecados pelo Icor.
+
+ichoriumkit.research.ichor.title=A Substância Perdida - Icor
+ichoriumkit.research.ichor.text=Estou chegando perto de meios teóricos de criar o Icor, mas eu não ainda não cheguei lá, eu tenho que tenho que determinar o que os vários campos da Taumaturgia têm a oferecer com o uso do Icor, caso haja conexões importantes que eu não percebi, então, eu devo tentar minha infusão teórica, e esperar pelo melhor.
+ichoriumkit.research.ichor.complete.text=Funcionou! Eu consegui replicar o Icor! Apesar que ele não se parece muito com aquele descrito nas escrituras, mas isso pode ser facilmente resolvido o separando em pedaços. Agora com essa substância em minhas mãos, é hora de seguir em frente para redescobrir esse suposto arsenal potente.
+
+ichoriumkit.research.ichoriumtools.title=Ferramentas de Icório
+ichoriumkit.research.ichoriumtools.text=Taumaturgos da Quarta Era usavam uma Liga banhada em Icor, chamada "Icório" como base para suas poderosas ferramentas, eu deveria criar minha própria amostra dessa Liga e inverstigar como manipulá-la.
+ichoriumkit.research.ichoriumtools.complete.text=Essa Liga de Icório é um tanto quanto simples, mas é meio cara de replicar na prática, sem contar que, a Silverwood deveria ser um material mágico o suficiente para utilizar como um Canalizador que conduz o poder do Icório.<BR>Ferramentas forjadas a partir dessa liga são praticamente reconhecíveis, e bastante efetivas também, mas isso é tudo que elas têm a oferecer...?
+
+ichoriumkit.research.ichorium_sword_adv.title=Espada de Icório Despertada
+ichoriumkit.research.ichorium_sword_adv.text=Com certeza, deve haver uma forma de extrair algo a mais dessas Ferramentas, as escrituras as descrevem como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com a Espada que eu fiz.
+ichoriumkit.research.ichorium_sword_adv.complete.text=Parece que é possível deixar a Espada mais poderosa, e com esse novo poder, ela pode ter "Modos" de combate especializados contra vários inimigos bem mais facilmente<BR>O Modo padrão, indicado pelas Gemas na ferramenta estando Verdes, fará ela agir que nem a maioria das Espadas. O Modo "Múltiplo", indicado pelas Gemas estando Vermelhas, causará um dano igual a todas as criaturas próximas daquela que foi acertada. O Modo "Escudo", indicado pelas Gemas estando Azuis, reduzirá o Dano da espada, mas ela garante uma resiliência extra na forma de Barreira, a qual pode ser recarregada batendo nas criaturas.
+
+ichoriumkit.research.ichorium_pick_adv.title=Picareta de Icório Despertada
+ichoriumkit.research.ichorium_pick_adv.text=Com certeza, deve haver uma forma de extrair algo a mais dessas Ferramentas, as escrituras as descrevem como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com a Picareta que eu fiz.
+ichoriumkit.research.ichorium_pick_adv.complete.text=Parece que é possível deixar a Picareta mais poderosa, e com esse novo poder, ela é capaz de limpar toda uma área de uma só vez quando desejado, simplesmente trocando entre os "Modos" disponíveis que tem. O Modo padrão, indicado pelas Gemas na ferramenta estando Verdes, fará ela agir que nem a maioria das Picaretas. O Modo "Quadrado", indicado pelas Gemas estando Vermelhas, permitirá ela limpar uma área 5x5 simplesmente quebrando o bloco central. E por último, o Modo "Linear", indicado pelas Gemas estando Azuis, vai tirar todos os materias de onde eu minerei da minha frente, útil para criar pequenos túneis rapidamente.<BR>Ela também parece estar bem mais resiliente do que antes, tão resiliente, que talvez ela supere a resistência da Bedrock, e eu me pergunto o que eu encontrarei além da Bedrock...
+
+ichoriumkit.research.ichorium_axe_adv.title=Machado de Icório Despertado
+ichoriumkit.research.ichorium_axe_adv.text=Com certeza, deve haver uma forma de extrair algo a mais dessas Ferramentas, as escrituras as descrevem como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com o Machado que eu fiz.
+ichoriumkit.research.ichorium_axe_adv.complete.text=Parece que é possível deixar o Machado mais poderoso, e com esse novo poder, ele é capaz de limpar toda uma área de uma só vez quando desejado, simplesmente trocando entre os "Modos" disponíveis que tem. O Modo padrão, indicado pelas Gemas na ferramenta estando Verdes, fará ele agir que nem a maioria dos Machados. O Modo "Quadrado", indicado pelas Gemas estando Vermelhas, permitirá ele limpar uma área 5x5 simplesmente quebrando o bloco central. E por último, o Modo "Tombada", indicado pelas Gemas estando Azuis, vai fazê-lo derrubar Árvores inteiras, e fazer as folhas decaírem rapidamente.
+
+ichoriumkit.research.ichorium_shovel_adv.title=Pá de Icório Despertada
+ichoriumkit.research.ichorium_shovel_adv.text=Com certeza, deve haver uma forma de extrair algo a mais dessas Ferramentas, as escrituras as descrevem como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com a Pá que eu fiz.
+ichoriumkit.research.ichorium_shovel_adv.complete.text=Parece que é possível deixar a Pá mais poderosa, e com esse novo poder, ela é capaz de limpar toda uma área de uma só vez quando desejado, simplesmente trocando entre os "Modos" disponíveis que tem. O Modo padrão, indicado pelas Gemas na ferramenta estando Verdes, fará ele agir que nem a maioria das Pás. O Modo "Quadrado", indicado pelas Gemas estando Vermelhas, permitirá ela limpar uma área 5x5 simplesmente quebrando o bloco central. E por último, o Modo "Linear", vai tirar todos os materias de onde eu cavei da minha frente, útil para criar pequenos túneis rapidamente.
+
+ichoriumkit.research.ichorarmor.title=Armadura de Icor
+ichoriumkit.research.ichorarmor.text=Infundindo Tecido Encantado com Icor parece ser o método cujo o qual os Taumaturgos da Quarta Era criaram Armaduras usando Icor. Bem sacado.<BR>Replicar esse Tecido só por mim mesmo deve ser uma tarefa fácil.
+ichoriumkit.research.ichorarmor.complete.text=De fato não foi um processo difícil, só foi caro mesmo.<BR>Parece que o Tecido Encantado é suficiente para suportar a energia mágica do Icor, então eu não vou precisar de nenhum reagente extra, exceto alguns Diamantes para adornar o Tecido.<BR>A Armadura que pode ser forjada a partir desse tecido é praticamente incapaz de ser danificada, e oferece uma ótima defesa, mas será que isso é tudo que ela tem a oferecer?
+
+ichoriumkit.research.kamihelm.title=Capuz das Profundezas Abissais
+ichoriumkit.research.kamihelm.text=Com certeza, deve haver uma forma de extrair algo a mais dessa Armadura, as escrituras descrevem as partes dela como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com o Capuz.
+ichoriumkit.research.kamihelm.complete.text=Parece que é possível Infundir o Capuz com o aspecto de Aqua, me proporcionando a habilidade de respirar e enxergar melhor debaixo d'água, da mesma forma que também permite que eu recupere minha vida passivamente independente do quão faminto eu estou.
+
+ichoriumkit.research.kamichest.title=Vestes da Estratosfera
+ichoriumkit.research.kamichest.text=Com certeza, deve haver uma forma de extrair algo a mais dessa Armadura, as escrituras descrevem as partes dela como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com as Vestes.
+ichoriumkit.research.kamichest.complete.text=Parece que é possível Infundir as Vestes com o aspecto de Aer, me proporcionando o poder de Voar.
+
+ichoriumkit.research.kamilegs.title=Calças do Manto Ardente
+ichoriumkit.research.kamilegs.text=Com certeza, deve haver uma forma de extrair algo a mais dessa Armadura, as escrituras descrevem as partes dela como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com as Calças.
+ichoriumkit.research.kamilegs.complete.text=Parece que é possível Infundir as Calças com o aspecto de Ignis, me proporcionando imunidade a fogo, e drenando o poder dele para ajudar a curar minhas feridas.
+
+ichoriumkit.research.kamiboots.title=Botas do Escudo do Horizonte
+ichoriumkit.research.kamiboots.text=Com certeza, deve haver uma forma de extrair algo a mais dessa Armadura, as escrituras descrevem as partes dela como sendo muito mais interessantes do que as que eu criei, eu devo estar esquecendo alguma coisa, talvez eu deveria fazer uns experimentos com as Botas.
+ichoriumkit.research.kamiboots.complete.text=Parece que é possível Infundir as Botas com o aspecto de Terra, me proporcionando velocidade e saltos maiores, da mesma forma que também permite eu Minerar mais rapidamente, e faz crescer Grama encima de qualquer Terra que eu ando.
+
+#Tool Mode
+
+tip.awakenpick.name0=Modo Padrão
+tip.awakenpick.name1=Modo Quadrado
+tip.awakenpick.name2=Modo Linear
+
+tip.awakenshovel.name0=Modo Padrão
+tip.awakenshovel.name1=Modo Quadrado
+tip.awakenshovel.name2=Modo Linear
+
+tip.awakenaxe.name0=Modo Padrão
+tip.awakenaxe.name1=Modo Quadrado
+tip.awakenaxe.name2=Modo Tombada
+
+tip.awakensword.name0=Modo Padrão
+tip.awakensword.name1=Modo Múltiplo
+tip.awakensword.name2=Modo Escudo
+
+tip.awakenarmor.name0=Despertada
+tip.awakenarmor.name1=Dormente

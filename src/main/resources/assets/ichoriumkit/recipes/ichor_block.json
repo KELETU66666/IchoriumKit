@@ -1,0 +1,18 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "III",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ichoriumkit:resourcekami",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "ichoriumkit:ichor_block",
+    "data": 0
+  }
+}

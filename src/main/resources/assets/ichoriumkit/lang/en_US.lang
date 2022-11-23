@@ -1,0 +1,127 @@
+# Special formatting codes:
+#
+# <BR> or <BR/>         Paragraph break (<BR/> is included for people using XML for their localization)
+# <LINE> or <LINE/>     Insert a fancy centered linebreak between sections of text.
+# <DIV> or <DIV/>     Insert a fancy left-justified linebreak between sections of text.
+# <PAGE> or <PAGE/>     Skip to a new page.
+# <IMG>...</IMG>  Insert a centered image into text. Parameters are separated by ':' and are:
+#                    - mod resource location name
+#                    - png file location (assumed to be a 256x256 texture, a sub-image will be grabbed from this png as specified below)
+#                    - x location of sub-image in png
+#                    - y location of sub-image in png
+#                    - x size of sub-image (255 if full x size of png must be used)
+#                    - y size of sub-image (255 if full y size of png must be used)
+#                    - scaling - 1.0 for normal 256x256 images, or smaller for proportionately smaller .png files (a 16x16 image will be 0.0625)
+#               Examples:
+#                   <IMG>thaumcraft:textures/gui/gui_researchbook.png:24:184:96:4:1.0</IMG>   <-- line break image as used in <LINE> above
+#                   <IMG>thaumcraft:textures/items/alumentum.png:0:0:255:255:0.0625</IMG>     <-- alumentum item icon
+
+#Language
+
+language.name=English
+language.region=US
+language.code=en_US
+
+#Items
+item.ichorium_sword.name=Ichorium Sword
+item.ichorium_pick.name=Ichorium Pickaxe
+item.ichorium_axe.name=Ichorium Axe
+item.ichorium_shovel.name=Ichorium Shovel
+
+item.ichor_helm.name=Ichorcloth Cowl
+item.ichor_chest.name=Ichorcloth Robe
+item.ichor_legs.name=Ichorcloth Leggings
+item.ichor_boots.name=Ichorcloth Boots
+
+item.kami_helm.name=Cowl of the Abyssal Depths
+item.kami_chest.name=Robes of the Stratosphere
+item.kami_legs.name=Leggings of the Burning Mantle
+item.kami_boots.name=Boots of the Horizontal Shield
+
+item.ichorium_pick_adv.name=Awakened Ichorium Pick
+item.ichorium_axe_adv.name=Awakened Ichorium Axe
+item.ichorium_shovel_adv.name=Awakened Ichorium Shovel
+item.ichorium_sword_adv.name=Awakened Ichorium Sword
+
+tile.ichor_block.name=Ichor Block
+tile.bedrock_portal.name=Bedrock Portal
+
+item.resourcekami.0.name=Ender Shard
+item.resourcekami.1.name=Nether Shard
+
+item.resourcekami.2.name=Ichor
+item.resourcekami.3.name=Ichorium Ingot
+item.resourcekami.4.name=Ichor Cloth
+item.resourcekami.5.name=Ichorium Nugget
+item.ichor_pouch.name=Ichorcloth Pouch
+#Research
+
+##Kami
+ichoriumkit.research.dimensionalshard.title=Dimensional Shards
+ichoriumkit.research.dimensionalshard.text=Thaumaturges of the Fourth Age spoke of a mythical substance called "Ichor", able to forge some of the most powerful Tools and Armor available to any Thaumaturge who could manage to create it.<BR>I had thought this process was impossible to replicate, until i discovered that whatever Dimensional Shards were being described in the scraps of Research i found seem to still exist. Supposedly, they suddenly stopped coalescing for Thaumaturges late into the Fourth Age, and yet, somehow, they have returned in modern times...<BR>I should gather a sample of these Shards to see if Ichor can be replicated nowadays.
+ichoriumkit.research.dimensionalshard.complete.text=The prospect of creating this mythical "Ichor" is promising and seems possible, but i am not sure how i can replicate it as of yet, such will require further Research.<BR>These Dimensional Shards may also have other applications, though there was nothing that the Fourth Age scraps described, Fourth Age Thaumaturges were likely too fixated on Ichor.
+
+ichoriumkit.research.ichor.title=The Lost Substance - Ichor
+ichoriumkit.research.ichor.text=I am getting closer to a theoretical means of creating Ichor, but i am not quite there, i must determine what the various fields of Thaumaturgy have to do with Ichor, incase there are important links i am missing, then, i must try my theoretical infusion, and hope for the best.
+ichoriumkit.research.ichor.complete.text=It worked! I have sucessfully replicated Ichor! Though it doesn't appear quite the same as in the scraps at first, but can be easily solved by ripping it into chunks. With this substance now in my hands, it is time to push forward to rediscovering this supposedly potent arsenal.
+
+ichoriumkit.research.ichoriumtools.title=Ichorium Tools
+ichoriumkit.research.ichoriumtools.text=Thaumaturges of the Fourth Age used an Alloy imbued with Ichor, called "Ichorium" as the basis for their powerful tools, i should create my own sample of this Alloy and investigate how to manipulate it.
+ichoriumkit.research.ichoriumtools.complete.text=This Ichorium Alloy is quite simple, in theory, but quite costly to replicate in practice, regardless, Silverwood should be a sufficiently magical material to use as a Handle which conducts the power of Ichorium.<BR>Tools forged from this Alloy are practically undentable, and are very effective too, but is this really all they can offer...?
+
+ichoriumkit.research.ichorium_sword_adv.title=Awakened Ichorium Sword
+ichoriumkit.research.ichorium_sword_adv.text=Surely, there must be a way to get more out of these Tools, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall experiment with the Sword i have made.
+ichoriumkit.research.ichorium_sword_adv.complete.text=It seems it is possible to empower the Sword, with this new power, it is capable of specialized "Modes" to make combat with many foes much easier.<BR>The default Mode, indicated by the Gems on the tool being Green, will act similar to most Swords. The "Multi" Mode, indicated by the Gems being Red, will harm all creatures near the one that is struck with equal force. The "Shield" Mode, indicated by the Gems being Blue, will reduce the Damage of the sword, but allow it to grant me extra resilience in the form of a Barrier, which can be recharged by striking creatures.
+
+ichoriumkit.research.ichorium_pick_adv.title=Awakened Ichorium Pickaxe
+ichoriumkit.research.ichorium_pick_adv.text=Surely, there must be a way to get more out of these Tools, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall experiment with the Pickaxe i have made.
+ichoriumkit.research.ichorium_pick_adv.complete.text=It seems it is possible to empower the Pickaxe, with this new power, it is capable of clearing out much more at once when desired, by cycling through the available "Modes" it has.<BR>The default Mode, indicated by the Gems on the tool being Green, will act similar to most Pickaxes. The "Square" Mode, indicated by the Gems being Red, will be able to clear a 5x5 area by simply breaking the central block. And lastly, the "Line" Mode, indicated by the Gems being Blue, will clear out material towards where i mined, useful for creating small tunnels quickly.<BR>It also seems to be even more resilient than ever before, so resilient, it may match the toughness of Bedrock, i wonder what i can find beyond the Bedrock...
+
+ichoriumkit.research.ichorium_axe_adv.title=Awakened Ichorium Axe
+ichoriumkit.research.ichorium_axe_adv.text=Surely, there must be a way to get more out of these Tools, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall experiment with the Axe i have made.
+ichoriumkit.research.ichorium_axe_adv.complete.text=It seems it is possible to empower the Axe, with this new power, it is capable of clearing out much more at once when desired, by cycling through the available "Modes" it has.<BR>The default Mode, indicated by the Gems on the tool being Green, will act similar to most Axes. The "Square" Mode, indicated by the Gems being Red, will clear out 5x5 areas of material by simply breaking the central block. And lastly, the "Fell" Mode, indicated by the Gems being Blue, will chop entire Trees, and cause their Leaves to decay rapidly.
+
+ichoriumkit.research.ichorium_shovel_adv.title=Awakened Ichorium Shovel
+ichoriumkit.research.ichorium_shovel_adv.text=Surely, there must be a way to get more out of these Tools, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall experiment with the Shovel i have made.
+ichoriumkit.research.ichorium_shovel_adv.complete.text=It seems it is possible to empower the Shovel, with this new power, it is capable of clearing out much more at once when desired, by cycling through the available "Modes" it has.<BR>The default Mode, indicated by the Gems on the tool being Green, will act similar to most Shovels. The "Square" Mode, indicated by the Gems being Red, will be able to clear a 5x5 area by simply breaking the central block. And lastly, the "Line" Mode, indicated by the Gems being Blue, will clear out material towards where i mined, useful for creating small tunnels quickly.
+
+ichoriumkit.research.ichorarmor.title=Ichorcloth Armor
+ichoriumkit.research.ichorarmor.text=Infusing Enchanted Fabric with Ichor seems to be how Fourth Age Thaumaturges created Armor using Ichor. Clever.<BR>Replicating this Cloth myself should be a simple task.
+ichoriumkit.research.ichorarmor.complete.text=It is indeed not a difficult process, just a costly one.<BR>It seems that the Enchanted Fabric is enough to support the magical energy of the Ichor, so i won't be needing any extra reagents, besides somes Diamonds to embellish the Fabric with.<BR>The Armor that can be forged out of this cloth is practically unable to be damaged, and offers great defenses, but is this really all it has to offer?
+
+ichoriumkit.research.kamihelm.title=Cowl of the Abyssal Depths
+ichoriumkit.research.kamihelm.text=Surely, there must be a way to get more out of this Armor, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall see what i can do with the Cowl.
+ichoriumkit.research.kamihelm.complete.text=It seems to be possible to Infuse the Cowl with the aspect of Aqua, granting me the ability to breathe and see underwater, aswell as allowing me to recover my health at a steady pace regardless of how hungry i am.
+
+ichoriumkit.research.kamichest.title=Robes of the Stratosphere
+ichoriumkit.research.kamichest.text=Surely, there must be a way to get more out of this Armor, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall see what i can do with the Robes.
+ichoriumkit.research.kamichest.complete.text=It seems to be possible to Infuse the Robe with the aspect of Aer, granting the power of Flight.
+
+ichoriumkit.research.kamilegs.title=Leggings of the Mantle
+ichoriumkit.research.kamilegs.text=Surely, there must be a way to get more out of this Armor, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall see what i can do with the Legwear.
+ichoriumkit.research.kamilegs.complete.text=It seems to be possible to Infuse the Leggings with the aspect of Ignis, granting me immunity to Fire, and drawing on the power of it to help heal my wounds.
+
+ichoriumkit.research.kamiboots.title=Boots of the Horizontal Shield
+ichoriumkit.research.kamiboots.text=Surely, there must be a way to get more out of this Armor, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall see what i can do with the Boots.
+ichoriumkit.research.kamiboots.complete.text=It seems to be possible to Infuse the Boots with the aspect of Terra, granting me improved speed and jumping, aswell as swifter Mining, and growing Grass atop any Dirt i walk on.
+
+#Tool Mode
+
+tip.awakenpick.name0=Block Mode
+tip.awakenpick.name1=Square Mode
+tip.awakenpick.name2=Line Mode
+
+tip.awakenshovel.name0=Block Mode
+tip.awakenshovel.name1=Square Mode
+tip.awakenshovel.name2=Column Mode
+
+tip.awakenaxe.name0=Block Mode
+tip.awakenaxe.name1=Square Mode
+tip.awakenaxe.name2=Tree Mode
+
+tip.awakensword.name0=Single Mode
+tip.awakensword.name1=Area Mode
+tip.awakensword.name2=Soul Mode
+
+tip.awakenarmor.name0=Awaken
+tip.awakenarmor.name1=Dormancy

@@ -1,0 +1,126 @@
+# Special formatting codes:
+#
+# <BR> or <BR/>         Paragraph break (<BR/> is included for people using XML for their localization)
+# <LINE> or <LINE/>     Insert a fancy centered linebreak between sections of text.
+# <DIV> or <DIV/>     Insert a fancy left-justified linebreak between sections of text.
+# <PAGE> or <PAGE/>     Skip to a new page.
+# <IMG>...</IMG>  Insert a centered image into text. Parameters are separated by ':' and are:
+#                    - mod resource location name
+#                    - png file location (assumed to be a 256x256 texture, a sub-image will be grabbed from this png as specified below)
+#                    - x location of sub-image in png
+#                    - y location of sub-image in png
+#                    - x size of sub-image (255 if full x size of png must be used)
+#                    - y size of sub-image (255 if full y size of png must be used)
+#                    - scaling - 1.0 for normal 256x256 images, or smaller for proportionately smaller .png files (a 16x16 image will be 0.0625)
+#               Examples:
+#                   <IMG>thaumcraft:textures/gui/gui_researchbook.png:24:184:96:4:1.0</IMG>   <-- line break image as used in <LINE> above
+#                   <IMG>thaumcraft:textures/items/alumentum.png:0:0:255:255:0.0625</IMG>     <-- alumentum item icon
+
+#Language
+
+language.name=中文简体
+language.region=CN
+language.code=zh_CN
+
+#Items
+item.ichorium_sword.name=灵宝剑
+item.ichorium_pick.name=灵宝镐
+item.ichorium_axe.name=灵宝斧
+item.ichorium_shovel.name=灵宝铲
+
+item.ichor_helm.name=灵布头巾
+item.ichor_chest.name=灵布法袍
+item.ichor_legs.name=灵布护腿
+item.ichor_boots.name=灵布靴子
+
+item.kami_helm.name=无尽深渊之帽
+item.kami_chest.name=云霄塔法袍
+item.kami_legs.name=熔岩地幔护腿
+item.kami_boots.name=地平线盾牌之靴
+
+item.ichorium_pick_adv.name=觉醒灵宝镐
+item.ichorium_axe_adv.name=觉醒灵宝斧
+item.ichorium_shovel_adv.name=觉醒灵宝铲
+item.ichorium_sword_adv.name=觉醒灵宝剑
+
+tile.ichor_block.name=灵液块
+tile.bedrock_portal.name=基岩世界传送门
+
+item.resourcekami.0.name=末影裂痕
+item.resourcekami.1.name=下界残片
+
+item.resourcekami.2.name=灵液
+item.resourcekami.3.name=灵宝
+item.resourcekami.4.name=灵布
+item.resourcekami.5.name=灵宝粒
+item.ichor_pouch.name=无底袋
+
+#Research
+
+##Thaumic Tinkerer
+ichoriumkit.research.dimensionalshard.title=次元裂痕
+ichoriumkit.research.dimensionalshard.text=“山重水复疑无路,柳暗花明又一村”<BR>当我做完了全部的研究,感觉走到了世界的尽头时,魔导手册仿佛奇迹般地多出了一页...这个神秘页面的出现也就意味着又一条新的道路为我开放...<BR> 魔导手册指引我,要去地狱和末地逛一逛,也许我能发现一些不太一样的魔力水晶碎片?先要想办法凑齐它们...
+ichoriumkit.research.dimensionalshard.complete.text=正如书上所写,下界与末地有一些...无法从主世界得到的水晶碎片,它们分别代表着地狱的与末地的...一片空间...<BR>它们目前来说并没有什么用,我要继续深入研究下去...<BR><BR><IMG>ichoriumkit:textures/items/shard_end.png:0:0:255:255:0.0625</IMG><IMG>ichoriumkit:textures/items/shard_nether.png:0:0:255:255:0.0625</IMG>
+
+ichoriumkit.research.ichor.title=灵宝
+ichoriumkit.research.ichor.text=这些碎片无疑蕴含着古老而强大的力量.将万亿众生的灵魂力量与亘古存在的无尽虚空结合,会产生什么呢?我隐约感觉我将会触碰到神的领域.
+ichoriumkit.research.ichor.complete.text=是的!这就是神之血!<BR>我还原了那群拿着法杖过时的老家伙们提起的神之血!<BR>这种液体有着惊人的魔法传导性,内部蕴含着觉醒之力,它将会被广泛应用于不计其数的设备.
+
+ichoriumkit.research.ichoriumtools.title=灵宝工具
+ichoriumkit.research.ichoriumtools.text=通过多次实验,灵液与世间常见的凡俗材料似乎有着天然的排斥性.神之血既然有着那么惊人的魔法传导性,我何不将其与神秘锭结合试试看会发现什么呢?
+ichoriumkit.research.ichoriumtools.complete.text=实验获得空前成功!<BR>哈,我又不缺那点钻石!使用钻石作为引导材料,以大量魔力灌注至神秘锭,可以将其短暂地变成激发态,再用灵液浸润神秘锭.获得了新的一种合金!<BR>这种合金强度极高,韧性极佳,魔法传导性极强,凡俗的材料从未达到过如此卓绝的指标.用它做的工具,就是用到下辈子也不会有一点磨损.<BR>嗯,可以留给子孙用了.
+
+ichoriumkit.research.ichorium_pick_adv.title=觉醒灵宝镐
+ichoriumkit.research.ichorium_pick_adv.text=这种合金强度极高,挖穿地球也没有问题.但我真的要一块一块的挖下去?这其中一定有隐藏的潜力亟待开发.
+ichoriumkit.research.ichorium_pick_adv.complete.text=太美妙啦!这就是我的终极挖掘机,用它我甚至可以挖开基岩!这个镐子不仅不会磨损,而且还能通过潜行右键来变换挖掘模式!<BR>它共有三种模式:普通挖掘模式,线型模式,范围模式.几乎可以满足我的任何采矿需求.<BR><BR>吝啬的神明一定将丰富的矿藏埋藏到基岩之下,不然的话为什么不让我们下去呢?如果使用这把神镐挖穿基岩,等待我们的又将会是什么呢?
+
+ichoriumkit.research.ichorium_axe_adv.title=觉醒灵宝斧
+ichoriumkit.research.ichorium_axe_adv.text=这种合金强度极高,砍断世界树也没有问题.但我面对着高大茂盛的宏伟之木,久久不能平息.这其中一定有隐藏的潜力亟待开发.
+ichoriumkit.research.ichorium_axe_adv.complete.text=这把斧头非常适合用来收割植物的生命.同样的,这个斧头不仅不会磨损,而且还能通过潜行右键来变换砍伐模式!<BR>这个斧头有三种模式:普通砍伐模式,正方模式和连锁模式.几乎可以满足我的任何砍伐需求.
+
+ichoriumkit.research.ichorium_shovel_adv.title=觉醒灵宝铲
+ichoriumkit.research.ichorium_shovel_adv.text=这种合金强度极高,挖平沙漠也没有问题.但我真的要一块一块的挖下去?这其中一定有隐藏的潜力亟待开发.
+ichoriumkit.research.ichorium_shovel_adv.complete.text=这个铲子不仅不会磨损,而且还能通过潜行右键来变换挖掘模式!<BR>这个铲子有三种模式:普通挖掘模式,正方模式和柱形模式.几乎可以满足我的任何砍伐需求.
+
+ichoriumkit.research.ichorium_sword_adv.title=觉醒灵宝剑
+ichoriumkit.research.ichorium_sword_adv.text=这种合金强度极高,杀遍天下也没有问题.但我真的要一个一个的砍下去?这其中一定有隐藏的潜力亟待开发.
+ichoriumkit.research.ichorium_sword_adv.complete.text=这把剑不仅不会磨损,而且还能通过潜行右键来变换挖掘模式!<BR>这把剑在绿色的正常击杀模式下它按正常方式进行攻击.<BR>在红色的区域模式下它将会伤害到被击中目标3x3范围内的所有生物.<BR>在蓝色的猎魂模式下它的威力将会略微减小,但是每攻击一次就会使持剑者增加一颗类似符文护盾的血量,相当于一次性的生命值,它们可以代替玩家承受伤害,而它们受到伤害后又会随之消失.
+
+ichoriumkit.research.ichorarmor.title=灵宝装备
+ichoriumkit.research.ichorarmor.text=魔力布匹,轻如蝉翼,薄如宣纸,平如水镜,细如罗绢.这种材料既有着良好的附魔能力又能降低Vis消耗.但是太容易磨损了,我又不是像那群老古董们在家能玩一天的连连看.诶?!为什么不试试灵液呢!
+ichoriumkit.research.ichorarmor.complete.text=实验大获成功,在钻石的引导下,灵液顺利地浸润了魔力布匹.这种新的材料,我称之为灵布!灵布具有较高的魔法传导力,还有惊人的韧性,无论用什么凡俗工具都不能轻易损坏.嗯,做一套新的法袍吧!以后子孙后代也不用买衣服了,一举两得!
+
+ichoriumkit.research.kamihelm.title=无尽深渊之帽
+ichoriumkit.research.kamihelm.text=我使用世间难寻的珍品,做了大量的实验,难道就是为了一件永不磨损的帽子?<BR>不!这绝对不是我想要的!
+ichoriumkit.research.kamihelm.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的帽子兼具揭示之护目镜的特性,可助我上穷碧落下黄泉而不受半点自然伤害,在汪洋中遨游,视野也会像水晶般清澈.在我感到饥饿之时也会缓慢恢复我的生命值.<BR>这简直是神的衣服!
+
+ichoriumkit.research.kamichest.title=云霄塔法袍
+ichoriumkit.research.kamichest.text=我使用人间难觅的瑰宝,做了大量的实验,难道就是为了一件永不磨损的袍子?<BR>不!这绝对不是我想要的!
+ichoriumkit.research.kamichest.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的袍子可以抵御抛射物的袭击,还能让我像神明一样巡视各地.虽然时间短暂,但也强过那些凡夫俗子一大截!
+
+ichoriumkit.research.kamilegs.title=熔岩地幔护腿
+ichoriumkit.research.kamilegs.text=我使用凤毛麟角的奇珍,做了大量的实验,难道就是为了一件永不磨损的护腿?<BR>不!这绝对不是我想要的!
+ichoriumkit.research.kamilegs.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的护腿不仅能让我散发出远胜于烈日的光辉,还能将其遗留在大地上照亮后辈的路!同时,还能抵御火焰伤害,将其转变成治愈效果,简直是一举两得!
+
+ichoriumkit.research.kamiboots.title=地平线盾牌之靴
+ichoriumkit.research.kamiboots.text=我使用龙驹汗血的珍宝,做了大量的实验,难道就是为了一件永不磨损的靴子?<BR>不!这绝对不是我想要的!
+ichoriumkit.research.kamiboots.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的靴子不仅让我无视一切掉落伤害,还能让我步伐矫健,甚至能轻易登上一格高的台阶.不仅如此,穿着靴子还能让走过的泥土焕发春意变成草地.
+
+tip.awakenpick.name0=方块模式
+tip.awakenpick.name1=正方模式
+tip.awakenpick.name2=线性模式
+
+tip.awakenshovel.name0=方块模式
+tip.awakenshovel.name1=正方模式
+tip.awakenshovel.name2=柱状模式
+
+tip.awakenaxe.name0=方块模式
+tip.awakenaxe.name1=正方模式
+tip.awakenaxe.name2=伐木模式
+
+tip.awakensword.name0=单杀模式
+tip.awakensword.name1=区域模式
+tip.awakensword.name2=狩魂模式
+
+tip.awakenarmor.name0=觉醒
+tip.awakenarmor.name1=休眠

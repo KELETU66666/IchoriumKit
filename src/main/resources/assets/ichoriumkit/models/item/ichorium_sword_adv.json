@@ -1,0 +1,20 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "ichoriumkit:items/ichorium_sword_adv"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "ichoriumswordadv:awaken": 1
+      },
+      "model": "ichoriumkit:item/ichorium_sword_adv1"
+    },
+    {
+      "predicate": {
+        "ichoriumswordadv:awaken": 2
+      },
+      "model": "ichoriumkit:item/ichorium_sword_adv2"
+    }
+  ]
+}
