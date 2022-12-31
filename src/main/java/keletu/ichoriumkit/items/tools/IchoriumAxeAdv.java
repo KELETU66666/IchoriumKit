@@ -2,6 +2,7 @@ package keletu.ichoriumkit.items.tools;
 
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.init.ModItems;
+import keletu.ichoriumkit.util.IAdvancedTool;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCommandBlock;
@@ -38,7 +39,7 @@ import thaumcraft.common.lib.utils.Utils;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumAxeAdv extends ItemAxe implements IHasModel {
+public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool {
 
     public IchoriumAxeAdv(String name, CreativeTabs tab, ToolMaterial material) {
 
@@ -200,5 +201,10 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel {
     @Override
     public void registerModels() {
         IchoriumKit.proxy.registerItemRenderer(this, 0, "inventory");
+    }
+
+    @Override
+    public String getType() {
+        return "axe";
     }
 }

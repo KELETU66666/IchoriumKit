@@ -1,8 +1,12 @@
-package keletu.ichoriumkit.util;
+package keletu.ichoriumkit.util.handler;
 
+import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.blocks.tiles.TileBedrockPortal;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
+import keletu.ichoriumkit.items.tools.ichorpouch.ContainerPouch;
+import keletu.ichoriumkit.items.tools.ichorpouch.GuiPouch;
+import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -11,6 +15,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectEventProxy;
@@ -20,6 +25,9 @@ import thaumcraft.api.aspects.AspectRegistryEvent;
 @Mod.EventBusSubscriber
 
 public class RegistryHandler {
+    public static void preInitRegistries() {
+        NetworkRegistry.INSTANCE.registerGuiHandler(IchoriumKit.INSTANCE, new GuiHandler());
+    }
     @SubscribeEvent
     public static void onItemRegister( RegistryEvent.Register<Item> event ) {
         event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));

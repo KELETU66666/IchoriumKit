@@ -112,15 +112,6 @@ dependencies {
         implementation 'org.jetbrains:annotations:20.1.0'
         implementation 'curse.maven:thaumcraft-223628:2629023'
         implementation 'curse.maven:baubles-227083:2518667'
-        implementation 'curse.maven:thaumic-wonders-316704:2787954'
-        implementation 'curse.maven:forestry-59751:2684780'
-        implementation 'curse.maven:magic-bees-65764:2855061'
-    implementation 'curse.maven:botania-225643:3330934'
-        implementation 'curse.maven:thaumic-additions-232564:3663195'
-    implementation 'curse.maven:thaumicaugmentation-319441:3819917'
-    implementation 'curse.maven:avaritia-261348:3143349'
-    implementation 'curse.maven:psi-241665:3085917'
-    implementation 'curse.maven:autoreglib-250363:2746011'
     implementation fg.deobf("curse.maven:mantle-74924:2713386")
     implementation fg.deobf("curse.maven:TConstruct-74072:2809406")
 }

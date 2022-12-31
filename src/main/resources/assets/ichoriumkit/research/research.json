@@ -363,6 +363,103 @@
             ]
           }
         ]
+      },
+      {
+        "key": "BLACKHOLE_RING",
+        "name": "ichoriumkit.research.blackhole_ring.title",
+        "category": "ARTIFICE",
+        "icons": [
+          "ichoriumkit:block_talisman"
+        ],
+        "parents": [
+          "ICHOR_PICK_ADV"
+        ],
+        "meta": [
+          "REVERSE"
+        ],
+        "location": [
+          -13,
+          0
+        ],
+        "stages": [
+          {
+            "text": "ichoriumkit.research.blackhole_ring.text",
+            "required_knowledge": [
+              "THEORY;INFUSION;2"
+            ]
+          },
+          {
+            "text": "ichoriumkit.research.blackhole_ring.complete.text",
+            "recipes": [
+              "ichoriumkit:block_talisman"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "PROTO_CLAY",
+        "name": "ichoriumkit.research.proto_clay.title",
+        "category": "ARTIFICE",
+        "icons": [
+          "ichoriumkit:proto_clay"
+        ],
+        "parents": [
+          "ICHOR_PICK_ADV"
+        ],
+        "meta": [
+          "REVERSE"
+        ],
+        "location": [
+          -13,
+          2
+        ],
+        "stages": [
+          {
+            "text": "ichoriumkit.research.proto_clay.text",
+            "required_knowledge": [
+              "OBSERVATION;BASICS;1"
+            ],
+            "required_craft": ["ichoriumkit:ichorium_pick_adv", "ichoriumkit:ichorium_axe_adv", "ichoriumkit:ichorium_shovel_adv" ]
+          },
+          {
+            "text": "ichoriumkit.research.proto_clay.complete.text",
+            "recipes": [
+              "ichoriumkit:proto_clay"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ICHOR_POUCH",
+        "name": "ichoriumkit.research.ichorpouch.title",
+        "category": "ARTIFICE",
+        "icons": [
+          "ichoriumkit:focus_pouch"
+        ],
+        "parents": [
+          "ICHOR"
+        ],
+        "location": [
+          -7,
+          3
+        ],
+        "stages": [
+          {
+            "text": "ichoriumkit.research.ichorpouch.text",
+            "required_knowledge": [
+              "OBSERVATION;AUROMANCY;1"
+            ],
+            "required_item": [
+              "thaumcraft:focus_pouch"
+            ]
+          },
+          {
+            "text": "ichoriumkit.research.ichorpouch.complete.text",
+            "recipes": [
+              "ichoriumkit:ichor_pouch"
+            ]
+          }
+        ]
       }
     ]
   }

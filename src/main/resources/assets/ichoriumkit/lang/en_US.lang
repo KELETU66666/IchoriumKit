@@ -28,6 +28,9 @@ item.ichorium_pick.name=Ichorium Pickaxe
 item.ichorium_axe.name=Ichorium Axe
 item.ichorium_shovel.name=Ichorium Shovel
 
+item.block_talisman.name=Black Hole Ring
+item.proto_clay.name=Proto Clay
+
 item.ichor_helm.name=Ichorcloth Cowl
 item.ichor_chest.name=Ichorcloth Robe
 item.ichor_legs.name=Ichorcloth Leggings
@@ -105,6 +108,18 @@ ichoriumkit.research.kamiboots.title=Boots of the Horizontal Shield
 ichoriumkit.research.kamiboots.text=Surely, there must be a way to get more out of this Armor, the scraps describe them as much more interesting than what i have created, perhaps i am missing something, i shall see what i can do with the Boots.
 ichoriumkit.research.kamiboots.complete.text=It seems to be possible to Infuse the Boots with the aspect of Terra, granting me improved speed and jumping, aswell as swifter Mining, and growing Grass atop any Dirt i walk on.
 
+ichoriumkit.research.ichorpouch.title=Ichor Pouch
+ichoriumkit.research.ichorpouch.text=The Focus Pouch is quite the amazing creation that I've made thus far, with its incredible utility to hold several foci at once, allowing me to switch my foci with a simple wrench of my wrist, it makes it all the more curious as to why I can't hold regular items inside this marvelous pouch. The best inference I have so far is that the bag is far too fragile with only using mundane leather. Instead of a sturdier material such as Enchanted Fabric, though I suppose fabric isn't the best material for a handbag either...<BR>Something I should research when looking into the creation of the bag is Vacuos. Chests, bags, and perhaps other containers should be looked into as well to see how they work, I should especially study the Ichor substance that I had previously created.
+ichoriumkit.research.ichorpouch.complete.text=There we are! With a steady and careful crafting of this "God's Blood" substance, I've learned that Ichor doesn't just enhance normal tools and armor, but perhaps even utilities as well! I've created a bag that holds far more than just mere foci, I can hold tools, weapons, food, blocks... just about anything! A surely unique tool for my toolbelt, with its seemingly bottomless carrying capacity, it seems like this bag can even excel most other backpacks mere men have created without the art of miracle-working in mind! This bag holds a grand total of about 117 slots worth of items, and each can carry 64 of any stackable item within each of its slots. It also functions perfectly as a Focus Pouch too, so there's no need to make another Focus Pouch in conjunction, though it may be advantageous to make multiple of these pouches to extend my carrying capacity within my inventory.
+
+ichoriumkit.research.blackhole_ring.title=Black Hole Ring
+ichoriumkit.research.blackhole_ring.text=[WIP]
+ichoriumkit.research.blackhole_ring.complete.text=[WIP] This ring can be set to condense any block, by right clicking with it in world in the type of block you want to have it be set to, when enabled via right click will absorb any excess (over 1 stack) of that block in your inventory, and make sure at least one stack stays there. The contents can be stored in any inventory by right clicking it, or placed in world as if they were normal blocks.<BR><BR>It can store over 2 billion of the same block. Guess cobblestone clogging the space isn't an issue. If the ring is empty, it can be shift right clicked into another block to change its binding.
+
+ichoriumkit.research.proto_clay.title=Proto Clay
+ichoriumkit.research.proto_clay.text=[WIP]
+ichoriumkit.research.proto_clay.complete.text=[WIP] You grew tired of having to constantly swap your tools.<BR><BR>This mixture will, by melding with the Ichorium, switch any Awakened Ichorium tools being held by the one used for the block being pointed at, case one tries to break it with the wrong tool.<BR><BR>As an example, trying to break a dirt block with an Awakened Ichorium Pickaxe while a Shovel is present elsewhere in the inventory will swap the two, and allow for fast disposal of the dirt block.
+
 #Tool Mode
 
 tip.awakenpick.name0=Block Mode
@@ -125,3 +140,6 @@ tip.awakensword.name2=Soul Mode
 
 tip.awakenarmor.name0=Awaken
 tip.awakenarmor.name1=Dormancy
+
+tip.ickit.active=Active
+tip.ichkit.inactive=Inactive

@@ -2,6 +2,7 @@ package keletu.ichoriumkit.items.tools;
 
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.IchoriumKit;
+import keletu.ichoriumkit.util.IAdvancedTool;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCommandBlock;
@@ -34,7 +35,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 
-public class IchoriumShovelAdv extends ItemSpade implements IHasModel {
+public class IchoriumShovelAdv extends ItemSpade implements IHasModel, IAdvancedTool {
     public IchoriumShovelAdv(String name, CreativeTabs tab, ToolMaterial material) {
 
         super(material);
@@ -227,5 +228,10 @@ public class IchoriumShovelAdv extends ItemSpade implements IHasModel {
     @Override
     public void registerModels() {
         IchoriumKit.proxy.registerItemRenderer(this, 0, "inventory");
+    }
+
+    @Override
+    public String getType() {
+        return "shovel";
     }
 }

@@ -5,6 +5,7 @@ import keletu.ichoriumkit.init.InitResearch;
 import keletu.ichoriumkit.loot.LootTableHandler;
 import keletu.ichoriumkit.proxy.CommonProxy;
 import keletu.ichoriumkit.util.Reference;
+import keletu.ichoriumkit.util.handler.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -40,6 +41,7 @@ public class IchoriumKit {
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+        RegistryHandler.preInitRegistries();
     }
 
     /**

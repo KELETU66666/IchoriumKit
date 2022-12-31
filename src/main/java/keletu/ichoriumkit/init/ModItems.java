@@ -1,10 +1,13 @@
 package keletu.ichoriumkit.init;
 
+import keletu.ichoriumkit.items.BlockTalisman;
+import keletu.ichoriumkit.items.Protoclay;
 import keletu.ichoriumkit.items.armor.IchorArmor;
 import keletu.ichoriumkit.items.armor.KamiArmor;
 import keletu.ichoriumkit.items.resources.ResourceKami;
 import keletu.ichoriumkit.items.tools.*;
 import keletu.ichoriumkit.IchoriumKit;
+import keletu.ichoriumkit.items.tools.ichorpouch.IchorPouch;
 import keletu.ichoriumkit.util.Reference;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -35,4 +38,7 @@ public class ModItems {
     public static final ItemSpade IchoriumShovelAdv = new IchoriumShovelAdv("ichorium_shovel_adv", IchoriumKit.ITEM_TAB, MATERIAL_ICHORIUM);
     public static final Item IchoriumSwordAdv = new IchoriumSwordAdv("ichorium_sword_adv", IchoriumKit.ITEM_TAB, MATERIAL_ICHORIUM);
     public static final Item ResourceKami = new ResourceKami();
+    public static final Item IchorPouch = new IchorPouch();
+    public static final Item Proto_Clay = new Protoclay();
+    public static final Item BlackHole_Ring = new BlockTalisman();
 }

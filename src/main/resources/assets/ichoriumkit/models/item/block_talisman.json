@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ichoriumkit:items/block_talisman/inactive"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "active": 1
+      },
+      "model": "ichoriumkit:item/block_talisman_active"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
+import keletu.ichoriumkit.util.IAdvancedTool;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCommandBlock;
@@ -35,7 +36,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumPickAdv extends ItemPickaxe implements IHasModel
+public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvancedTool
 {
     public IchoriumPickAdv(String name, CreativeTabs tab, ToolMaterial material) {
 
@@ -302,5 +303,10 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel
     @Override
     public void registerModels() {
         IchoriumKit.proxy.registerItemRenderer(this, 0, "inventory");
+    }
+
+    @Override
+    public String getType() {
+        return "pick";
     }
 }

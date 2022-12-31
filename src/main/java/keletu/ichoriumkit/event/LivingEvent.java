@@ -1,14 +1,22 @@
 package keletu.ichoriumkit.event;
 
+import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.items.armor.KamiArmor;
 import keletu.ichoriumkit.items.tools.IchoriumPickAdv;
+import keletu.ichoriumkit.util.IAdvancedTool;
 import keletu.ichoriumkit.util.Reference;
+import keletu.ichoriumkit.util.ToolHandler;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -60,6 +68,51 @@ public class LivingEvent {
                     stack.getItem().onBlockStartBreak(stack, event.getPos(), event.getEntityPlayer());
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void Interact(PlayerInteractEvent event)
+    {
+        if(event.getEntityPlayer().inventory.hasItemStack(new ItemStack(ModItems.Proto_Clay))) {
+            World par2World = event.getWorld();
+            Entity par3Entity = event.getEntityPlayer();
+            EntityPlayer player = (EntityPlayer) par3Entity;
+            ItemStack currentStack = player.inventory.getCurrentItem();
+            if (currentStack == null || !(currentStack.getItem() instanceof IAdvancedTool))
+                return;
+            IAdvancedTool tool = (IAdvancedTool) currentStack.getItem();
+
+            RayTraceResult pos = ToolHandler.raytraceFromEntity(par3Entity.world, par3Entity, true, 4.5F);
+            String typeToFind = "";
+
+            if (player.isSwingInProgress && pos != null) {
+                IBlockState state = par3Entity.world.getBlockState(pos.getBlockPos());
+
+                Material mat = state.getMaterial();
+                if (ToolHandler.isRightMaterial(mat, ToolHandler.materialsShovel))
+                    typeToFind = "shovel";
+                if (ToolHandler.isRightMaterial(mat, ToolHandler.materialsPick))
+                    typeToFind = "pick";
+                if (ToolHandler.isRightMaterial(mat, ToolHandler.materialsAxe))
+                    typeToFind = "axe";
+            }
+
+            if (tool.getType().equals(typeToFind) || typeToFind.isEmpty())
+                return;
+
+            for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+                ItemStack stackInSlot = player.inventory.getStackInSlot(i);
+                if (stackInSlot.getItem() instanceof IAdvancedTool && stackInSlot != currentStack) {
+                    IAdvancedTool toolInSlot = (IAdvancedTool) stackInSlot.getItem();
+                    if (toolInSlot.getType().equals(typeToFind)) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, stackInSlot);
+                        player.inventory.setInventorySlotContents(i, currentStack);
+                        break;
+                    }
+                }
+            }
+            event.setCanceled(true);
         }
     }
 }
