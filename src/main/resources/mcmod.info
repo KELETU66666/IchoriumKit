@@ -3,13 +3,13 @@
         "modid": "ichoriumkit",
         "name": "Ichorium Kit",
         "description": "A mod bringing back Ichor items from TC4's addon Thaumic Tinkerer",
-        "version": "0.2",
+        "version": "0.2.1",
         "mcversion": "1.12.2",
         "url": "https://github.com/KELETU66666/IchoriumKit",
         "updateUrl": "",
         "authorList": ["KELETU66666"],
         "credits":
-            " KELETU66666 > This mod author and owner, Azanor > Thaumcraft creator , KingLemming and The CoFH Team > Thaumcraft maintainers, pixlepix and gaeakat > Thaumic Tinkerer's creator and maintainer respectively, pizeroLOL/huige233/LupusParsec/Dawnwalker666/AeXiaohu/VerySaltOre > Contributors",
+            " KELETU66666 > This mod author and owner, Azanor > Thaumcraft creator , KingLemming and The CoFH Team > Thaumcraft maintainers, pixlepix and gaeakat > Thaumic Tinkerer's creator and maintainer respectively, pizeroLOL/huige233/LupusParsec/Dawnwalker666/AeXiaohu/VerySaltOre/Fang_Orange > Contributors",
         "logoFile": "",
         "screenshots": [],
         "dependencies": ["thaumcraft"]

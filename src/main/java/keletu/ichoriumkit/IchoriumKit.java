@@ -23,7 +23,8 @@ import thaumcraft.common.config.ConfigItems;
 @Mod(
         modid = Reference.MOD_ID,
         name = Reference.NAME,
-        version = Reference.VERSION
+        version = Reference.VERSION,
+        dependencies = "required-after:thaumcraft"
 )
 public class IchoriumKit {
 
