@@ -42,7 +42,7 @@ public class ContainerPouch extends ContainerPlayerInv implements IInventoryChan
             ItemStack stackInSlot = slotObject.getStack();
             stack = stackInSlot.copy();
 
-            if (slot < 18) {
+            if (slot < 117) {
                 if (!this.inv.isItemValidForSlot(slot, stackInSlot) ||
                         !mergeItemStack(stackInSlot, 117, this.inventorySlots.size(), true)) {
                     return ItemStack.EMPTY;

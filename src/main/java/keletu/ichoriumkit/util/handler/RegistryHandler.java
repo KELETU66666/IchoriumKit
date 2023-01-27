@@ -4,8 +4,6 @@ import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.blocks.tiles.TileBedrockPortal;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
-import keletu.ichoriumkit.items.tools.ichorpouch.ContainerPouch;
-import keletu.ichoriumkit.items.tools.ichorpouch.GuiPouch;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
