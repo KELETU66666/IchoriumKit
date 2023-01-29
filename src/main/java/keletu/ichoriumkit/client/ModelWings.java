@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.clinet;
+package keletu.ichoriumkit.client;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

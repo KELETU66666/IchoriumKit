@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.items;
+package keletu.ichoriumkit.item;
 
 
 import keletu.ichoriumkit.IchoriumKit;

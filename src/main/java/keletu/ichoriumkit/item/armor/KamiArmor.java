@@ -1,8 +1,8 @@
-package keletu.ichoriumkit.items.armor;
+package keletu.ichoriumkit.item.armor;
 
 import com.google.common.collect.Multimap;
 import keletu.ichoriumkit.IchoriumKit;
-import keletu.ichoriumkit.clinet.ModelWings;
+import keletu.ichoriumkit.client.ModelWings;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;

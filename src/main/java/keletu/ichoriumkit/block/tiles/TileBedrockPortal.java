@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.blocks.tiles;
+package keletu.ichoriumkit.block.tiles;
 
 import net.minecraft.tileentity.TileEntity;
 

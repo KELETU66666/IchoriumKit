@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.items;
+package keletu.ichoriumkit.item;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;

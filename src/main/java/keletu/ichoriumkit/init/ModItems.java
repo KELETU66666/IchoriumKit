@@ -1,13 +1,13 @@
 package keletu.ichoriumkit.init;
 
-import keletu.ichoriumkit.items.BlockTalisman;
-import keletu.ichoriumkit.items.Protoclay;
-import keletu.ichoriumkit.items.armor.IchorArmor;
-import keletu.ichoriumkit.items.armor.KamiArmor;
-import keletu.ichoriumkit.items.resources.ResourceKami;
-import keletu.ichoriumkit.items.tools.*;
+import keletu.ichoriumkit.item.BlockTalisman;
+import keletu.ichoriumkit.item.Protoclay;
+import keletu.ichoriumkit.item.armor.IchorArmor;
+import keletu.ichoriumkit.item.armor.KamiArmor;
+import keletu.ichoriumkit.item.resources.ResourceKami;
+import keletu.ichoriumkit.item.tools.*;
 import keletu.ichoriumkit.IchoriumKit;
-import keletu.ichoriumkit.items.tools.ichorpouch.IchorPouch;
+import keletu.ichoriumkit.item.tools.ichorpouch.IchorPouch;
 import keletu.ichoriumkit.util.Reference;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;

@@ -1,6 +1,6 @@
 package keletu.ichoriumkit.init;
 
-import keletu.ichoriumkit.blocks.*;
+import keletu.ichoriumkit.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 

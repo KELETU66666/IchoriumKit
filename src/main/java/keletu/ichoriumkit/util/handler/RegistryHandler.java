@@ -1,7 +1,7 @@
 package keletu.ichoriumkit.util.handler;
 
 import keletu.ichoriumkit.IchoriumKit;
-import keletu.ichoriumkit.blocks.tiles.TileBedrockPortal;
+import keletu.ichoriumkit.block.tiles.TileBedrockPortal;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
@@ -14,6 +14,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectEventProxy;

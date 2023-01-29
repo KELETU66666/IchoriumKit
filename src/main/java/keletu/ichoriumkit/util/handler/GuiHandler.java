@@ -1,7 +1,7 @@
 package keletu.ichoriumkit.util.handler;
 
-import keletu.ichoriumkit.items.tools.ichorpouch.ContainerPouch;
-import keletu.ichoriumkit.items.tools.ichorpouch.GuiPouch;
+import keletu.ichoriumkit.item.tools.ichorpouch.ContainerPouch;
+import keletu.ichoriumkit.item.tools.ichorpouch.GuiPouch;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;

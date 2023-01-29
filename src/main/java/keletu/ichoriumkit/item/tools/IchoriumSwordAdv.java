@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.items.tools;
+package keletu.ichoriumkit.item.tools;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -31,7 +31,6 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import thaumcraft.api.items.ItemsTC;
 
 import javax.annotation.Nullable;
 import java.util.List;

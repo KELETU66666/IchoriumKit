@@ -1,7 +1,7 @@
-package keletu.ichoriumkit.blocks;
+package keletu.ichoriumkit.block;
 
 import keletu.ichoriumkit.init.ModBlocks;
-import keletu.ichoriumkit.items.armor.KamiArmor;
+import keletu.ichoriumkit.item.armor.KamiArmor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;

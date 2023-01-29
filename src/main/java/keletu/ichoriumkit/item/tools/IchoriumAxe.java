@@ -1,17 +1,17 @@
-package keletu.ichoriumkit.items.tools;
+package keletu.ichoriumkit.item.tools;
 
-import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.IchoriumKit;
+import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 
-public class IchoriumSword extends ItemSword implements IHasModel {
-    public IchoriumSword(String name, CreativeTabs tab, ToolMaterial material) {
+public class IchoriumAxe extends ItemAxe implements IHasModel{
+    public IchoriumAxe(String name, CreativeTabs tab, ToolMaterial material) {
 
-        super(material);
+        super(material,10.0F,-3.0F);
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(tab);

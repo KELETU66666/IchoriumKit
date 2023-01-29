@@ -1,30 +1,29 @@
-package keletu.ichoriumkit.items.tools;
+package keletu.ichoriumkit.item.tools;
 
+import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.IchoriumKit;
+import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IAdvancedTool;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCommandBlock;
 import net.minecraft.block.BlockStructure;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.IItemPropertyGetter;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
@@ -33,21 +32,19 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import thaumcraft.common.lib.utils.BlockUtils;
-import thaumcraft.common.lib.utils.Utils;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool {
+public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvancedTool
+{
+    public IchoriumPickAdv(String name, CreativeTabs tab, ToolMaterial material) {
 
-    public IchoriumAxeAdv(String name, CreativeTabs tab, ToolMaterial material) {
-
-        super(material, 11.0F, -3.0F);
+        super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(tab);
-        this.addPropertyOverride(new ResourceLocation("ichoriumaxeadv:awaken"), new IItemPropertyGetter() {
+        this.addPropertyOverride(new ResourceLocation("ichoriumpickadv:awaken"), new IItemPropertyGetter() {
             @Override
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
@@ -65,8 +62,70 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool 
     }
 
     @Override
+    public float getDestroySpeed(ItemStack stack, IBlockState state) {
+        return state.getBlock().equals(Blocks.BEDROCK) ? Float.MAX_VALUE : super.getDestroySpeed(stack, state);
+    }
+
+    @Override
     public boolean isEnchantable(ItemStack stack) {
         return true;
+    }
+
+    @Override
+    public boolean canHarvestBlock(IBlockState blockIn) {
+        return blockIn.getBlock().equals(Blocks.BEDROCK) || super.canHarvestBlock(blockIn);
+    }
+
+    public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, EntityPlayer player) {
+        World world = player.world;
+        int y = pos.getY();
+
+        IBlockState state = world.getBlockState(pos);
+        state.getBlock().equals(ModBlocks.BEDROCK_PORTAL);
+
+        if (y > 3 && y <= 253 && world.getBlockState(pos).getBlock().equals(Blocks.BEDROCK) && player.dimension == ModConfig.BedRockDimensionID) {
+            world.setBlockToAir(pos);
+        }
+        if (world.getBlockState(pos).getBlock() == Blocks.BEDROCK && ((player.dimension == 0 && y < 3) || (y > 253 && player.dimension == ModConfig.BedRockDimensionID)))
+        {
+            world.setBlockState(pos, ModBlocks.BEDROCK_PORTAL.getDefaultState());
+        }return false;
+    }
+
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        ItemStack itemstack = player.getHeldItem(hand);
+
+        if (!player.canPlayerEdit(pos.offset(facing), facing, itemstack))
+        {
+            return EnumActionResult.FAIL;
+        }
+        else
+        {
+            IBlockState iblockstate = worldIn.getBlockState(pos);
+            Block block = iblockstate.getBlock();
+
+            if (block == ModBlocks.BEDROCK_PORTAL)
+            {
+                IBlockState iblockstate1 = Blocks.BEDROCK.getDefaultState();
+
+                if (!worldIn.isRemote)
+                {
+                    worldIn.setBlockState(pos, iblockstate1, 11);
+                }
+
+                return EnumActionResult.SUCCESS;
+            }
+            else
+            {
+                return EnumActionResult.PASS;
+            }
+        }
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack itemstack) {
+        return EnumRarity.EPIC;
     }
 
     @Override
@@ -107,7 +166,7 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool 
                     //:Replicate logic of PlayerInteractionManager.tryHarvestBlock(pos1)
                     IBlockState state1 = worldIn.getBlockState(pos1);
                     float f = state1.getBlockHardness(worldIn, pos1);
-                    if (f >= 0F && (state1.getMaterial().equals(Material.WOOD) || state1.getMaterial().equals(Material.CORAL) || state1.getMaterial().equals(Material.LEAVES) || state1.getMaterial().equals(Material.PLANTS))) {
+                    if (f >= 0F) {
                         BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(worldIn, pos1, state1, player);
                         MinecraftForge.EVENT_BUS.post(event);
                         if (!event.isCanceled()) {
@@ -137,39 +196,87 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool 
                     }
                 }
             }
-        }return ret;
-    }
-    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player){
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-        World world = player.getEntityWorld();
-        if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
-            IBlockState block = world.getBlockState(pos);
-            if (Utils.isWoodLog(world, pos)) {
-                if(block.getBlock() != Blocks.AIR) {
-                    BlockUtils.breakFurthestBlock(world, pos, block, player);
-                    block = world.getBlockState(pos);
-                    while(BlockUtils.breakFurthestBlock(world, pos, block, player)){
-                        BlockUtils.breakFurthestBlock(world, pos, block, player);
-                    }
+        }
+        else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
+            if (!(entityLiving instanceof EntityPlayer) || worldIn.isRemote) {
+                return ret;
+            }
+
+            EntityPlayer player = (EntityPlayer) entityLiving;
+            EnumFacing facing = entityLiving.getHorizontalFacing();
+
+            if (entityLiving.rotationPitch < -45.0F) {
+                facing = EnumFacing.UP;
+            } else if (entityLiving.rotationPitch > 45.0F) {
+                facing = EnumFacing.DOWN;
+            }
+
+            boolean x = facing == EnumFacing.UP;
+            boolean y = facing == EnumFacing.DOWN;
+            boolean z = facing == EnumFacing.NORTH;
+            boolean w = facing == EnumFacing.SOUTH;
+            boolean r = facing == EnumFacing.WEST;
+            for (int k = 0; k <= 9 && !stack.isEmpty(); ++k) {
+                if (k == 0) {
+                    continue;
                 }
-                List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(x - 5, y - 1, z - 5, x + 5, y + 64, z + 5));
-                for (EntityItem item : items) {
-                    item.setPosition(x + 0.5, y + 0.5, z + 0.5);
-                    item.ticksExisted += 20;
+                BlockPos pos1;
+                if (x) {
+                    pos1 = pos.add(0, k, 0);
+                } else if (y) {
+                    pos1 = pos.add(0, -k, 0);
+                } else if (z){
+                    pos1 = pos.add(0, 0, -k);
+                } else if (w) {
+                    pos1 = pos.add(0, 0, k);
+                } else if (r) {
+                    pos1 = pos.add(-k, 0, 0);
+                } else {
+                    pos1 = pos.add(k, 0, 0);
+                }
+
+                IBlockState state1 = worldIn.getBlockState(pos1);
+                float f = state1.getBlockHardness(worldIn, pos1);
+                if (f >= 0F) {
+                    BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(worldIn, pos1, state1, player);
+                    MinecraftForge.EVENT_BUS.post(event);
+                    if (!event.isCanceled()) {
+                        Block block = state1.getBlock();
+                        if ((block instanceof BlockCommandBlock || block instanceof BlockStructure) && !player.canUseCommandBlock()) {
+                            worldIn.notifyBlockUpdate(pos1, state1, state1, 3);
+                            continue;
+                        }
+                        TileEntity tileentity = worldIn.getTileEntity(pos1);
+                        if (tileentity != null) {
+                            Packet<?> pkt = tileentity.getUpdatePacket();
+                            if (pkt != null) {
+                                ((EntityPlayerMP) player).connection.sendPacket(pkt);
+                            }
+                        }
+
+                        boolean canHarvest = block.canHarvestBlock(worldIn, pos1, player);
+                        boolean destroyed = block.removedByPlayer(state1, worldIn, pos1, player, canHarvest);
+                        if (destroyed) {
+                            block.breakBlock(worldIn, pos1, state1);
+                        }
+                        if (canHarvest && destroyed) {
+                            block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
+                            stack.damageItem(1, player);
+                        }
+                    }
                 }
             }
         }
-            return false;
+        return ret;
     }
 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (player.isSneaking()) {
+        if (player.isSneaking())     {
             NBTTagCompound nbtTagCompound = stack.getTagCompound();
 
-            if (nbtTagCompound == null) {
+            if (nbtTagCompound == null)
+            {
                 nbtTagCompound = new NBTTagCompound();
                 stack.setTagCompound(nbtTagCompound);
             }
@@ -184,18 +291,13 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool 
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 1){
             tooltip.add(TextFormatting.RED +
-                    I18n.translateToLocal("tip.awakenaxe.name1"));}
+                    I18n.translateToLocal("tip.awakenpick.name1"));}
         else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2){
             tooltip.add(TextFormatting.BLUE +
-                    I18n.translateToLocal("tip.awakenaxe.name2"));}
+                    I18n.translateToLocal("tip.awakenpick.name2"));}
         else{tooltip.add(TextFormatting.DARK_GREEN +
-                I18n.translateToLocal("tip.awakenaxe.name0"));}
+                I18n.translateToLocal("tip.awakenpick.name0"));}
         super.addInformation(stack, worldIn, tooltip, flagIn);
-    }
-
-    @Override
-    public EnumRarity getRarity(ItemStack itemstack) {
-        return EnumRarity.EPIC;
     }
 
     @Override
@@ -205,6 +307,6 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool 
 
     @Override
     public String getType() {
-        return "axe";
+        return "pick";
     }
 }

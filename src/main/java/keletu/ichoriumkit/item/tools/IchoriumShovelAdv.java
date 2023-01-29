@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.items.tools;
+package keletu.ichoriumkit.item.tools;
 
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.IchoriumKit;

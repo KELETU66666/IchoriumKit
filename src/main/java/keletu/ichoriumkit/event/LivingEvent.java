@@ -1,10 +1,9 @@
 package keletu.ichoriumkit.event;
 
 import keletu.ichoriumkit.init.ModItems;
-import keletu.ichoriumkit.items.armor.KamiArmor;
-import keletu.ichoriumkit.items.tools.IchoriumPickAdv;
+import keletu.ichoriumkit.item.armor.KamiArmor;
+import keletu.ichoriumkit.item.tools.IchoriumPickAdv;
 import keletu.ichoriumkit.util.IAdvancedTool;
-import keletu.ichoriumkit.util.Reference;
 import keletu.ichoriumkit.util.ToolHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +18,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 

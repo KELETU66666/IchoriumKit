@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.items.tools.ichorpouch;
+package keletu.ichoriumkit.item.tools.ichorpouch;
 
 import keletu.ichoriumkit.util.ContainerPlayerInv;
 import net.minecraft.entity.player.EntityPlayer;

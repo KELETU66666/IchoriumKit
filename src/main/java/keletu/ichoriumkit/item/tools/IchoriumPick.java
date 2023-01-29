@@ -1,15 +1,15 @@
-package keletu.ichoriumkit.items.tools;
+package keletu.ichoriumkit.item.tools;
 
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 
-public class IchoriumShovel extends ItemSpade implements IHasModel {
-    public IchoriumShovel(String name, CreativeTabs tab, ToolMaterial material) {
+public class IchoriumPick extends ItemPickaxe implements IHasModel {
+    public IchoriumPick(String name, CreativeTabs tab, ToolMaterial material) {
 
         super(material);
         setUnlocalizedName(name);

@@ -1,8 +1,8 @@
-package keletu.ichoriumkit.blocks;
+package keletu.ichoriumkit.block;
 
 import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.IchoriumKit;
-import keletu.ichoriumkit.blocks.tiles.TileBedrockPortal;
+import keletu.ichoriumkit.block.tiles.TileBedrockPortal;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
