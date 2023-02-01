@@ -12,14 +12,24 @@ import java.util.ArrayList;
 @Config(modid = Reference.MOD_ID, category = "IchoriumKit")
 public class ModConfig {
 
-        @Config.LangKey("ichoriumkit.configkp.bedrockworddim")
-        @Config.Comment("ichoriumkit.configkp.bedrockworddim.comment")
+        @Config.LangKey("Bedrock dimension ID")
+        @Config.Comment("Choose bedrock dimension ID")
         @Config.RequiresMcRestart
         public static int BedRockDimensionID = 19;
 
-        @Config.LangKey("ichoriumkit.configkp.dimensionalsharddroprate")
-        @Config.Comment("ichoriumkit.configkp.dimensionalsharddroprate.comment")
+        @Config.LangKey("Dimensional shard drop rate")
+        @Config.Comment("Change dimensional shard drop rate, The higher the value the higher the drop rate")
         @Config.RangeInt(min = 0, max = 1)
         @Config.RequiresMcRestart
-        public static float SHARDDROPRATE = 0.0065F;
+        public static float ShardDropRate = 0.0065F;
+
+        @Config.LangKey("Awaken ichorium sword base damage")
+        @Config.RangeInt(min = 2)
+        @Config.RequiresMcRestart
+        public static int AwakenIchorSwordBaseDamage = 10;
+
+        @Config.LangKey("Awaken ichorium sword shield mod damage")
+        @Config.RangeInt(min = 2)
+        @Config.RequiresMcRestart
+        public static int AwakenIchorSwordShieldmodDamage = 6;
 }

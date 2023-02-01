@@ -38,6 +38,7 @@ public class RegistryHandler {
         TileBedrockPortal.register("bedrock_portal", TileBedrockPortal.class);
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onModelRegister( ModelRegistryEvent event )
     {

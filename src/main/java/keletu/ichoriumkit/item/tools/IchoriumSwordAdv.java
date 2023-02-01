@@ -3,6 +3,7 @@ package keletu.ichoriumkit.item.tools;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import keletu.ichoriumkit.IchoriumKit;
+import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.Block;
@@ -87,7 +88,7 @@ public class IchoriumSwordAdv extends Item implements IHasModel
             } else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
                 player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 1, 1));
                 float absorption = player.getAbsorptionAmount();
-                if (absorption < 20) {
+                if (absorption < 19) {
                     player.setAbsorptionAmount(absorption + 1);
                 }
             }
@@ -189,9 +190,9 @@ public class IchoriumSwordAdv extends Item implements IHasModel
             return super.getAttributeModifiers(equipmentSlot, stack);
         }
 
-        int damage = 9;
+        int damage = ModConfig.AwakenIchorSwordBaseDamage - 1;
         if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2)
-            damage = 5;
+            damage = ModConfig.AwakenIchorSwordShieldmodDamage - 1;
 
         Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
                 multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", damage, 0));

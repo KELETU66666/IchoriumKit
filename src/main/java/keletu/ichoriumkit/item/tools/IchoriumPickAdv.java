@@ -149,8 +149,9 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
             boolean xAxis = facing.getAxis() == EnumFacing.Axis.X;
 
             for (int i = -2; i <= 2; ++i) {
+                for (int h = -1; h <= 3; ++h) {
                 for (int j = -2; j <= 2 && !stack.isEmpty(); ++j) {
-                    if (i == 0 && j == 0) {
+                    if (i == 0 && j == 0 && h==0) {
                         continue;
                     }
 
@@ -158,9 +159,9 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
                     if (yAxis) {
                         pos1 = pos.add(i, 0, j);
                     } else if (xAxis) {
-                        pos1 = pos.add(0, i, j);
+                        pos1 = pos.add(0, h, j);
                     } else {
-                        pos1 = pos.add(i, j, 0);
+                        pos1 = pos.add(i, h, 0);
                     }
 
                     //:Replicate logic of PlayerInteractionManager.tryHarvestBlock(pos1)
@@ -194,6 +195,7 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
                             }
                         }
                     }
+                }
                 }
             }
         }
