@@ -293,25 +293,6 @@ private static void initInfusionRecipes() {
             new ItemStack(ItemsTC.mechanismComplex),
             new ItemStack(ItemsTC.elementalSword),
             "itemIchorFabric"));
-
-    ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_pouch"), new InfusionRecipe(
-            "ICHOR_SWORD_ADV",
-            new ItemStack(ModItems.IchoriumSwordAdv),
-            32,
-            new AspectList().add(Aspect.AIR, 150).add(Aspect.DESIRE, 250).add(Aspect.ORDER, 60).add(Aspect.ENERGY, 125).add(Aspect.CRYSTAL, 60).add(Aspect.SOUL, 125).add(Aspect.AVERSION, 125),
-            new ItemStack(ModItems.IchoriumSword),
-            "ingotIchorium",
-            new ItemStack(ModItems.ResourceKami,1,2),
-            new ItemStack(ItemsTC.elementalSword),
-            new ItemStack(ItemsTC.mechanismComplex),
-            new ItemStack(Blocks.CACTUS),
-            new ItemStack(ItemsTC.clusters, 1, 6),
-            new ItemStack(ItemsTC.clusters, 1, 0),
-            new ItemStack(ItemsTC.clusters, 1, 1),
-            "gemDiamond",
-            new ItemStack(ItemsTC.mechanismComplex),
-            new ItemStack(ItemsTC.elementalSword),
-            "itemIchorFabric"));
     addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "blackhole_ring"), new InfusionRecipe(
             "BLACKHOLE_RING",
             new ItemStack(ModItems.BlackHole_Ring),
