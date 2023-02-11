@@ -31,38 +31,38 @@ public class InitRecipes {
 private static void initArcaneRecipes() {
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_cloth"), new ShapedArcaneRecipe(
                 defaultGroup,
-            "ICHOR",
-            750,
-            new AspectList().add(Aspect.AIR, 10).add(Aspect.WATER, 10).add(Aspect.ORDER, 10).add(Aspect.EARTH, 10).add(Aspect.FIRE, 10).add(Aspect.ENTROPY, 10),
-            new ItemStack(ModItems.ResourceKami,3,4),
-            "CCC",
-            "III",
-            "DDD",
-            'C', new ItemStack(ItemsTC.fabric),
-            'I', new ItemStack(ModItems.ResourceKami,1,2),
-            'D', new ItemStack(Items.DIAMOND)));
-                ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_ingot"), new ShapedArcaneRecipe(
-                  defaultGroup,
-                  "ICHOR",
-                    500,
-                        new AspectList().add(Aspect.AIR, 5).add(Aspect.WATER, 5).add(Aspect.ORDER, 5).add(Aspect.EARTH, 5).add(Aspect.FIRE, 5).add(Aspect.ENTROPY, 5),
-                        new ItemStack(ModItems.ResourceKami,1,3),
-                        " T ",
-                        "IDI",
-                        " I ",
-                        'T', new ItemStack(ItemsTC.ingots, 1, 0),
-                        'I', new ItemStack(ModItems.ResourceKami,1,2),
-                        'D', new ItemStack(Items.DIAMOND)));
-                ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_sword"), new ShapedArcaneRecipe(
+                "ICHOR",
+                750,
+                new AspectList().add(Aspect.AIR, 10).add(Aspect.WATER, 10).add(Aspect.ORDER, 10).add(Aspect.EARTH, 10).add(Aspect.FIRE, 10).add(Aspect.ENTROPY, 10),
+                 new ItemStack(ModItems.ResourceKami,3,4),
+                "CCC",
+                "III",
+                "DDD",
+                'C', "itemEnchantedFabric",
+                'I', new ItemStack(ModItems.ResourceKami,1,2),
+                'D', "gemDiamond"));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_ingot"), new ShapedArcaneRecipe(
+                defaultGroup,
+                "ICHOR",
+                500,
+                new AspectList().add(Aspect.AIR, 5).add(Aspect.WATER, 5).add(Aspect.ORDER, 5).add(Aspect.EARTH, 5).add(Aspect.FIRE, 5).add(Aspect.ENTROPY, 5),
+                new ItemStack(ModItems.ResourceKami,1,3),
+                " T ",
+                "IDI",
+                " I ",
+                'T', "ingotThaumium",
+                'I', new ItemStack(ModItems.ResourceKami,1,2),
+                'D', "gemDiamond"));
+        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_sword"), new ShapedArcaneRecipe(
             defaultGroup,
             "ICHORIUMTOOLS",
-            150, 
-            new AspectList().add(Aspect.AIR, 3).add(Aspect.WATER, 3).add(Aspect.ORDER, 3).add(Aspect.EARTH, 3).add(Aspect.FIRE, 3).add(Aspect.ENTROPY, 3), 
+            150,
+            new AspectList().add(Aspect.AIR, 3).add(Aspect.WATER, 3).add(Aspect.ORDER, 3).add(Aspect.EARTH, 3).add(Aspect.FIRE, 3).add(Aspect.ENTROPY, 3),
             new ItemStack(ModItems.IchoriumSword),
             "I",
             "I",
             "S",
-            'I', new ItemStack(ModItems.ResourceKami,1,3),
+            'I', "ingotIchorium",
             'S', new ItemStack(BlocksTC.logSilverwood)));
     ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_pick"), new ShapedArcaneRecipe(
             defaultGroup,
@@ -73,7 +73,7 @@ private static void initArcaneRecipes() {
             "III",
             " S ",
             " S ",
-            'I', new ItemStack(ModItems.ResourceKami,1,3),
+            'I', "ingotIchorium",
             'S', new ItemStack(BlocksTC.logSilverwood)));
     ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_shovel"), new ShapedArcaneRecipe(
             defaultGroup,
@@ -84,7 +84,7 @@ private static void initArcaneRecipes() {
             "I",
             "S",
             "S",
-            'I', new ItemStack(ModItems.ResourceKami,1,3),
+            'I', "ingotIchorium",
             'S', new ItemStack(BlocksTC.logSilverwood)));
     ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_axe"), new ShapedArcaneRecipe(
             defaultGroup,
@@ -95,7 +95,7 @@ private static void initArcaneRecipes() {
             "II ",
             "IS ",
             " S ",
-            'I', new ItemStack(ModItems.ResourceKami,1,3),
+            'I', "ingotIchorium",
             'S', new ItemStack(BlocksTC.logSilverwood)));
     ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_helm"), new ShapedArcaneRecipe(
             defaultGroup,
@@ -105,7 +105,7 @@ private static void initArcaneRecipes() {
             new ItemStack(ModItems.IchorHelm),
             "CCC",
             "C C",
-            'C', new ItemStack(ModItems.ResourceKami,1,4)));
+            'C', "itemIchorFabric"));
     ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_chest"), new ShapedArcaneRecipe(
             defaultGroup,
             "ICHORARMOR",
@@ -115,7 +115,7 @@ private static void initArcaneRecipes() {
             "C C",
             "CCC",
             "CCC",
-            'C', new ItemStack(ModItems.ResourceKami,1,4)));
+            'C', "itemIchorFabric"));
     ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_legs"), new ShapedArcaneRecipe(
             defaultGroup,
             "ICHORARMOR",
@@ -125,7 +125,7 @@ private static void initArcaneRecipes() {
             "CCC",
             "C C",
             "C C",
-            'C', new ItemStack(ModItems.ResourceKami,1,4)));
+            'C', "itemIchorFabric"));
     ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_boots"), new ShapedArcaneRecipe(
             defaultGroup,
             "ICHORARMOR",
@@ -134,19 +134,19 @@ private static void initArcaneRecipes() {
             new ItemStack(ModItems.IchorBoots),
             "C C",
             "C C",
-            'C', new ItemStack(ModItems.ResourceKami,1,4)));
+            'C', "itemIchorFabric"));
 }
 
 private static void initCrucibleRecipes() {}
 private static void initInfusionRecipes() {
-    ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_block"), new InfusionRecipe(
+    ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_block_infusion"), new InfusionRecipe(
             "ICHOR@1",
             new ItemStack(ModBlocks.ICHOR_BLOCK),
             8,
             new AspectList().add(Aspect.LIGHT, 125).add(Aspect.MAN, 125).add(Aspect.SOUL, 250),
             new ItemStack(Items.NETHER_STAR),
             new ItemStack(ModItems.ResourceKami,1,1),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ModItems.ResourceKami,1,0),
             new ItemStack(Items.ENDER_EYE)));
     ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "kami_helm"), new InfusionRecipe(
@@ -155,7 +155,7 @@ private static void initInfusionRecipes() {
             40,
             new AspectList().add(Aspect.WATER, 150).add(Aspect.AURA, 125).add(Aspect.MIND, 60).add(Aspect.LIFE, 60).add(Aspect.LIGHT, 250).add(Aspect.PROTECT, 125),
                     new ItemStack(ModItems.IchorHelm),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.thaumonomicon),
@@ -173,7 +173,7 @@ private static void initInfusionRecipes() {
             40,
             new AspectList().add(Aspect.AIR, 150).add(Aspect.PROTECT, 125).add(Aspect.FLIGHT, 125).add(Aspect.ORDER, 125).add(Aspect.LIGHT, 250).add(Aspect.ELDRITCH, 60),
             new ItemStack(ModItems.IchorChest),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.thaumonomicon),
@@ -191,7 +191,7 @@ private static void initInfusionRecipes() {
             40,
             new AspectList().add(Aspect.AIR, 150).add(Aspect.PROTECT, 125).add(Aspect.FLIGHT, 125).add(Aspect.ORDER, 125).add(Aspect.LIGHT, 250).add(Aspect.ELDRITCH, 60),
             new ItemStack(ModItems.IchorLegs),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.thaumonomicon),
@@ -209,7 +209,7 @@ private static void initInfusionRecipes() {
             40,
             new AspectList().add(Aspect.EARTH, 150).add(Aspect.PROTECT, 125).add(Aspect.TOOL, 125).add(Aspect.MOTION, 125).add(Aspect.LIGHT, 250).add(Aspect.PLANT, 60).add(Aspect.FLIGHT, 60),
             new ItemStack(ModItems.IchorBoots),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.thaumonomicon),
@@ -227,7 +227,7 @@ private static void initInfusionRecipes() {
             32,
             new AspectList().add(Aspect.FIRE, 150).add(Aspect.DESIRE, 60).add(Aspect.METAL, 125).add(Aspect.TOOL, 250).add(Aspect.SENSES, 60).add(Aspect.EARTH, 125),
             new ItemStack(ModItems.IchoriumPick),
-            new ItemStack(ModItems.ResourceKami,1,3),
+            "ingotIchorium",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.elementalPick),
             new ItemStack(ItemsTC.mechanismComplex),
@@ -235,17 +235,17 @@ private static void initInfusionRecipes() {
             new ItemStack(ItemsTC.clusters, 1, 6),
             new ItemStack(ItemsTC.clusters, 1, 0),
             new ItemStack(ItemsTC.clusters, 1, 1),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ItemsTC.mechanismComplex),
             new ItemStack(ItemsTC.elementalPick),
-            new ItemStack(ModItems.ResourceKami,1,4)));
+            "itemIchorFabric"));
     ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_shovel_adv"), new InfusionRecipe(
             "ICHOR_SHOVEL_ADV",
             new ItemStack(ModItems.IchoriumShovelAdv),
             32,
             new AspectList().add(Aspect.TOOL, 250).add(Aspect.SENSES, 60).add(Aspect.EARTH, 125).add(Aspect.TRAP, 60),
             new ItemStack(ModItems.IchoriumShovel),
-            new ItemStack(ModItems.ResourceKami,1,3),
+            "ingotIchorium",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.elementalShovel),
             new ItemStack(ItemsTC.mechanismComplex),
@@ -253,17 +253,17 @@ private static void initInfusionRecipes() {
             new ItemStack(ItemsTC.clusters, 1, 6),
             new ItemStack(ItemsTC.clusters, 1, 0),
             new ItemStack(ItemsTC.clusters, 1, 1),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ItemsTC.mechanismComplex),
             new ItemStack(ItemsTC.elementalShovel),
-            new ItemStack(ModItems.ResourceKami,1,4)));
+            "itemIchorFabric"));
     ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_axe_adv"), new InfusionRecipe(
             "ICHOR_AXE_ADV",
             new ItemStack(ModItems.IchoriumAxeAdv),
             32,
             new AspectList().add(Aspect.WATER, 150).add(Aspect.PLANT, 125).add(Aspect.TOOL, 250).add(Aspect.SENSES, 60),
             new ItemStack(ModItems.IchoriumAxe),
-            new ItemStack(ModItems.ResourceKami,1,3),
+            "ingotIchorium",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.elementalAxe),
             new ItemStack(ItemsTC.mechanismComplex),
@@ -271,17 +271,17 @@ private static void initInfusionRecipes() {
             new ItemStack(ItemsTC.clusters, 1, 6),
             new ItemStack(ItemsTC.clusters, 1, 0),
             new ItemStack(ItemsTC.clusters, 1, 1),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ItemsTC.mechanismComplex),
             new ItemStack(ItemsTC.elementalAxe),
-            new ItemStack(ModItems.ResourceKami,1,4)));
+            "itemIchorFabric"));
     ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_sword_adv"), new InfusionRecipe(
             "ICHOR_SWORD_ADV",
             new ItemStack(ModItems.IchoriumSwordAdv),
             32,
             new AspectList().add(Aspect.AIR, 150).add(Aspect.DESIRE, 250).add(Aspect.ORDER, 60).add(Aspect.ENERGY, 125).add(Aspect.CRYSTAL, 60).add(Aspect.SOUL, 125).add(Aspect.AVERSION, 125),
             new ItemStack(ModItems.IchoriumSword),
-            new ItemStack(ModItems.ResourceKami,1,3),
+            "ingotIchorium",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.elementalSword),
             new ItemStack(ItemsTC.mechanismComplex),
@@ -289,10 +289,10 @@ private static void initInfusionRecipes() {
             new ItemStack(ItemsTC.clusters, 1, 6),
             new ItemStack(ItemsTC.clusters, 1, 0),
             new ItemStack(ItemsTC.clusters, 1, 1),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ItemsTC.mechanismComplex),
             new ItemStack(ItemsTC.elementalSword),
-            new ItemStack(ModItems.ResourceKami,1,4)));
+            "itemIchorFabric"));
 
     ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichorium_pouch"), new InfusionRecipe(
             "ICHOR_SWORD_ADV",
@@ -300,7 +300,7 @@ private static void initInfusionRecipes() {
             32,
             new AspectList().add(Aspect.AIR, 150).add(Aspect.DESIRE, 250).add(Aspect.ORDER, 60).add(Aspect.ENERGY, 125).add(Aspect.CRYSTAL, 60).add(Aspect.SOUL, 125).add(Aspect.AVERSION, 125),
             new ItemStack(ModItems.IchoriumSword),
-            new ItemStack(ModItems.ResourceKami,1,3),
+            "ingotIchorium",
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(ItemsTC.elementalSword),
             new ItemStack(ItemsTC.mechanismComplex),
@@ -308,10 +308,10 @@ private static void initInfusionRecipes() {
             new ItemStack(ItemsTC.clusters, 1, 6),
             new ItemStack(ItemsTC.clusters, 1, 0),
             new ItemStack(ItemsTC.clusters, 1, 1),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ItemsTC.mechanismComplex),
             new ItemStack(ItemsTC.elementalSword),
-            new ItemStack(ModItems.ResourceKami,1,4)));
+            "itemIchorFabric"));
     addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "blackhole_ring"), new InfusionRecipe(
             "BLACKHOLE_RING",
             new ItemStack(ModItems.BlackHole_Ring),
@@ -320,7 +320,7 @@ private static void initInfusionRecipes() {
             new ItemStack(ItemsTC.focus2),
             new ItemStack(ModItems.ResourceKami,1,2),
             new ItemStack(Blocks.ENDER_CHEST),
-            new ItemStack(Items.DIAMOND),
+            "gemDiamond",
             new ItemStack(ModItems.ResourceKami,1,2),
             ThaumcraftApiHelper.makeCrystal(Aspect.FLUX),
             new ItemStack(BlocksTC.jarVoid)));
@@ -340,10 +340,10 @@ private static void initInfusionRecipes() {
             7,
             new AspectList().add(Aspect.AIR, 250).add(Aspect.ELDRITCH, 125).add(Aspect.MAN, 125).add(Aspect.CRAFT, 125).add(Aspect.VOID, 250),
             new ItemStack(ItemsTC.focusPouch),
-            new ItemStack(ModItems.ResourceKami, 1, 4),
+            "itemIchorFabric",
             new ItemStack(BlocksTC.hungryChest),
-            new ItemStack(Items.DIAMOND),
-            new ItemStack(ModItems.ResourceKami, 1, 4),
+            "gemDiamond",
+            "itemIchorFabric",
             new ItemStack(ItemsTC.focus2),
             new ItemStack(BlocksTC.jarVoid)));
     }

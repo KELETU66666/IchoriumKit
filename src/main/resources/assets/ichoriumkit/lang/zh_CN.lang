@@ -28,14 +28,17 @@ item.ichorium_pick.name=灵宝镐
 item.ichorium_axe.name=灵宝斧
 item.ichorium_shovel.name=灵宝铲
 
+item.block_talisman.name=黑洞指环
+item.proto_clay.name=息壤
+
 item.ichor_helm.name=灵布头巾
 item.ichor_chest.name=灵布法袍
 item.ichor_legs.name=灵布护腿
 item.ichor_boots.name=灵布靴子
 
 item.kami_helm.name=无尽深渊之帽
-item.kami_chest.name=云霄塔法袍
-item.kami_legs.name=熔岩地幔护腿
+item.kami_chest.name=云霄塔之法袍
+item.kami_legs.name=熔岩地幔之护腿
 item.kami_boots.name=地平线盾牌之靴
 
 item.ichorium_pick_adv.name=觉醒灵宝镐
@@ -94,11 +97,11 @@ ichoriumkit.research.kamihelm.title=无尽深渊之帽
 ichoriumkit.research.kamihelm.text=我使用世间难寻的珍品,做了大量的实验,难道就是为了一件永不磨损的帽子?<BR>不!这绝对不是我想要的!
 ichoriumkit.research.kamihelm.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的帽子兼具揭示之护目镜的特性,可助我上穷碧落下黄泉而不受半点自然伤害,在汪洋中遨游,视野也会像水晶般清澈.在我感到饥饿之时也会缓慢恢复我的生命值.<BR>这简直是神的衣服!
 
-ichoriumkit.research.kamichest.title=云霄塔法袍
+ichoriumkit.research.kamichest.title=云霄塔之法袍
 ichoriumkit.research.kamichest.text=我使用人间难觅的瑰宝,做了大量的实验,难道就是为了一件永不磨损的袍子?<BR>不!这绝对不是我想要的!
 ichoriumkit.research.kamichest.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的袍子可以抵御抛射物的袭击,还能让我像神明一样巡视各地.虽然时间短暂,但也强过那些凡夫俗子一大截!
 
-ichoriumkit.research.kamilegs.title=熔岩地幔护腿
+ichoriumkit.research.kamilegs.title=熔岩地幔之护腿
 ichoriumkit.research.kamilegs.text=我使用凤毛麟角的奇珍,做了大量的实验,难道就是为了一件永不磨损的护腿?<BR>不!这绝对不是我想要的!
 ichoriumkit.research.kamilegs.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的护腿不仅能让我散发出远胜于烈日的光辉,还能将其遗留在大地上照亮后辈的路!同时,还能抵御火焰伤害,将其转变成治愈效果,简直是一举两得!
 

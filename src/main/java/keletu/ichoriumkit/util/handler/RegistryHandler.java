@@ -68,6 +68,7 @@ public class RegistryHandler {
     public static void OreRegister(RegistryEvent.Register<Enchantment> event)
     {
         OreDictionary.registerOre("ingotIchorium", new ItemStack(ModItems.ResourceKami, 1, 3));
+        OreDictionary.registerOre("itemIchorFabric", new ItemStack(ModItems.ResourceKami,1,4));
         OreDictionary.registerOre("nuggetIchorium", new ItemStack(ModItems.ResourceKami, 1, 5));
     }
 }

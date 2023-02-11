@@ -43,8 +43,6 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
         super(name, materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setCreativeTab(IchoriumKit.ITEM_TAB);
-
-        ModItems.ITEMS.add(this);
     }
 
     @Override

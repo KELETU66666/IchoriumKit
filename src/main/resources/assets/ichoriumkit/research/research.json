@@ -15,7 +15,7 @@
           "JARBRAIN", "GOLEMLOGISTICS", "GOLEMVISION", "GOLEMFLYER", "GOLEMCOMBATADV", "SEALLUMBER", "SEALHARVEST", "SEALBUTCHER","SEALSTORE",
           "FLUXCLEANUP", "RIFTCLOSER",
           "~LEVITATOR", "~BELLOWS", "~MIRRORHAND", "~MIRRORESSENTIA", "~LAMPGROWTH",  "~LAMPFERTILITY", "~ARCANEPATTERNCRAFTER", "~ARCANEBORE", "~ADVANCEDTURRET", "~GRAPPLEGUN", "~VISGENERATOR"
-        ],"meta":["ROUND","HIDDEN"],
+        ],"meta":["ROUND"],
         "location": [
           -6,
           4
@@ -63,11 +63,11 @@
               "THEORY;ATIFICE;2","THEORY;INFUSION;1"
             ],
             "required_craft":["ichoriumkit:ichor"],
-            "recipes":["ichoriumkit:ichor_block","ichoriumkit_ichor"],"warp" : "7"
+            "recipes":["ichoriumkit:ichor_block_infusion","ichoriumkit:ichor"],"warp" : "7"
           },
           {
             "text": "ichoriumkit.research.ichor.complete.text",
-            "recipes":["ichoriumkit:ichor_block","ichoriumkit:ichor","ichoriumkit:ichor_cloth", "ichoriumkit:ichor_ingot"]
+            "recipes":["ichoriumkit:ichor_block_infusion","ichoriumkit:ichor","ichoriumkit:ichor_cloth", "ichoriumkit:ichor_ingot"]
           }
         ]
       },
@@ -391,7 +391,7 @@
           {
             "text": "ichoriumkit.research.blackhole_ring.complete.text",
             "recipes": [
-              "ichoriumkit:block_talisman"
+              "ichoriumkit:blackhole_ring"
             ]
           }
         ]
