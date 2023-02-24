@@ -38,7 +38,7 @@ private static void initArcaneRecipes() {
                 "CCC",
                 "III",
                 "DDD",
-                'C', "itemEnchantedFabric",
+                'C', new ItemStack(ItemsTC.fabric),
                 'I', new ItemStack(ModItems.ResourceKami,1,2),
                 'D', "gemDiamond"));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "ichor_ingot"), new ShapedArcaneRecipe(
