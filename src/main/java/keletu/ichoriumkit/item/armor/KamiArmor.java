@@ -4,7 +4,6 @@ import com.google.common.collect.Multimap;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.client.ModelWings;
 import keletu.ichoriumkit.init.ModBlocks;
-import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import keletu.ichoriumkit.util.Reference;
 import net.minecraft.block.state.IBlockState;

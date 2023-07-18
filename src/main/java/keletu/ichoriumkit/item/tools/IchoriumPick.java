@@ -1,7 +1,7 @@
 package keletu.ichoriumkit.item.tools;
 
-import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.IchoriumKit;
+import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;

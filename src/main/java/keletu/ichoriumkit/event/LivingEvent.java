@@ -15,7 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -73,7 +72,6 @@ public class LivingEvent {
     public void Interact(PlayerInteractEvent event)
     {
         if(event.getEntityPlayer().inventory.hasItemStack(new ItemStack(ModItems.Proto_Clay))) {
-            World par2World = event.getWorld();
             Entity par3Entity = event.getEntityPlayer();
             EntityPlayer player = (EntityPlayer) par3Entity;
             ItemStack currentStack = player.inventory.getCurrentItem();

@@ -1,7 +1,7 @@
 package keletu.ichoriumkit.item.tools;
 
-import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.IchoriumKit;
+import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IAdvancedTool;

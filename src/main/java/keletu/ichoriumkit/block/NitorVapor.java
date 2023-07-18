@@ -2,13 +2,13 @@ package keletu.ichoriumkit.block;
 
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.item.armor.KamiArmor;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.BlockAir;
+import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -18,90 +18,53 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-public class NitorVapor extends Block {
+public class NitorVapor extends BlockAir {
 
     public NitorVapor() {
-        super(Material.AIR);
         this.setTickRandomly(true);
         this.setRegistryName("nitor_vapor");
 
         ModBlocks.BLOCKS.add(this);
     }
 
-    // TODO Actual meaning and necessity
     @Override
-    public boolean isFullBlock(IBlockState state) {
-        return false;
-    }
-
-    // TODO Actual meaning and necessity
-    @Override
-    public boolean isBlockNormalCube(IBlockState state) {
-        return false;
-    }
-
-    // TODO Actual meaning and necessity
-    @Override
-    public boolean isNormalCube(IBlockState state) {
-        return false;
-    }
-
-    // TODO Actual meaning and necessity
-    @Override
-    public boolean isCollidable()
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
-        return false;
-    }
-
-    @Override
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
-
-    @Override
-    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
         return true;
     }
 
-    public boolean canCollideCheck(IBlockState state, boolean hitIfLiquid)
+    @Override
+    public EnumPushReaction getMobilityFlag(IBlockState state)
+    {
+        return EnumPushReaction.DESTROY;
+    }
+
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return Item.getItemFromBlock(Blocks.AIR);
+    }
+
+    @Override
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
     {
         return false;
     }
 
-    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
+    @Override
+    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
     {
-    }
-
-    // TODO According to MCP, this affects ambient occlusion & culling?
-    @Override
-    public boolean isOpaqueCube(IBlockState state) {
-        return false;
-    }
-
-    @Override
-    public EnumBlockRenderType getRenderType(IBlockState state) {
-        return EnumBlockRenderType.INVISIBLE;
-    }
-
-    @Override
-    public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
         return 15;
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-        return Block.NULL_AABB;
+    public int getLightOpacity(IBlockState state)
+    {
+        return 0;
     }
 
     @Override
-    public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-        if (!world.isRemote)
-            world.scheduleBlockUpdate(pos, this, tickRate(world), 0);
-    }
-
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
-        return BlockFaceShape.UNDEFINED;
+    public void breakBlock(World worldIn, BlockPos vec, IBlockState state) {
     }
 
     @Override

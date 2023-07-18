@@ -2,12 +2,6 @@ package keletu.ichoriumkit;
 
 import keletu.ichoriumkit.util.Reference;
 import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import java.util.ArrayList;
 
 @Config(modid = Reference.MOD_ID, category = "IchoriumKit")
 public class ModConfig {
@@ -22,6 +16,11 @@ public class ModConfig {
         @Config.RangeInt(min = 0, max = 1)
         @Config.RequiresMcRestart
         public static float ShardDropRate = 0.0065F;
+
+        @Config.LangKey("Looting enchantment bonus chance")
+        @Config.RangeInt(min = 0, max = 1)
+        @Config.RequiresMcRestart
+        public static float LootPerBonus = 0.001F;
 
         @Config.LangKey("Awaken ichorium sword base damage")
         @Config.RangeInt(min = 2)

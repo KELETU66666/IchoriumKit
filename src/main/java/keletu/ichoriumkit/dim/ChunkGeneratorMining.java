@@ -13,7 +13,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenStructure;
@@ -42,11 +41,11 @@ public class ChunkGeneratorMining implements IChunkGenerator {
     private OreClusterGenerator generator;
 
     public ChunkGeneratorMining(World world, long seed) {
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenCaves(), InitMapGenEvent.EventType.CAVE), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenRavine(), InitMapGenEvent.EventType.RAVINE), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenMineshaft(), InitMapGenEvent.EventType.MINESHAFT), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenStronghold(), InitMapGenEvent.EventType.STRONGHOLD), () -> false);
-        addMapGen(TerrainGen.getModdedMapGen((MapGenBase)new MapGenVillage(), InitMapGenEvent.EventType.VILLAGE), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenCaves(), InitMapGenEvent.EventType.CAVE), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenRavine(), InitMapGenEvent.EventType.RAVINE), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenMineshaft(), InitMapGenEvent.EventType.MINESHAFT), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenStronghold(), InitMapGenEvent.EventType.STRONGHOLD), () -> false);
+        addMapGen(TerrainGen.getModdedMapGen(new MapGenVillage(), InitMapGenEvent.EventType.VILLAGE), () -> false);
         this.world = world;
         this.seed = seed;
         this.generator = new OreClusterGenerator();
@@ -75,8 +74,8 @@ public class ChunkGeneratorMining implements IChunkGenerator {
             }
         }
         for (Tuple<? extends MapGenBase, BooleanSupplier> gen : this.mapGen) {
-            if (((BooleanSupplier)gen.getSecond()).getAsBoolean())
-                ((MapGenBase)gen.getFirst()).generate(this.world, chunkX, chunkZ, primer);
+            if (gen.getSecond().getAsBoolean())
+                gen.getFirst().generate(this.world, chunkX, chunkZ, primer);
         }
         Chunk chunk = new Chunk(this.world, primer, chunkX, chunkZ);
         chunk.generateSkylightMap();
@@ -116,7 +115,7 @@ public class ChunkGeneratorMining implements IChunkGenerator {
     public void recreateStructures(Chunk chunk, int chunkX, int chunkZ) {
         for (Tuple<? extends MapGenBase, BooleanSupplier> t : this.mapGen) {
             if (t.getFirst() instanceof MapGenStructure)
-                ((MapGenBase)t.getFirst()).generate(this.world, chunkX, chunkZ, null);
+                t.getFirst().generate(this.world, chunkX, chunkZ, null);
         }
     }
 
@@ -127,7 +126,7 @@ public class ChunkGeneratorMining implements IChunkGenerator {
 
 
     private void addMapGen(MapGenBase gen, BooleanSupplier active) {
-        Tuple<MapGenBase, BooleanSupplier> t = new Tuple(gen, active);
+        Tuple<MapGenBase, BooleanSupplier> t = new Tuple<>(gen, active);
         this.mapGen.add(t);
     }
 }

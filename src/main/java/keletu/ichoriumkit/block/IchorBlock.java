@@ -1,9 +1,9 @@
 package keletu.ichoriumkit.block;
 
 
+import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
-import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.block.BlockSlime;
 import net.minecraft.block.SoundType;

@@ -1,12 +1,12 @@
 package keletu.ichoriumkit.init;
 
+import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.item.BlockTalisman;
 import keletu.ichoriumkit.item.Protoclay;
 import keletu.ichoriumkit.item.armor.IchorArmor;
 import keletu.ichoriumkit.item.armor.KamiArmor;
 import keletu.ichoriumkit.item.resources.ResourceKami;
 import keletu.ichoriumkit.item.tools.*;
-import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.item.tools.ichorpouch.IchorPouch;
 import keletu.ichoriumkit.util.Reference;
 import net.minecraft.init.SoundEvents;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModItems {
-    public static final List<Item> ITEMS = new ArrayList<Item>();
+    public static final List<Item> ITEMS = new ArrayList<>();
     public static final Item.ToolMaterial MATERIAL_ICHORIUM= EnumHelper.addToolMaterial("ICHOR", 4, -1, 10F, 5F, 25);
     public static final ItemArmor.ArmorMaterial MATERIAL_ICHOR = EnumHelper.addArmorMaterial("ichor", Reference.MOD_ID + ":ichor", -1, new int[]{3, 6, 8, 3}, 22, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
     public static final ItemSword IchoriumSword = new IchoriumSword("ichorium_sword", IchoriumKit.ITEM_TAB, MATERIAL_ICHORIUM);
