@@ -13,14 +13,15 @@ public class ModConfig {
 
         @Config.LangKey("Dimensional shard drop rate")
         @Config.Comment("Change dimensional shard drop rate, The higher the value the higher the drop rate")
-        @Config.RangeInt(min = 0, max = 1)
+        @Config.RangeInt(min = -1, max = 64)
         @Config.RequiresMcRestart
-        public static float ShardDropRate = 0.0065F;
+        public static double EndShardDropRate = 32;
 
-        @Config.LangKey("Looting enchantment bonus chance")
-        @Config.RangeInt(min = 0, max = 1)
+        @Config.LangKey("Dimensional shard drop rate")
+        @Config.Comment("Change dimensional shard drop rate, The higher the value the higher the drop rate")
+        @Config.RangeInt(min = -1, max = 64)
         @Config.RequiresMcRestart
-        public static float LootPerBonus = 0.001F;
+        public static double NetherShardDropRate = 16;
 
         @Config.LangKey("Awaken ichorium sword base damage")
         @Config.RangeInt(min = 2)

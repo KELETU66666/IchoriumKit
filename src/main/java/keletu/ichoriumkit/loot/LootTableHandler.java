@@ -3,75 +3,27 @@ package keletu.ichoriumkit.loot;
 import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.Reference;
-import net.minecraft.world.storage.loot.*;
-import net.minecraft.world.storage.loot.conditions.KilledByPlayer;
-import net.minecraft.world.storage.loot.conditions.LootCondition;
-import net.minecraft.world.storage.loot.conditions.RandomChance;
-import net.minecraft.world.storage.loot.conditions.RandomChanceWithLooting;
-import net.minecraft.world.storage.loot.functions.LootFunction;
-import net.minecraft.world.storage.loot.functions.SetMetadata;
-import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.DimensionType;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class LootTableHandler {
+
     @SubscribeEvent
-    public static void onLootTablesLoaded(LootTableLoadEvent event) {
-        if (ModConfig.ShardDropRate != 0) {
-            if (event.getName().equals(LootTableList.ENTITIES_ENDERMAN)) {
-                LootPool table = new LootPool(
-                        new LootEntry[]{
-                                new LootEntryItem(ModItems.ResourceKami, 1, 1, new LootFunction[]{new SetMetadata(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0))},
-                                        new LootCondition[]{new KilledByPlayer(false)},
-                                        Reference.MOD_ID + ":ender_shard")},
-                        new LootCondition[]{new RandomChanceWithLooting(ModConfig.ShardDropRate, ModConfig.LootPerBonus)}, new RandomValueRange(1),
-                        new RandomValueRange(0), Reference.MOD_ID + "_enderman");
-                event.getTable().addPool(table);
-            } else if (event.getName().equals(LootTableList.ENTITIES_ENDERMITE)) {
-                LootPool table = new LootPool(
-                        new LootEntry[]{
-                                new LootEntryItem(ModItems.ResourceKami, 1, 1, new LootFunction[]{new SetMetadata(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0))},
-                                        new LootCondition[]{new KilledByPlayer(false)},
-                                        Reference.MOD_ID + ":ender_shard1")},
-                        new LootCondition[]{new RandomChanceWithLooting(ModConfig.ShardDropRate, ModConfig.LootPerBonus)}, new RandomValueRange(1),
-                        new RandomValueRange(0), Reference.MOD_ID + "_endermite");
-                event.getTable().addPool(table);
-            } else if (event.getName().equals(LootTableList.ENTITIES_SHULKER)) {
-                LootPool table = new LootPool(
-                        new LootEntry[]{
-                                new LootEntryItem(ModItems.ResourceKami, 1, 1, new LootFunction[]{new SetMetadata(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(0))},
-                                        new LootCondition[]{new KilledByPlayer(false)},
-                                        Reference.MOD_ID + ":ender_shard2")},
-                        new LootCondition[]{new RandomChanceWithLooting(ModConfig.ShardDropRate, ModConfig.LootPerBonus)}, new RandomValueRange(1),
-                        new RandomValueRange(0), Reference.MOD_ID + "_shulker");
-                event.getTable().addPool(table);
-            } else if (event.getName().equals(LootTableList.ENTITIES_ZOMBIE_PIGMAN)) {
-                LootPool table = new LootPool(
-                        new LootEntry[]{
-                                new LootEntryItem(ModItems.ResourceKami, 1, 1, new LootFunction[]{new SetMetadata(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(1))},
-                                        new LootCondition[]{new KilledByPlayer(false)},
-                                        Reference.MOD_ID + ":nether_shard")},
-                        new LootCondition[]{new RandomChanceWithLooting(ModConfig.ShardDropRate, ModConfig.LootPerBonus)}, new RandomValueRange(1),
-                        new RandomValueRange(0), Reference.MOD_ID + "_pigzombie");
-                event.getTable().addPool(table);
-            } else if (event.getName().equals(LootTableList.ENTITIES_BLAZE)) {
-                LootPool table = new LootPool(
-                        new LootEntry[]{
-                                new LootEntryItem(ModItems.ResourceKami, 1, 1, new LootFunction[]{new SetMetadata(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(1))},
-                                        new LootCondition[]{new KilledByPlayer(false)},
-                                        Reference.MOD_ID + ":nether_shard1")},
-                        new LootCondition[]{new RandomChanceWithLooting(ModConfig.ShardDropRate, ModConfig.LootPerBonus)}, new RandomValueRange(1),
-                        new RandomValueRange(0), Reference.MOD_ID + "_blaze");
-                event.getTable().addPool(table);
-            } else if (event.getName().equals(LootTableList.ENTITIES_WITHER_SKELETON)) {
-                LootPool table = new LootPool(
-                        new LootEntry[]{
-                                new LootEntryItem(ModItems.ResourceKami, 1, 1, new LootFunction[]{new SetMetadata(new LootCondition[]{new KilledByPlayer(false)}, new RandomValueRange(1))},
-                                        new LootCondition[]{new KilledByPlayer(false)},
-                                        Reference.MOD_ID + ":nether_shard2")},
-                        new LootCondition[]{new RandomChanceWithLooting(ModConfig.ShardDropRate, ModConfig.LootPerBonus)}, new RandomValueRange(1),
-                        new RandomValueRange(0), Reference.MOD_ID + "_witherskeleton");
-                event.getTable().addPool(table);
-            }
+    public static void onEntityLivingDrops(LivingDropsEvent event) {
+        if (event.getSource().getTrueSource() != null && event.getSource().getTrueSource() instanceof EntityPlayer) {
+            if (event.getEntityLiving() instanceof EntityEnderman && event.getEntityLiving().dimension == DimensionType.THE_END.getId() && Math.random() <= 1D / ModConfig.EndShardDropRate)
+                event.getDrops().add(new EntityItem(event.getEntityLiving().world, event.getEntityLiving().posX, event.getEntityLiving().posY, event.getEntityLiving().posZ, new ItemStack(ModItems.ResourceKami, 1, 0)));
+
+            if (event.getEntityLiving() instanceof EntityPigZombie && event.getEntityLiving().dimension == DimensionType.NETHER.getId() && Math.random() <= 1D / ModConfig.NetherShardDropRate)
+                event.getDrops().add(new EntityItem(event.getEntityLiving().world, event.getEntityLiving().posX, event.getEntityLiving().posY, event.getEntityLiving().posZ, new ItemStack(ModItems.ResourceKami, 1, 1)));
         }
     }
 }

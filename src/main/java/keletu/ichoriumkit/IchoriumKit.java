@@ -2,14 +2,12 @@ package keletu.ichoriumkit;
 
 import keletu.ichoriumkit.init.InitRecipes;
 import keletu.ichoriumkit.init.InitResearch;
-import keletu.ichoriumkit.loot.LootTableHandler;
 import keletu.ichoriumkit.proxy.CommonProxy;
 import keletu.ichoriumkit.util.Reference;
 import keletu.ichoriumkit.util.handler.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -52,8 +50,7 @@ public class IchoriumKit {
     public void init(FMLInitializationEvent event) {
         InitRecipes.initRecipes();
         InitResearch.registerResearch();
-        MinecraftForge.EVENT_BUS.register(LootTableHandler.class);
-    proxy.registerDisplayInformationInit();
+        proxy.registerDisplayInformationInit();
     }
 
     /**

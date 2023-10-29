@@ -14,6 +14,9 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.client.fx.FXDispatcher;
 
 import java.util.List;
 import java.util.Random;
@@ -65,6 +68,13 @@ public class NitorVapor extends BlockAir {
 
     @Override
     public void breakBlock(World worldIn, BlockPos vec, IBlockState state) {
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+        if (rand.nextFloat() < 0.03F)
+            FXDispatcher.INSTANCE.sparkle(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, 1F, 4, rand.nextFloat() / 2);
     }
 
     @Override

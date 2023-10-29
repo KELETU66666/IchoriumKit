@@ -31,6 +31,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.items.IGoggles;
+import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.codechicken.lib.vec.Vector3;
 import thaumcraft.common.lib.events.PlayerEvents;
 
@@ -184,8 +185,9 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
             for (Entity potion : projectiles) {
                 Vector3 motionVec = new Vector3(potion.motionX, potion.motionY, potion.motionZ).normalize().multiply(Math.sqrt((potion.posX - mp.posX) * (potion.posX - mp.posX) + (potion.posY - mp.posY) * (potion.posY - mp.posY) + (potion.posZ - mp.posZ) * (potion.posZ - mp.posZ)) * 2);
 
-                for (int i = 0; i < 6; i++)
-                    IchoriumKit.proxy.sparkle((float) potion.posX, (float) potion.posY, (float) potion.posZ, 6);
+                if(mp.world.isRemote)
+                    for (int i = 0; i < 6; i++)
+                        FXDispatcher.INSTANCE.sparkle((float) potion.posX, (float) potion.posY, (float) potion.posZ, 6, 0, 0);
 
                 potion.posX += motionVec.x;
                 potion.posY += motionVec.y;
