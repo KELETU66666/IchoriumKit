@@ -14,7 +14,7 @@ apply plugin: 'com.wynprice.cursemaven'
 
 version = "1.12.2-v0.2.4"
 group = "com.keletu.ichoriumkit"
-archivesBaseName = "thaumkraftu"
+archivesBaseName = "IchoriumKit"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
@@ -50,6 +50,10 @@ dependencies {
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.8.470"
     deobfCompile 'curse.maven:thaumcraft-223628:2629023'
     deobfCompile 'curse.maven:baubles-227083:2518667'
+}
+
+jar {
+    manifest.attributes('FMLAT': 'ichorkit_at.cfg')
 }
 
 processResources {
