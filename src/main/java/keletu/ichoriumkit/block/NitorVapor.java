@@ -37,7 +37,7 @@ public class NitorVapor extends BlockAir {
     }
 
     @Override
-    public EnumPushReaction getMobilityFlag(IBlockState state)
+    public EnumPushReaction getPushReaction(IBlockState state)
     {
         return EnumPushReaction.DESTROY;
     }
