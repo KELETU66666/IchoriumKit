@@ -34,7 +34,7 @@ public class BlockBedrockPortal extends BlockContainer implements IHasModel
     public BlockBedrockPortal(String name, Material materialIn)
     {
         super(materialIn);
-        setUnlocalizedName(name).setRegistryName(name).setCreativeTab(IchoriumKit.ITEM_TAB);
+        setTranslationKey(name).setRegistryName(name).setCreativeTab(IchoriumKit.ITEM_TAB);
         setResistance(6000000.0F);
         setHardness(-2.0F);
 
@@ -59,8 +59,8 @@ public class BlockBedrockPortal extends BlockContainer implements IHasModel
 
 
     @Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-        super.onEntityCollidedWithBlock(world, pos, state, entity);
+    public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity) {
+        super.onEntityCollision(world, pos, state, entity);
 
         if (entity instanceof EntityPlayer && !world.isRemote) {
             if (entity.dimension != ModConfig.BedRockDimensionID) {

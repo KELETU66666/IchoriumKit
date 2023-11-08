@@ -45,7 +45,7 @@ public class IchoriumSwordAdv extends Item implements IHasModel
 
     public IchoriumSwordAdv(String name, CreativeTabs tab, ToolMaterial material) {
         super();
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setRegistryName(name);
         maxStackSize = 1;
         setCreativeTab(tab);

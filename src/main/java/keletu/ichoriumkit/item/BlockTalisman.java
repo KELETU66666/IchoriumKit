@@ -43,7 +43,7 @@ public class BlockTalisman extends Item implements IBauble, IHasModel {
     public BlockTalisman() {
         setMaxStackSize(1);
         setHasSubtypes(true);
-        setUnlocalizedName("block_talisman");
+        setTranslationKey("block_talisman");
         setRegistryName("block_talisman");
         setCreativeTab(IchoriumKit.ITEM_TAB);
         this.addPropertyOverride(new ResourceLocation("active"), new IItemPropertyGetter() {
@@ -197,7 +197,7 @@ public class BlockTalisman extends Item implements IBauble, IHasModel {
         Block block = getBlock(par1ItemStack);
         if (block != null && block != Blocks.AIR) {
             int count = getBlockCount(par1ItemStack);
-            stacks.add(I18n.format(new ItemStack(block, 1, getBlockMeta(par1ItemStack)).getUnlocalizedName() + ".name") + " (x" + count + ")");
+            stacks.add(I18n.format(new ItemStack(block, 1, getBlockMeta(par1ItemStack)).getTranslationKey() + ".name") + " (x" + count + ")");
         }
 
         if (par1ItemStack.getItemDamage() == 1)

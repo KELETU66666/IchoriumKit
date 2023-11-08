@@ -460,6 +460,38 @@
             ]
           }
         ]
+      },
+      {
+        "key": "CAT_AMULET",
+        "name": "ichoriumkit.research.cat_amulet.title",
+        "category": "ARTIFICE",
+        "icons": [
+          "ichoriumkit:cat_amulet"
+        ],
+        "parents": [
+          "ICHOR"
+        ],
+        "location": [
+          2,
+          -5
+        ],
+        "stages": [
+          {
+            "text": "ichoriumkit.research.cat_amulet.text",
+            "required_knowledge": [
+              "THEORY;INFUSION;1"
+            ],
+            "required_research": [
+              "!Ocelot;ichoriumkit:textures/misc/ocelot.png"
+            ]
+          },
+          {
+            "text": "ichoriumkit.research.cat_amulet.complete.text",
+            "recipes": [
+              "ichoriumkit:cat_amulet"
+            ]
+          }
+        ]
       }
     ]
   }

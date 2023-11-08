@@ -12,7 +12,7 @@ public class IchoriumPick extends ItemPickaxe implements IHasModel {
     public IchoriumPick(String name, CreativeTabs tab, ToolMaterial material) {
 
         super(material);
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(tab);
 

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 public class ResourceKami extends Item implements IHasModel {
 
     public ResourceKami() {
-        setUnlocalizedName("resourcekami").setRegistryName("resourcekami").setCreativeTab(IchoriumKit.ITEM_TAB);
+        setTranslationKey("resourcekami").setRegistryName("resourcekami").setCreativeTab(IchoriumKit.ITEM_TAB);
         setHasSubtypes(true);
         this.addPropertyOverride(new ResourceLocation("meta"), new IItemPropertyGetter() {
             @Override
@@ -75,7 +75,7 @@ public class ResourceKami extends Item implements IHasModel {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack item) {
-        return super.getUnlocalizedName() + "." + item.getItemDamage();
+    public String getTranslationKey(ItemStack item) {
+        return super.getTranslationKey() + "." + item.getItemDamage();
     }
 }

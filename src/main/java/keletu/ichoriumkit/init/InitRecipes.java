@@ -327,5 +327,17 @@ private static void initInfusionRecipes() {
             "itemIchorFabric",
             new ItemStack(ItemsTC.focus2),
             new ItemStack(BlocksTC.jarVoid)));
+    addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "cat_amulet"), new InfusionRecipe(
+            "CAT_AMULET",
+            new ItemStack(ModItems.cat_amulet),
+            8,
+            new AspectList().add(Aspect.DARKNESS, 75).add(Aspect.ORDER, 125).add(Aspect.MIND, 75),
+            new ItemStack(Blocks.QUARTZ_BLOCK),
+            new ItemStack(ModItems.ResourceKami,1,2),
+            new ItemStack(Items.GOLD_INGOT),
+            new ItemStack(Items.GOLD_INGOT),
+            new ItemStack(Items.DYE, 1, 3),
+            new ItemStack(Blocks.LEAVES, 1, 3),
+            new ItemStack(Items.FISH)));
     }
 }

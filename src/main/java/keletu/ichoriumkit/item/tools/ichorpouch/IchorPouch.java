@@ -22,7 +22,7 @@ public class IchorPouch extends ItemFocusPouch implements IHasModel, IBauble {
     public IchorPouch() {
         super();
         setCreativeTab(IchoriumKit.ITEM_TAB);
-        setUnlocalizedName("ichor_pouch");
+        setTranslationKey("ichor_pouch");
 
         ModItems.ITEMS.add(this);
     }

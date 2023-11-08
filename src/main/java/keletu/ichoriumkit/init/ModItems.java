@@ -2,6 +2,7 @@ package keletu.ichoriumkit.init;
 
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.item.BlockTalisman;
+import keletu.ichoriumkit.item.CatAmulet;
 import keletu.ichoriumkit.item.Protoclay;
 import keletu.ichoriumkit.item.armor.IchorArmor;
 import keletu.ichoriumkit.item.armor.KamiArmor;
@@ -41,4 +42,6 @@ public class ModItems {
     public static final Item IchorPouch = new IchorPouch();
     public static final Item Proto_Clay = new Protoclay();
     public static final Item BlackHole_Ring = new BlockTalisman();
+
+    public static final Item cat_amulet = new CatAmulet();
 }

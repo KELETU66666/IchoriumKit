@@ -13,7 +13,7 @@ public class Protoclay extends Item implements IHasModel {
     public Protoclay() {
         setMaxStackSize(1);
         setRegistryName("proto_clay");
-        setUnlocalizedName("proto_clay");
+        setTranslationKey("proto_clay");
         setCreativeTab(IchoriumKit.ITEM_TAB);
 
         ModItems.ITEMS.add(this);

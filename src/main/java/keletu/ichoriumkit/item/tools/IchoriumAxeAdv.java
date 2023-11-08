@@ -44,7 +44,7 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool 
     public IchoriumAxeAdv(String name, CreativeTabs tab, ToolMaterial material) {
 
         super(material, 11.0F, -3.0F);
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(tab);
         this.addPropertyOverride(new ResourceLocation("ichoriumaxeadv:awaken"), new IItemPropertyGetter() {

@@ -41,7 +41,7 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
 
     public KamiArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(name, materialIn, renderIndexIn, equipmentSlotIn);
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setCreativeTab(IchoriumKit.ITEM_TAB);
     }
 
@@ -149,8 +149,8 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
     }
 
     @Override
-    public KamiArmor setUnlocalizedName(String key) {
-        return (KamiArmor) super.setUnlocalizedName(key);
+    public KamiArmor setTranslationKey(String key) {
+        return (KamiArmor) super.setTranslationKey(key);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class IchorBlock extends BlockSlime implements IHasModel {
         super();
         this.setSoundType(SoundType.SLIME);
         this.setRegistryName("ichor_block");
-        this.setUnlocalizedName("ichor_block");
+        this.setTranslationKey("ichor_block");
         this.setCreativeTab(IchoriumKit.ITEM_TAB);
 
         ModBlocks.BLOCKS.add(this);

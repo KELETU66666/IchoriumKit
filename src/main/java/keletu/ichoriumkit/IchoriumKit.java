@@ -7,6 +7,7 @@ import keletu.ichoriumkit.util.Reference;
 import keletu.ichoriumkit.util.handler.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -16,6 +17,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import thaumcraft.api.research.ScanEntity;
+import thaumcraft.api.research.ScanningManager;
 import thaumcraft.common.config.ConfigItems;
 
 @Mod(
@@ -50,6 +53,7 @@ public class IchoriumKit {
     public void init(FMLInitializationEvent event) {
         InitRecipes.initRecipes();
         InitResearch.registerResearch();
+        ScanningManager.addScannableThing(new ScanEntity("!Ocelot", EntityOcelot.class, true));
         proxy.registerDisplayInformationInit();
     }
 

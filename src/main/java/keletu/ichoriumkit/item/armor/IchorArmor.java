@@ -11,14 +11,15 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ISpecialArmor;
-import org.jetbrains.annotations.NotNull;
 import thaumcraft.api.items.IVisDiscountGear;
+
+import javax.annotation.Nonnull;
 
 public class IchorArmor extends ItemArmor implements IVisDiscountGear, ISpecialArmor, IHasModel {
 
     public IchorArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(IchoriumKit.ITEM_TAB);
 
@@ -33,12 +34,12 @@ public class IchorArmor extends ItemArmor implements IVisDiscountGear, ISpecialA
     }
 
     @Override
-    public int getArmorDisplay(EntityPlayer player, @NotNull ItemStack armor, int slot) {
+    public int getArmorDisplay(EntityPlayer player, @Nonnull ItemStack armor, int slot) {
         return getArmorMaterial().getDamageReductionAmount(armorType);
     }
 
     @Override
-    public void damageArmor(EntityLivingBase entity, @NotNull ItemStack stack, DamageSource source, int damage, int slot) {
+    public void damageArmor(EntityLivingBase entity, @Nonnull ItemStack stack, DamageSource source, int damage, int slot) {
     }
 
     @Override
