@@ -31,6 +31,8 @@ item.ichorium_shovel.name=Ichorium Shovel
 item.block_talisman.name=Black Hole Ring
 item.proto_clay.name=Proto Clay
 item.cat_amulet.name=Feline Amulet
+item.placement_mirror.name=Worldshaper's Looking Glass
+
 item.ichor_helm.name=Ichorcloth Cowl
 item.ichor_chest.name=Ichorcloth Robe
 item.ichor_legs.name=Ichorcloth Leggings

@@ -339,5 +339,17 @@ private static void initInfusionRecipes() {
             new ItemStack(Items.DYE, 1, 3),
             new ItemStack(Blocks.LEAVES, 1, 3),
             new ItemStack(Items.FISH)));
+    addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "placement_mirror"), new InfusionRecipe(
+            "PLACEMENT_MIRROR",
+            new ItemStack(ModItems.placement_mirror),
+            12,
+            new AspectList().add(Aspect.CRAFT, 65).add(Aspect.CRYSTAL, 32).add(Aspect.MAGIC, 50).add(Aspect.MIND, 32),
+            new ItemStack(ModItems.BlackHole_Ring),
+            new ItemStack(ModItems.ResourceKami,1,2),
+            new ItemStack(Blocks.DROPPER),
+            new ItemStack(Items.DIAMOND),
+            new ItemStack(Blocks.GLASS),
+            new ItemStack(Items.BLAZE_POWDER),
+            new ItemStack(ModItems.ResourceKami,1,2)));
     }
 }

@@ -492,6 +492,38 @@
             ]
           }
         ]
+      },
+      {
+        "key": "PLACEMENT_MIRROR",
+        "name": "ichoriumkit.research.placement_mirror.title",
+        "category": "ARTIFICE",
+        "icons": [
+          "ichoriumkit:placement_mirror"
+        ],
+        "parents": [
+          "BLACKHOLE_RING"
+        ],
+        "location": [
+          -15,
+          0
+        ],
+        "stages": [
+          {
+            "text": "ichoriumkit.research.placement_mirror.text",
+            "required_knowledge": [
+              "THEORY;INFUSION;2"
+            ],
+            "required_item": [
+              "thaumcraft:thaumometer"
+            ]
+          },
+          {
+            "text": "ichoriumkit.research.placement_mirror.complete.text",
+            "recipes": [
+              "ichoriumkit:placement_mirror"
+            ]
+          }
+        ]
       }
     ]
   }

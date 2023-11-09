@@ -42,6 +42,6 @@ public class ModItems {
     public static final Item IchorPouch = new IchorPouch();
     public static final Item Proto_Clay = new Protoclay();
     public static final Item BlackHole_Ring = new BlockTalisman();
-
     public static final Item cat_amulet = new CatAmulet();
+    public static final Item placement_mirror = new ItemPlacementMirror();
 }
