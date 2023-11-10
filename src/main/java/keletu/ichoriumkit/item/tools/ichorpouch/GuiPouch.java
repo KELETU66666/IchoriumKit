@@ -34,6 +34,7 @@ public class GuiPouch extends GuiContainer {
         GL11.glEnable(GL11.GL_BLEND);
         mc.renderEngine.bindTexture(gui);
         drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+        renderHoveredToolTip(i, j);
         GL11.glDisable(GL11.GL_BLEND);
     }
 }

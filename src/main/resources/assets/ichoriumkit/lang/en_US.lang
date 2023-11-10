@@ -32,6 +32,9 @@ item.block_talisman.name=Black Hole Ring
 item.proto_clay.name=Proto Clay
 item.cat_amulet.name=Feline Amulet
 item.placement_mirror.name=Worldshaper's Looking Glass
+item.sky_pearl.name=Celestial Pearl
+
+tile.warp_gate.name=Celestial Gateway
 
 item.ichor_helm.name=Ichorcloth Cowl
 item.ichor_chest.name=Ichorcloth Robe
@@ -151,3 +154,16 @@ tip.awakenarmor.name1=Dormancy
 
 tip.ickit.active=Active
 tip.ickit.inactive=Inactive
+
+ichormisc.differentDim=Different Dimension
+ichormisc.distance=Distance
+ichormisc.lockedGate=Allow incoming teleports
+ichormisc.destination=Unnamed Destination
+ichormisc.entrancePoint=Entrance Point
+ichormisc.numberKeys=Use the number keys to quickly jump between destinations.
+ichormisc.spaceToReset=Press SPACE to return to Entrance Point.
+ichormisc.destinationInd=(Destination %s)
+ichormisc.clickToTeleport=Shift + Left Click to Teleport
+ichormisc.destinations=Destinations:
+ichormisc.noDest=There's no Celestial Gateway in the destination.
+ichormisc.noTeleport=The Celestial Gateway in the destination does not accept incoming teleports.

@@ -1,22 +1,31 @@
 package keletu.ichoriumkit;
 
+import keletu.ichoriumkit.block.tiles.TileWarpGate;
+import keletu.ichoriumkit.client.RenderTileWarpGate;
 import keletu.ichoriumkit.init.InitRecipes;
 import keletu.ichoriumkit.init.InitResearch;
 import keletu.ichoriumkit.proxy.CommonProxy;
+import keletu.ichoriumkit.util.PacketHandler;
 import keletu.ichoriumkit.util.Reference;
 import keletu.ichoriumkit.util.handler.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.research.ScanEntity;
 import thaumcraft.api.research.ScanningManager;
 import thaumcraft.common.config.ConfigItems;
@@ -44,6 +53,7 @@ public class IchoriumKit {
     public void preinit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
         RegistryHandler.preInitRegistries();
+        PacketHandler.registerMessages();
     }
 
     /**
@@ -106,6 +116,14 @@ public class IchoriumKit {
        @SubscribeEvent
        public static void addBlocks(RegistryEvent.Register<Block> event) {
        }
+
+        @SubscribeEvent
+        @SideOnly(Side.CLIENT)
+        public static void modelRegistryEvent(ModelRegistryEvent event) {
+            ClientRegistry.bindTileEntitySpecialRenderer(TileWarpGate.class, new RenderTileWarpGate());
+        }
+
+
     }
     }
     /* EXAMPLE ITEM AND BLOCK - you probably want these in separate files

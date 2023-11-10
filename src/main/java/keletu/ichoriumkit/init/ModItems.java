@@ -3,6 +3,7 @@ package keletu.ichoriumkit.init;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.item.BlockTalisman;
 import keletu.ichoriumkit.item.CatAmulet;
+import keletu.ichoriumkit.item.ItemSkyPearl;
 import keletu.ichoriumkit.item.Protoclay;
 import keletu.ichoriumkit.item.armor.IchorArmor;
 import keletu.ichoriumkit.item.armor.KamiArmor;
@@ -44,4 +45,5 @@ public class ModItems {
     public static final Item BlackHole_Ring = new BlockTalisman();
     public static final Item cat_amulet = new CatAmulet();
     public static final Item placement_mirror = new ItemPlacementMirror();
+    public static final Item sky_pearl = new ItemSkyPearl();
 }

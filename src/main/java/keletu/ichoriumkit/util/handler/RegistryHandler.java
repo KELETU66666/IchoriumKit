@@ -2,6 +2,7 @@ package keletu.ichoriumkit.util.handler;
 
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.block.tiles.TileBedrockPortal;
+import keletu.ichoriumkit.block.tiles.TileWarpGate;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
@@ -36,6 +37,7 @@ public class RegistryHandler {
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
         event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
         TileBedrockPortal.register("bedrock_portal", TileBedrockPortal.class);
+        TileWarpGate.register("warp_gate", TileWarpGate.class);
     }
 
     @SideOnly(Side.CLIENT)
