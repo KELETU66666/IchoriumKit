@@ -351,5 +351,25 @@ private static void initInfusionRecipes() {
             new ItemStack(Blocks.GLASS),
             new ItemStack(Items.BLAZE_POWDER),
             new ItemStack(ModItems.ResourceKami,1,2)));
+    addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "sky_pearl"), new InfusionRecipe(
+            "WARP_SERIES@0",
+            new ItemStack(ModItems.sky_pearl),
+            6, new AspectList().add(Aspect.MOTION, 125).add(Aspect.ELDRITCH, 125).add(Aspect.FLIGHT, 125).add(Aspect.AIR, 65),
+            new ItemStack(Items.ENDER_PEARL),
+            new ItemStack(ModItems.ResourceKami, 1, 2),
+            new ItemStack(ModItems.ResourceKami, 1, 0),
+            new ItemStack(Blocks.LAPIS_BLOCK),
+            new ItemStack(Items.DIAMOND)));
+    addInfusionCraftingRecipe(new ResourceLocation(Reference.MOD_ID, "warp_gate"), new InfusionRecipe(
+            "WARP_SERIES",
+            new ItemStack(ModBlocks.WARP_GATE),
+            8, new AspectList().add(Aspect.MOTION, 250).add(Aspect.ELDRITCH, 50).add(Aspect.FLIGHT, 50),
+            new ItemStack(BlocksTC.pavingStoneTravel),
+            new ItemStack(ModItems.ResourceKami, 1, 2),
+            new ItemStack(ModItems.ResourceKami, 1, 1),
+            new ItemStack(Items.FURNACE_MINECART),
+            new ItemStack(ModItems.ResourceKami),
+            new ItemStack(Items.DIAMOND),
+            new ItemStack(Items.FEATHER)));
     }
 }

@@ -44,6 +44,7 @@ public class ItemPlacementMirror extends Item implements IHasModel {
         setMaxStackSize(1);
         setTranslationKey("placement_mirror");
         setRegistryName("placement_mirror");
+        setCreativeTab(IchoriumKit.ITEM_TAB);
 
         ModItems.ITEMS.add(this);
     }

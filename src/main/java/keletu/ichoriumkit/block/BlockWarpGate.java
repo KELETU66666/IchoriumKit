@@ -45,6 +45,7 @@ public class BlockWarpGate extends BlockContainer implements IHasModel {
         setResistance(2000.0F);
         setRegistryName("warp_gate");
         setTranslationKey("warp_gate");
+        setCreativeTab(IchoriumKit.ITEM_TAB);
 
         random = new Random();
         ModBlocks.BLOCKS.add(this);

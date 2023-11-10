@@ -58,23 +58,29 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
         if (tile != null && tile instanceof TileWarpGate) {
             TileWarpGate destGate = (TileWarpGate) tile;
             if (!destGate.locked) {
-                player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 1F);
+                if(player.world.isRemote) {
+                    player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 1F);
 
-                for (int i = 0; i < 20; i++) FXDispatcher.INSTANCE.sparkle(
-                        (float) player.posX + player.world.rand.nextFloat() - 0.5F,
-                        (float) player.posY + player.world.rand.nextFloat(),
-                        (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
-                        6, 3, 3);
+                    for (int i = 0; i < 20; i++)
+                        FXDispatcher.INSTANCE.sparkle(
+                                (float) player.posX + player.world.rand.nextFloat() - 0.5F,
+                                (float) player.posY + player.world.rand.nextFloat(),
+                                (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
+                                6, 3, 3);
+                }
 
-                player.dismountRidingEntity();
-                if (player instanceof EntityPlayerMP)
-                    player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
+                    player.dismountRidingEntity();
+                    if (player instanceof EntityPlayerMP)
+                        player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
 
-                for (int i = 0; i < 20; i++) FXDispatcher.INSTANCE.sparkle(
-                        (float) player.posX + player.world.rand.nextFloat() - 0.5F,
-                        (float) player.posY + player.world.rand.nextFloat(),
-                        (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
-                        6, 3, 3);
+                if(player.world.isRemote) {
+                    for (int i = 0; i < 20; i++)
+                        FXDispatcher.INSTANCE.sparkle(
+                                (float) player.posX + player.world.rand.nextFloat() - 0.5F,
+                                (float) player.posY + player.world.rand.nextFloat(),
+                                (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
+                                6, 3, 3);
+                }
 
                 player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 0.1F);
                 return true;

@@ -524,6 +524,41 @@
             ]
           }
         ]
+      },
+      {
+        "key": "WARP_SERIES",
+        "name": "ichoriumkit.research.warp_series.title",
+        "category": "ARTIFICE",
+        "icons": [
+          "ichoriumkit:sky_pearl"
+        ],
+        "parents": [
+          "ICHOR"
+        ],
+        "location": [
+          -5,
+          5
+        ],
+        "stages": [
+          {
+            "text": "ichoriumkit.research.warp_series.text",
+            "recipes": [
+              "ichoriumkit:sky_pearl"
+            ],
+            "required_knowledge": [
+              "THEORY;INFUSION;1"
+            ],
+            "required_craft": [
+              "ichoriumkit:sky_pearl"
+            ]
+          },
+          {
+            "text": "ichoriumkit.research.warp_series.complete.text",
+            "recipes": [
+              "ichoriumkit:sky_pearl", "ichoriumkit:warp_gate"
+            ]
+          }
+        ]
       }
     ]
   }

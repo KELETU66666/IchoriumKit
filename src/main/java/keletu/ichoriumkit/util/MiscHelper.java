@@ -13,6 +13,7 @@ package keletu.ichoriumkit.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public final class MiscHelper {
 
@@ -38,7 +39,7 @@ public final class MiscHelper {
     //}
 //
     public static MinecraftServer server() {
-        return Minecraft.getMinecraft().getIntegratedServer();
+        return FMLCommonHandler.instance().getMinecraftServerInstance();
     }
 
     //public static void setEntityMotionFromVector(Entity entity, Vector3 originalPosVector, float modifier) {
