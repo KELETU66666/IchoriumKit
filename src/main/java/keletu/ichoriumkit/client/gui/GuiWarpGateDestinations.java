@@ -21,6 +21,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -39,7 +40,7 @@ import java.util.List;
 
 public class GuiWarpGateDestinations extends GuiScreen {
 
-    private static ResourceLocation enderField = new ResourceLocation("textures/entity/end_portal.png");
+    private static final ResourceLocation enderField = new ResourceLocation("textures/entity/end_portal.png");
     TileWarpGate warpGate;
     RenderItem render = Minecraft.getMinecraft().getRenderItem();
 
@@ -226,23 +227,39 @@ public class GuiWarpGateDestinations extends GuiScreen {
         }
     }
 
+    //public void drawBackground(int tint)
+    //{
+    //    GlStateManager.disableLighting();
+    //    GlStateManager.disableFog();
+    //    Tessellator tessellator = Tessellator.getInstance();
+    //    BufferBuilder bufferbuilder = tessellator.getBuffer();
+    //    this.mc.getTextureManager().bindTexture(OPTIONS_BACKGROUND);
+    //    GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+    //    float f = 32.0F;
+    //    bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
+    //    bufferbuilder.pos(0.0D, this.height, 0.0D).tex(0.0D, (float)this.height / 32.0F + (float)tint).color(64, 64, 64, 255).endVertex();
+    //    bufferbuilder.pos(this.width, this.height, 0.0D).tex((float)this.width / 32.0F, (float)this.height / 32.0F + (float)tint).color(64, 64, 64, 255).endVertex();
+    //    bufferbuilder.pos(this.width, 0.0D, 0.0D).tex((float)this.width / 32.0F, tint).color(64, 64, 64, 255).endVertex();
+    //    bufferbuilder.pos(0.0D, 0.0D, 0.0D).tex(0.0D, tint).color(64, 64, 64, 255).endVertex();
+    //    tessellator.draw();
+    //}
+
     @Override
     public void drawDefaultBackground() {
         int par1 = 0;
-        GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glDisable(GL11.GL_FOG);
+        GlStateManager.disableLighting();
+        GlStateManager.disableFog();
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder buffer = tessellator.getBuffer();
-        mc.getTextureManager().bindTexture(enderField);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        this.mc.getTextureManager().bindTexture(enderField);
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+      //  GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         float f = 256.0F;
-        buffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
-        float hue = (float) (Math.sin(ticks / 150D) + 1F / 2F);
-        buffer.color(hue, 1, 1, 1);
-        buffer.addVertexData(new int[]{0, height, 0, 0, (int) (height / f + par1)});
-        buffer.addVertexData(new int[]{width, height, 0, (int) (width / f), (int) (height / f + par1)});
-        buffer.addVertexData(new int[]{width, 0, 0, (int) (width / f), par1});
-        buffer.addVertexData(new int[]{0, 0, 0, 0, par1});
+        buffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
+        buffer.pos(0.0D, this.height, 0.0D).tex(0.0D, (float)this.height / f + par1).color(64, 64, 64, 255).endVertex();
+        buffer.pos(this.width, this.height, 0.0D).tex((float)this.width / f, (float)this.height / f + par1).color(64, 64, 64, 255).endVertex();
+        buffer.pos(this.width, 0.0D, 0.0D).tex((float)this.width / f, par1).color(64, 64, 64, 255).endVertex();
+        buffer.pos(0.0D, 0.0D, 0.0D).tex(0.0D, par1).color(64, 64, 64, 255).endVertex();
         tessellator.draw();
     }
 }
