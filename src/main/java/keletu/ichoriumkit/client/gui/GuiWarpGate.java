@@ -45,6 +45,12 @@ public class GuiWarpGate extends GuiContainer {
     }
 
     @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        this.renderHoveredToolTip(mouseX, mouseY);
+    }
+
+    @Override
     public void initGui() {
         super.initGui();
         x = (width - xSize) / 2;
@@ -60,6 +66,5 @@ public class GuiWarpGate extends GuiContainer {
         mc.renderEngine.bindTexture(gui);
         drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
         fontRenderer.drawStringWithShadow(I18n.translateToLocal("ichormisc.lockedGate"), x + 20, y + 7, 0x999999);
-        renderHoveredToolTip(i, j);
     }
 }

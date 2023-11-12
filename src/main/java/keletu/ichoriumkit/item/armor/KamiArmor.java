@@ -4,14 +4,17 @@ import com.google.common.collect.Multimap;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.client.ModelWings;
 import keletu.ichoriumkit.init.ModBlocks;
+import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import keletu.ichoriumkit.util.Reference;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -28,26 +31,95 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.registries.ForgeRegistry;
 import thaumcraft.api.items.IGoggles;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.codechicken.lib.vec.Vector3;
 import thaumcraft.common.lib.events.PlayerEvents;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
+
+    public static List<String> playersWith1Step = new ArrayList();
 
     public KamiArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(name, materialIn, renderIndexIn, equipmentSlotIn);
         setTranslationKey(name);
         setCreativeTab(IchoriumKit.ITEM_TAB);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
     public boolean isEnchantable(ItemStack stack) {
         return true;
+    }
+
+    void tickPlayer(EntityPlayer player) {
+        ItemStack armor = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+        if (armor.getItemDamage() == 1)
+            return;
+
+        player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 2, 1, true, false));
+
+        if (player.world.isRemote)
+            player.stepHeight = player.isSneaking() ? 0.5F : 1F;
+        if (!player.capabilities.isFlying && player.moveForward > 0.0f) {
+            if (player.world.isRemote && !player.isSneaking()) {
+                if (!PlayerEvents.prevStep.containsKey(player.getEntityId())) {
+                    PlayerEvents.prevStep.put(player.getEntityId(), player.stepHeight);
+                }
+                player.stepHeight = 1.0f;
+            }
+            if (player.onGround) {
+                float bonus = 0.15f;
+                if (player.isInWater()) {
+                    bonus *= 1.25f;
+                }
+                player.moveRelative(0.0f, 0.0f, bonus, 1.0f);
+            }
+            else {
+                if (player.isInWater()) {
+                    player.moveRelative(0.0f, 0.0f, 0.075F, 1.0f);
+                }
+            }
+        }
+        //if ((player.onGround || player.capabilities.isFlying) && player.moveForward > 0F)
+        //    player.moveRelative(0F, 0F, player.capabilities.isFlying ? 0.075F : 0.15F, 1.0F);
+        player.jumpMovementFactor = player.isSprinting() ? 0.05F : 0.04F;
+        player.fallDistance = 0F;
+
+        if (player.world.getBlockState(player.getPosition().down()).getBlock() == Blocks.DIRT && Blocks.DIRT.getMetaFromState(player.world.getBlockState(player.getPosition().down())) == 0)
+            player.world.setBlockState(player.getPosition().down(), Blocks.GRASS.getDefaultState(), 2);
+    }
+
+
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
+        if (event.getEntityLiving() instanceof EntityPlayer && event.getEntityLiving().world.isRemote) {
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+
+            boolean highStepListed = playersWith1Step.contains(player.getGameProfile().getName());
+            boolean hasHighStep = player.getItemStackFromSlot(EntityEquipmentSlot.FEET) != ItemStack.EMPTY && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == this;
+
+            if (!highStepListed && (hasHighStep && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItemDamage() == 0))
+                playersWith1Step.add(player.getGameProfile().getName());
+
+
+            if ((!hasHighStep || player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItemDamage() == 1) && highStepListed) {
+                playersWith1Step.remove(player.getGameProfile().getName());
+                player.stepHeight = 0.5F;
+            }
+        }
     }
 
     @Override
@@ -89,42 +161,7 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
             break;
 
             case FEET: {
-                if (itemStack.getItemDamage() != 1) {
-                    {
-                        if (player.world.isRemote && !player.isSneaking() && !player.capabilities.isFlying) {
-                        if (!PlayerEvents.prevStep.containsKey(player.getEntityId()))
-                            PlayerEvents.prevStep.put(player.getEntityId(), player.stepHeight);
-                        player.stepHeight = 1.0F;
-                    }
-                        if ( player.moveForward > 0.0F) {
-                            if(!player.capabilities.isFlying) {
-                                if (player.onGround) {
-                                    float bonus = 0.15F;
-                                    if (player.isInWater())
-                                        bonus /= 4.0F;
-                                    player.moveRelative(0.0F, 0.0F, bonus, 1.0F);
-                                } else {
-                                    if (player.isInWater())
-                                        player.moveRelative(0.0F, 0.0F, 0.25F, 1.0F);
-                                    player.jumpMovementFactor = 0.05F;
-                                }
-                            }
-                            if(player.capabilities.isFlying){
-                                player.moveRelative(0.0F, 0.0F, 0.075F, 1.0F);
-                            }
-                            player.fallDistance = 0F;
-                            player.jumpMovementFactor = player.isSprinting() ? 0.05F : 0.04F;
-                        }
-                        if (player.getActivePotionEffect(MobEffects.HASTE) == null || player.getActivePotionEffect(MobEffects.HASTE).getDuration() <= 1) {
-                            player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 200, 1, false, false));
-                        }
-                    }
-                    BlockPos posBelow = player.getPosition().down();
-                    IBlockState blockStateBelow = player.world.getBlockState(posBelow);
-                    if (blockStateBelow.getBlock() == Blocks.DIRT) {
-                        player.getEntityWorld().setBlockState(player.getPosition().down(), Blocks.GRASS.getDefaultState(), 0);
-                    }
-                }
+                tickPlayer(player);
             }
             break;
 

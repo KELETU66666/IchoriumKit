@@ -84,9 +84,13 @@ public class NitorVapor extends BlockAir {
         if (!world.isRemote) {
             List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos.getX() - 1, pos.getY() - 1, pos.getZ() - 1, pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1));
 
+            for(EntityPlayer player : players)
+                if(player.ticksExisted % 100 == 0)
+                    world.setBlockToAir(pos);
+
             if (players.isEmpty()) world.setBlockToAir(pos);
-            else if (players.stream().noneMatch(p -> p.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof KamiArmor))
-                world.setBlockToAir(pos);
+           // else if (players.stream().noneMatch(p -> p.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof KamiArmor))
+           //     world.setBlockToAir(pos);
 
         }
     }
