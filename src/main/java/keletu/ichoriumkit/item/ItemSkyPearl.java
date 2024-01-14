@@ -12,27 +12,25 @@
 package keletu.ichoriumkit.item;
 
 import keletu.ichoriumkit.IchoriumKit;
-import keletu.ichoriumkit.block.BlockWarpGate;
-import keletu.ichoriumkit.block.tiles.TileWarpGate;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import keletu.ichoriumkit.util.ItemNBTHelper;
 import keletu.ichoriumkit.util.MiscHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.codechicken.lib.vec.Vector3;
 
 import javax.annotation.Nullable;
@@ -77,7 +75,7 @@ public class ItemSkyPearl extends Item implements IHasModel {
                                             pos.x,
                                             simpleMode ? 0 : pos.y,
                                             pos.z))
-                                    .setScale(2, RoundingMode.UP).toString()
+                                    .setScale(2, RoundingMode.UP)
                             + "m");
         }
     }
@@ -141,10 +139,18 @@ public class ItemSkyPearl extends Item implements IHasModel {
         return super.onItemRightClick(world, player, hand);
     }
 
-   //@Override
-   //public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
-   //    addInfo(stack, player.dimension, Vector3.fromEntityCenter(player), tooltip, false);
-   //}
+   @Override
+   @SideOnly(Side.CLIENT)
+   public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
+       if (isAttuned(stack)) {
+           int x = getX(stack);
+           int y = getY(stack);
+           int z = getZ(stack);
+           list.add("X: " + x);
+           list.add("Y: " + y);
+           list.add("Z: " + z);
+       }
+    }
 
     @Override
     public boolean hasEffect(ItemStack par1ItemStack) {

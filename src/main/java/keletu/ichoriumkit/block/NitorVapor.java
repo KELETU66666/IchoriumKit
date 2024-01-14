@@ -1,13 +1,11 @@
 package keletu.ichoriumkit.block;
 
 import keletu.ichoriumkit.init.ModBlocks;
-import keletu.ichoriumkit.item.armor.KamiArmor;
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;

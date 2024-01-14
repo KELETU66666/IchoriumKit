@@ -80,7 +80,7 @@ public class IchorPouch extends ItemFocusPouch implements IHasModel, IBauble {
         if (!worldIn.isRemote && handIn == EnumHand.MAIN_HAND) {
             playerIn.openGui(IchoriumKit.INSTANCE, 0, worldIn, 0, 0, 0);
         }
-        return new ActionResult(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+        return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
     }
 
     public void setInventory(ItemStack item, NonNullList<ItemStack> stackList) {

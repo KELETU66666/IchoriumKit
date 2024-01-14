@@ -11,7 +11,6 @@
  */
 package keletu.ichoriumkit.client.gui;
 
-import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.block.tiles.TileWarpGate;
 import keletu.ichoriumkit.container.ContainerWarpGate;
 import keletu.ichoriumkit.util.PacketHandler;

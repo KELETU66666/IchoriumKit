@@ -11,7 +11,6 @@
  */
 package keletu.ichoriumkit.util;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 

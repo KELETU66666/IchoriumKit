@@ -131,7 +131,7 @@ public class IchoriumAxeAdv extends ItemAxe implements IHasModel, IAdvancedTool 
                             }
                             if (canHarvest && destroyed) {
                                 block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
-                                stack.damageItem(1, player);
+
                             }
                         }
                     }

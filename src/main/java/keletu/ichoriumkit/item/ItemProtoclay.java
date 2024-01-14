@@ -8,9 +8,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class Protoclay extends Item implements IHasModel {
+public class ItemProtoclay extends Item implements IHasModel {
 
-    public Protoclay() {
+    public ItemProtoclay() {
         setMaxStackSize(1);
         setRegistryName("proto_clay");
         setTranslationKey("proto_clay");

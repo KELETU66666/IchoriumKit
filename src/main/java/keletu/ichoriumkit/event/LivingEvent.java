@@ -75,7 +75,7 @@ public class LivingEvent {
             Entity par3Entity = event.getEntityPlayer();
             EntityPlayer player = (EntityPlayer) par3Entity;
             ItemStack currentStack = player.inventory.getCurrentItem();
-            if (currentStack == null || !(currentStack.getItem() instanceof IAdvancedTool))
+            if (currentStack == ItemStack.EMPTY || !(currentStack.getItem() instanceof IAdvancedTool))
                 return;
             IAdvancedTool tool = (IAdvancedTool) currentStack.getItem();
 

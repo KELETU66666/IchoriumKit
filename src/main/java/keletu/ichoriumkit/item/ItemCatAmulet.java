@@ -38,9 +38,9 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CatAmulet extends Item implements IBauble, IHasModel {
+public class ItemCatAmulet extends Item implements IBauble, IHasModel {
 
-    public CatAmulet() {
+    public ItemCatAmulet() {
         setMaxStackSize(1);
         setTranslationKey("cat_amulet").setRegistryName("cat_amulet").setCreativeTab(IchoriumKit.ITEM_TAB);
 

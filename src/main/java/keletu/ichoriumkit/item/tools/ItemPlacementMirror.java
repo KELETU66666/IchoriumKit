@@ -2,7 +2,7 @@ package keletu.ichoriumkit.item.tools;
 
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.init.ModItems;
-import keletu.ichoriumkit.item.BlockTalisman;
+import keletu.ichoriumkit.item.ItemBlockTalisman;
 import keletu.ichoriumkit.util.IHasModel;
 import keletu.ichoriumkit.util.ItemNBTHelper;
 import keletu.ichoriumkit.util.ToolHandler;
@@ -74,11 +74,11 @@ public class ItemPlacementMirror extends Item implements IHasModel {
         }
 
         for (ItemStack talisman : talismansToCheck) {
-            Block block = BlockTalisman.getBlock(talisman);
-            int meta = BlockTalisman.getBlockMeta(talisman);
+            Block block = ItemBlockTalisman.getBlock(talisman);
+            int meta = ItemBlockTalisman.getBlockMeta(talisman);
 
             if (Item.getItemFromBlock(block) == reqStack.getItem() && meta == reqStack.getItemDamage()) {
-                current += BlockTalisman.getBlockCount(talisman);
+                current += ItemBlockTalisman.getBlockCount(talisman);
 
                 if (current >= required) return true;
             }
@@ -221,11 +221,11 @@ public class ItemPlacementMirror extends Item implements IHasModel {
         }
 
         for (ItemStack talisman : talismansToCheck) {
-            Block block = BlockTalisman.getBlock(talisman);
-            int meta = BlockTalisman.getBlockMeta(talisman);
+            Block block = ItemBlockTalisman.getBlock(talisman);
+            int meta = ItemBlockTalisman.getBlockMeta(talisman);
 
             if (Item.getItemFromBlock(block) == blockToPlace.getItem() && meta == blockToPlace.getItemDamage()) {
-                BlockTalisman.remove(talisman, 1);
+                ItemBlockTalisman.remove(talisman, 1);
                 return;
             }
         }

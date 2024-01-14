@@ -33,14 +33,14 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockTalisman extends Item implements IBauble, IHasModel {
+public class ItemBlockTalisman extends Item implements IBauble, IHasModel {
     @Deprecated
     private static final String TAG_BLOCK_ID = "blockID";
     private static final String TAG_BLOCK_NAME = "blockName";
     private static final String TAG_BLOCK_META = "blockMeta";
     private static final String TAG_BLOCK_COUNT = "blockCount";
 
-    public BlockTalisman() {
+    public ItemBlockTalisman() {
         setMaxStackSize(1);
         setHasSubtypes(true);
         setTranslationKey("block_talisman");
@@ -172,8 +172,8 @@ public class BlockTalisman extends Item implements IBauble, IHasModel {
 
     public static void set(ItemStack stack, int count, String str) {
         stack = ItemStack.EMPTY;
-        BlockTalisman.count = count;
-        BlockTalisman.customString = str;
+        ItemBlockTalisman.count = count;
+        ItemBlockTalisman.customString = str;
         ticks = stack.isEmpty() ? 0 : maxTicks;
     }
 

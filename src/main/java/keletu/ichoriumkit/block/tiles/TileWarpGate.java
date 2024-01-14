@@ -14,7 +14,6 @@ package keletu.ichoriumkit.block.tiles;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.item.ItemSkyPearl;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
@@ -93,23 +92,16 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public void update() {
-        List<EntityPlayer> players = world.getEntitiesWithinAABB(
-                EntityPlayer.class,
-                new AxisAlignedBB(getPos().getX(), getPos().getY() + 1, getPos().getZ(), getPos().getX() + 1, getPos().getY() + 1.5, getPos().getZ() + 1));
+        List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos.getX(), pos.getY() + 1, pos.getZ(), pos.getX() + 1, pos.getY() + 1.5, pos.getZ() + 1));
 
         if(world.isBlockLoaded(pos))
             world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
 
         for (EntityPlayer player : players)
-            if (player != null && player.isSneaking()) {
-                    player.openGui(
-                            IchoriumKit.INSTANCE,
-                            2,
-                            world,
-                            getPos().getX(),
-                            getPos().getY(),
-                            getPos().getZ());
-
+            for(int i = -1;i < 1;i++)
+                for(int k = -1;k < 1;k++)
+                    if (player != null && player.isSneaking() && world.getTileEntity(player.getPosition().down().add(i, 0, k)) == this) {
+                        player.openGui(IchoriumKit.INSTANCE, 2, world, pos.getX(), pos.getY(), pos.getZ());
             break;
         }
 
@@ -226,8 +218,8 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public boolean isUsableByPlayer(EntityPlayer entityplayer) {
-        return world.getTileEntity(getPos()) == this
-                && entityplayer.getDistanceSq(getPos().getX() + 0.5D, getPos().getY() + 0.5D, getPos().getZ() + 0.5D) <= 64;
+        return world.getTileEntity(pos) == this
+                && entityplayer.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D) <= 64;
     }
 
     @Override
@@ -265,7 +257,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
    public SPacketUpdateTileEntity getUpdatePacket() {
        NBTTagCompound nbttagcompound = new NBTTagCompound();
        writeCustomNBT(nbttagcompound);
-       return new SPacketUpdateTileEntity(getPos(), -999, nbttagcompound);
+       return new SPacketUpdateTileEntity(pos, -999, nbttagcompound);
    }
 
     @Override

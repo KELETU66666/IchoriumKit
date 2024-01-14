@@ -191,7 +191,6 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
                             }
                             if (canHarvest && destroyed) {
                                 block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
-                                stack.damageItem(1, player);
                             }
                         }
                     }
@@ -263,7 +262,7 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
                         }
                         if (canHarvest && destroyed) {
                             block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
-                            stack.damageItem(1, player);
+
                         }
                     }
                 }

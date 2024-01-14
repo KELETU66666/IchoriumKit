@@ -4,17 +4,13 @@ import com.google.common.collect.Multimap;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.client.ModelWings;
 import keletu.ichoriumkit.init.ModBlocks;
-import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import keletu.ichoriumkit.util.Reference;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.MoverType;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -32,14 +28,11 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.registries.ForgeRegistry;
 import thaumcraft.api.items.IGoggles;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.codechicken.lib.vec.Vector3;
@@ -176,12 +169,6 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
         Multimap<String, AttributeModifier> map = super.getAttributeModifiers(slot, stack);
-        if (slot == armorType) {
-            if (slot == EntityEquipmentSlot.LEGS) {
-            } else if (slot == EntityEquipmentSlot.FEET) {
-
-            }
-        }
         return map;
     }
 
@@ -197,12 +184,8 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot
-            armorSlot, ModelBiped _default) {
-        if (armorType == EntityEquipmentSlot.CHEST) {
-            return new ModelWings();
-        }
-        return null;
+    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+        return armorType == EntityEquipmentSlot.CHEST ? new ModelWings() :null;
     }
 
     @Override

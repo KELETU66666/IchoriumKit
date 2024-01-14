@@ -27,6 +27,6 @@ public class ClientProxy extends CommonProxy {
 
     public void init( FMLInitializationEvent event )
     {
-
+        //MinecraftForge.EVENT_BUS.register(new PlacementMirrorPredictionRenderer());
     }
 }
