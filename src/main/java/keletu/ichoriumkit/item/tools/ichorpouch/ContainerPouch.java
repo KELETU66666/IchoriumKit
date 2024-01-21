@@ -89,11 +89,11 @@ public class ContainerPouch extends ContainerPlayerInv implements IInventoryChan
         if (slotId == this.blockSlot)
             return ItemStack.EMPTY;
 
+        ItemStack stack = super.slotClick(slotId, dragType, clickTypeIn, player);
         if (!this.player.world.isRemote) {
             saveInventory();
         }
-
-        return super.slotClick(slotId, dragType, clickTypeIn, player);
+        return stack;
     }
 
     @Override
