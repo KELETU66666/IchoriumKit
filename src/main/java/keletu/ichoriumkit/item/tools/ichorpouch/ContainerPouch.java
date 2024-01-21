@@ -28,12 +28,14 @@ public class ContainerPouch extends ContainerPlayerInv implements IInventoryChan
             try {
                 NonNullList<ItemStack> list = ((IchorPouch) pouch.getItem()).getInventory(pouch);
                 for (int i = 0; i < list.size(); i++)
-                    this.inv.setInventorySlotContents(i, (ItemStack)list.get(i));
+                    this.inv.setInventorySlotContents(i, list.get(i));
             } catch (Exception e) {
             }
     }
+
     public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int slot) {
-        if (slot == this.blockSlot) return ItemStack.EMPTY;
+        if (slot == this.blockSlot)
+            return ItemStack.EMPTY;
         ItemStack stack = ItemStack.EMPTY;
         Slot slotObject = this.inventorySlots.get(slot);
 
@@ -65,21 +67,32 @@ public class ContainerPouch extends ContainerPlayerInv implements IInventoryChan
     public void onContainerClosed(EntityPlayer par1EntityPlayer) {
         super.onContainerClosed(par1EntityPlayer);
         if (!player.world.isRemote) {
-
-            NonNullList<ItemStack> list = NonNullList.withSize(117, ItemStack.EMPTY);
-            for (int a = 0; a < list.size(); a++)
-                list.set(a, this.inv.getStackInSlot(a));
-            if (this.pouch.getItem() instanceof ItemFocusPouch)
-                ((ItemFocusPouch)this.pouch.getItem()).setInventory(this.pouch, list);
-            if (this.player == null)
-                return;  if (this.player.getHeldItem(this.player.getActiveHand()).isItemEqual(this.pouch))
-                this.player.setHeldItem(this.player.getActiveHand(), this.pouch);
-            this.player.inventory.markDirty();
+            saveInventory();
         }
     }
 
+    private void saveInventory() {
+        NonNullList<ItemStack> list = NonNullList.withSize(117, ItemStack.EMPTY);
+        for (int a = 0; a < list.size(); a++)
+            list.set(a, this.inv.getStackInSlot(a));
+        if (this.pouch.getItem() instanceof ItemFocusPouch)
+            ((ItemFocusPouch)this.pouch.getItem()).setInventory(this.pouch, list);
+        if (this.player == null)
+            return;
+        if (this.player.getHeldItem(this.player.getActiveHand()).isItemEqual(this.pouch))
+            this.player.setHeldItem(this.player.getActiveHand(), this.pouch);
+
+        this.player.inventory.markDirty();
+    }
+
     public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
-        if (slotId == this.blockSlot) return ItemStack.EMPTY;
+        if (slotId == this.blockSlot)
+            return ItemStack.EMPTY;
+
+        if (!this.player.world.isRemote) {
+            saveInventory();
+        }
+
         return super.slotClick(slotId, dragType, clickTypeIn, player);
     }
 
