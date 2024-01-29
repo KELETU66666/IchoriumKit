@@ -24,6 +24,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
@@ -40,14 +41,15 @@ import thaumcraft.common.lib.events.PlayerEvents;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
 
 public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
 
     public static List<String> playersWith1Step = new ArrayList();
+    private static final WeakHashMap<EntityLivingBase, Object> armorModels = new WeakHashMap<>();
 
     public KamiArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(name, materialIn, renderIndexIn, equipmentSlotIn);
-        setTranslationKey(name);
         setCreativeTab(IchoriumKit.ITEM_TAB);
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -149,6 +151,7 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
                             player.extinguish();
                         }
                     }
+                    setNearBrightNitor(player);
                 }
             }
             break;
@@ -167,12 +170,6 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
     }
 
     @Override
-    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
-        Multimap<String, AttributeModifier> map = super.getAttributeModifiers(slot, stack);
-        return map;
-    }
-
-    @Override
     public KamiArmor setTranslationKey(String key) {
         return (KamiArmor) super.setTranslationKey(key);
     }
@@ -182,10 +179,31 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
         return Reference.MOD_ID + ":textures/models/armor/kami_layer_" + (slot == EntityEquipmentSlot.LEGS ? "2" : "1") + ".png";
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
-        return armorType == EntityEquipmentSlot.CHEST ? new ModelWings() :null;
+        return (ModelWings) armorModels.computeIfAbsent(entityLiving, ignored -> new ModelWings());
+    }
+
+    private void setNearBrightNitor(EntityPlayer player) {
+
+        int x = (int) Math.floor(player.posX);
+        int y = (int) player.posY + 1;
+        int z = (int) Math.floor(player.posZ);
+
+        float yaw = MathHelper.wrapDegrees(player.rotationYaw + 90F) * (float) Math.PI / 180F;
+        Vector3 lookVector = new Vector3(Math.cos(yaw), Math.sin(yaw), 0).normalize();
+        Vector3 newVector = new Vector3(lookVector.x, lookVector.y, 0);
+
+        for (int i = 0; i < 5; i++) {
+            newVector = newVector.add(lookVector);
+
+            int x1 = x + (int) newVector.x;
+            int z1 = z + (int) newVector.y;
+            if ((player.world.getBlockState(new BlockPos(x1, y, z1)).getBlock() == Blocks.AIR
+                    || player.world.getBlockState(new BlockPos(x1, y, z1)).getBlock() == ModBlocks.NITOR_VAPOR)
+                    && !player.world.isRemote)
+                player.world.setBlockState(new BlockPos(x1, y, z1), ModBlocks.NITOR_VAPOR.getDefaultState(), 2);
+        }
     }
 
     @Override
@@ -234,20 +252,5 @@ public class KamiArmor extends IchorArmor implements IGoggles, IHasModel {
         else{tooltip.add(TextFormatting.DARK_GREEN +
                 I18n.translateToLocal("tip.awakenarmor.name0"));}
         super.addInformation(stack, worldIn, tooltip, flagIn);
-    }
-
-    public void setBlock(BlockPos pos, World world, EntityPlayer player) {
-        ItemStack itemStack = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
-        if ((world.isAirBlock(pos) || world.getBlockState(pos).equals(ModBlocks.NITOR_VAPOR.getDefaultState())) && !world.isRemote && itemStack.getItem() instanceof KamiArmor && itemStack.getItemDamage() != 1) {
-            world.setBlockState(pos, ModBlocks.NITOR_VAPOR.getDefaultState());
-        }
-    }
-
-    @Override
-    public void onUpdate(ItemStack par1ItemStack, World world, Entity entity, int par4, boolean par5) {
-        if (entity instanceof EntityPlayer && par1ItemStack.getItemDamage() != 1) {
-        BlockPos pos = new BlockPos(entity.posX, entity.posY, entity.posZ).up();
-            setBlock(pos, world, (EntityPlayer) entity);
-        }
     }
 }

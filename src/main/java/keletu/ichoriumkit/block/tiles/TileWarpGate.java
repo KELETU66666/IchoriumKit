@@ -68,9 +68,9 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
                                 6, 3, 3);
                 }
 
-                    player.dismountRidingEntity();
-                    if (player instanceof EntityPlayerMP)
-                        player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
+                player.dismountRidingEntity();
+                if (player instanceof EntityPlayerMP)
+                    player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
 
                 if(player.world.isRemote) {
                     for (int i = 0; i < 20; i++)
@@ -84,7 +84,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
                 player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 0.1F);
                 return true;
             } else
-                if (!player.world.isRemote) player.sendMessage(new TextComponentString("ichormisc.noTeleport"));
+            if (!player.world.isRemote) player.sendMessage(new TextComponentString("ichormisc.noTeleport"));
         } else if (!player.world.isRemote) player.sendMessage(new TextComponentString("ichormisc.noDest"));
 
         return false;
@@ -102,8 +102,8 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
                 for(int k = -1;k < 1;k++)
                     if (player != null && player.isSneaking() && world.getTileEntity(player.getPosition().down().add(i, 0, k)) == this) {
                         player.openGui(IchoriumKit.INSTANCE, 2, world, pos.getX(), pos.getY(), pos.getZ());
-            break;
-        }
+                        break;
+                    }
 
         teleportedThisTick = false;
     }
@@ -253,12 +253,12 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     }
 
-   @Override
-   public SPacketUpdateTileEntity getUpdatePacket() {
-       NBTTagCompound nbttagcompound = new NBTTagCompound();
-       writeCustomNBT(nbttagcompound);
-       return new SPacketUpdateTileEntity(pos, -999, nbttagcompound);
-   }
+    @Override
+    public SPacketUpdateTileEntity getUpdatePacket() {
+        NBTTagCompound nbttagcompound = new NBTTagCompound();
+        writeCustomNBT(nbttagcompound);
+        return new SPacketUpdateTileEntity(pos, -999, nbttagcompound);
+    }
 
     @Override
     public void onDataPacket(NetworkManager manager, SPacketUpdateTileEntity packet) {
