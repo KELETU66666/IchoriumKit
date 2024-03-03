@@ -3,6 +3,7 @@ package keletu.ichoriumkit.event;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.item.armor.KamiArmor;
 import keletu.ichoriumkit.item.tools.IchoriumPickAdv;
+import keletu.ichoriumkit.item.tools.ichorpouch.ContainerPouch;
 import keletu.ichoriumkit.util.IAdvancedTool;
 import keletu.ichoriumkit.util.ToolHandler;
 import net.minecraft.block.material.Material;
@@ -15,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -63,6 +65,21 @@ public class LivingEvent {
             if (event.getEntityPlayer().world.getBlockState(event.getPos()).getBlock().equals(Blocks.BEDROCK)) {
                 if (stack != null && stack.getItem() instanceof IchoriumPickAdv) {
                     stack.getItem().onBlockStartBreak(stack, event.getPos(), event.getEntityPlayer());
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void onItemToss(ItemTossEvent event) {
+        if (event.getPlayer().openContainer instanceof ContainerPouch) {
+            ItemStack backpack = event.getPlayer().getHeldItem(EnumHand.MAIN_HAND);
+            if (backpack.getItem() != ModItems.IchorPouch) {
+                try {
+                    event.getPlayer().closeScreen();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
