@@ -62,7 +62,8 @@ public final class PlacementMirrorPredictionRenderer {
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
             for(BlockPos coord : coords)
-                renderBlockAt(block, meta, coord);
+                if(stack != ItemStack.EMPTY)
+                    renderBlockAt(block, meta, coord);
 
             ShaderHelper.releaseShader();
             GL11.glPopMatrix();
@@ -70,9 +71,6 @@ public final class PlacementMirrorPredictionRenderer {
     }
 
     private static void renderBlockAt(Block block, int meta, BlockPos pos) {
-        if(block == null)
-            return;
-
         IBlockState state = block.getStateFromMeta(meta);
 
         double renderPosX = Minecraft.getMinecraft().getRenderManager().renderPosX;
