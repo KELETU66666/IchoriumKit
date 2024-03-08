@@ -70,6 +70,9 @@ public final class PlacementMirrorPredictionRenderer {
     }
 
     private static void renderBlockAt(Block block, int meta, BlockPos pos) {
+        if(block == null)
+            return;
+
         IBlockState state = block.getStateFromMeta(meta);
 
         double renderPosX = Minecraft.getMinecraft().getRenderManager().renderPosX;
