@@ -3,6 +3,7 @@ package keletu.ichoriumkit.block;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.ModConfig;
 import keletu.ichoriumkit.block.tiles.TileBedrockPortal;
+import keletu.ichoriumkit.dim.ProviderBedrock;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
@@ -13,6 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -23,6 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -94,13 +97,38 @@ public class BlockBedrockPortal extends BlockContainer implements IHasModel
                 if (entity.world.getBlockState(pos5).getBlock() == Blocks.BEDROCK) {
                     entity.world.setBlockState(pos5, ModBlocks.BEDROCK_PORTAL.getDefaultState());
                 }
-            } else{
+            } else if (entity.world.provider instanceof ProviderBedrock) {
+                if (entity instanceof EntityPlayer && !world.isRemote) {
 
-                entity.changeDimension(0, new TeleporterBedrock((WorldServer) world));
-                    if (((EntityPlayer) entity).bedLocation != null)
-                        entity.setPositionAndUpdate(((EntityPlayer) entity).bedLocation.getX(), ((EntityPlayer) entity).bedLocation.getY() + 3, ((EntityPlayer) entity).bedLocation.getZ());
-                   else
-                        entity.setPositionAndUpdate(world.getSpawnPoint().getX(), world.getSpawnPoint().getY() + 3, world.getSpawnPoint().getZ());
+                    FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList()
+                            .transferPlayerToDimension(
+                                    (EntityPlayerMP) entity,
+                                    0,
+                                    new TeleporterBedrock((WorldServer) world));
+
+                    Random rand = new Random();
+
+                    int x = (int) entity.posX + rand.nextInt(100);
+                    int z = (int) entity.posZ + rand.nextInt(100);
+
+                    x -= 50;
+                    z -= 50;
+
+                    int y = 120;
+
+                    while (entity.world.getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.AIR
+                            || entity.world.getBlockState(new BlockPos(x, y, z)).getBlock().isAir(entity.world.getBlockState(new BlockPos(x, y, z)), world, new BlockPos(x, y, z))) {
+                        y--;
+                        // Avoid infinite loop.
+                        if (y <= 1) {
+                            y = 120;
+                            // Set up the scaffolding.
+                            entity.world.setBlockState(new BlockPos(x, y - 1, z), Blocks.STONE.getDefaultState());
+                        }
+                    }
+
+                    ((EntityPlayerMP) entity).connection.setPlayerLocation(x + 0.5, y + 3, z + 0.5, 0, 0);
+                }
             }
         }
     }
