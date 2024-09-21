@@ -40,7 +40,6 @@ public class ItemPlacementMirror extends Item implements IHasModel {
     private static final String TAG_SIZE = "size";
 
     public ItemPlacementMirror() {
-        super();
         setMaxStackSize(1);
         setTranslationKey("placement_mirror");
         setRegistryName("placement_mirror");

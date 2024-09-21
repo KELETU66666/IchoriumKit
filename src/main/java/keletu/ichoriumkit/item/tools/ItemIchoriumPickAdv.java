@@ -36,9 +36,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvancedTool
-{
-    public IchoriumPickAdv(String name, CreativeTabs tab, ToolMaterial material) {
+public class ItemIchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvancedTool {
+    public ItemIchoriumPickAdv(String name, CreativeTabs tab, ToolMaterial material) {
 
         super(material);
         setTranslationKey(name);
@@ -86,38 +85,30 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
         if (y > 3 && y <= 253 && world.getBlockState(pos).getBlock().equals(Blocks.BEDROCK) && player.dimension == ModConfig.BedRockDimensionID) {
             world.setBlockToAir(pos);
         }
-        if (world.getBlockState(pos).getBlock() == Blocks.BEDROCK && ((player.dimension == 0 && y < 3) || (y > 253 && player.dimension == ModConfig.BedRockDimensionID)))
-        {
+        if (world.getBlockState(pos).getBlock() == Blocks.BEDROCK && ((player.dimension == 0 && y < 3) || (y > 253 && player.dimension == ModConfig.BedRockDimensionID))) {
             world.setBlockState(pos, ModBlocks.BEDROCK_PORTAL.getDefaultState());
-        }return false;
+        }
+        return false;
     }
 
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack itemstack = player.getHeldItem(hand);
 
-        if (!player.canPlayerEdit(pos.offset(facing), facing, itemstack))
-        {
+        if (!player.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
             return EnumActionResult.FAIL;
-        }
-        else
-        {
+        } else {
             IBlockState iblockstate = worldIn.getBlockState(pos);
             Block block = iblockstate.getBlock();
 
-            if (block == ModBlocks.BEDROCK_PORTAL)
-            {
+            if (block == ModBlocks.BEDROCK_PORTAL) {
                 IBlockState iblockstate1 = Blocks.BEDROCK.getDefaultState();
 
-                if (!worldIn.isRemote)
-                {
+                if (!worldIn.isRemote) {
                     worldIn.setBlockState(pos, iblockstate1, 11);
                 }
 
                 return EnumActionResult.SUCCESS;
-            }
-            else
-            {
+            } else {
                 return EnumActionResult.PASS;
             }
         }
@@ -150,55 +141,54 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
 
             for (int i = -2; i <= 2; ++i) {
                 for (int h = -1; h <= 3; ++h) {
-                for (int j = -2; j <= 2 && !stack.isEmpty(); ++j) {
-                    if (i == 0 && j == 0 && h==0) {
-                        continue;
-                    }
+                    for (int j = -2; j <= 2 && !stack.isEmpty(); ++j) {
+                        if (i == 0 && j == 0 && h == 0) {
+                            continue;
+                        }
 
-                    BlockPos pos1;
-                    if (yAxis) {
-                        pos1 = pos.add(i, 0, j);
-                    } else if (xAxis) {
-                        pos1 = pos.add(0, h, j);
-                    } else {
-                        pos1 = pos.add(i, h, 0);
-                    }
+                        BlockPos pos1;
+                        if (yAxis) {
+                            pos1 = pos.add(i, 0, j);
+                        } else if (xAxis) {
+                            pos1 = pos.add(0, h, j);
+                        } else {
+                            pos1 = pos.add(i, h, 0);
+                        }
 
-                    //:Replicate logic of PlayerInteractionManager.tryHarvestBlock(pos1)
-                    IBlockState state1 = worldIn.getBlockState(pos1);
-                    float f = state1.getBlockHardness(worldIn, pos1);
-                    if (f >= 0F) {
-                        BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(worldIn, pos1, state1, player);
-                        MinecraftForge.EVENT_BUS.post(event);
-                        if (!event.isCanceled()) {
-                            Block block = state1.getBlock();
-                            if ((block instanceof BlockCommandBlock || block instanceof BlockStructure) && !player.canUseCommandBlock()) {
-                                worldIn.notifyBlockUpdate(pos1, state1, state1, 3);
-                                continue;
-                            }
-                            TileEntity tileentity = worldIn.getTileEntity(pos1);
-                            if (tileentity != null) {
-                                Packet<?> pkt = tileentity.getUpdatePacket();
-                                if (pkt != null) {
-                                    ((EntityPlayerMP) player).connection.sendPacket(pkt);
+                        //:Replicate logic of PlayerInteractionManager.tryHarvestBlock(pos1)
+                        IBlockState state1 = worldIn.getBlockState(pos1);
+                        float f = state1.getBlockHardness(worldIn, pos1);
+                        if (f >= 0F) {
+                            BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(worldIn, pos1, state1, player);
+                            MinecraftForge.EVENT_BUS.post(event);
+                            if (!event.isCanceled()) {
+                                Block block = state1.getBlock();
+                                if ((block instanceof BlockCommandBlock || block instanceof BlockStructure) && !player.canUseCommandBlock()) {
+                                    worldIn.notifyBlockUpdate(pos1, state1, state1, 3);
+                                    continue;
                                 }
-                            }
+                                TileEntity tileentity = worldIn.getTileEntity(pos1);
+                                if (tileentity != null) {
+                                    Packet<?> pkt = tileentity.getUpdatePacket();
+                                    if (pkt != null) {
+                                        ((EntityPlayerMP) player).connection.sendPacket(pkt);
+                                    }
+                                }
 
-                            boolean canHarvest = block.canHarvestBlock(worldIn, pos1, player);
-                            boolean destroyed = block.removedByPlayer(state1, worldIn, pos1, player, canHarvest);
-                            if (destroyed) {
-                                block.breakBlock(worldIn, pos1, state1);
-                            }
-                            if (canHarvest && destroyed) {
-                                block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
+                                boolean canHarvest = block.canHarvestBlock(worldIn, pos1, player);
+                                boolean destroyed = block.removedByPlayer(state1, worldIn, pos1, player, canHarvest);
+                                if (destroyed) {
+                                    block.breakBlock(worldIn, pos1, state1);
+                                }
+                                if (canHarvest && destroyed) {
+                                    block.harvestBlock(worldIn, player, pos1, state1, tileentity, stack);
+                                }
                             }
                         }
                     }
                 }
-                }
             }
-        }
-        else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
+        } else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
             if (!(entityLiving instanceof EntityPlayer) || worldIn.isRemote) {
                 return ret;
             }
@@ -226,7 +216,7 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
                     pos1 = pos.add(0, k, 0);
                 } else if (y) {
                     pos1 = pos.add(0, -k, 0);
-                } else if (z){
+                } else if (z) {
                     pos1 = pos.add(0, 0, -k);
                 } else if (w) {
                     pos1 = pos.add(0, 0, k);
@@ -273,11 +263,10 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (player.isSneaking())     {
+        if (player.isSneaking()) {
             NBTTagCompound nbtTagCompound = stack.getTagCompound();
 
-            if (nbtTagCompound == null)
-            {
+            if (nbtTagCompound == null) {
                 nbtTagCompound = new NBTTagCompound();
                 stack.setTagCompound(nbtTagCompound);
             }
@@ -290,14 +279,16 @@ public class IchoriumPickAdv extends ItemPickaxe implements IHasModel, IAdvanced
 
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 1){
+        if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 1) {
             tooltip.add(TextFormatting.RED +
-                    I18n.translateToLocal("tip.awakenpick.name1"));}
-        else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2){
+                    I18n.translateToLocal("tip.awakenpick.name1"));
+        } else if (stack.getTagCompound() != null && stack.getTagCompound().getInteger("awaken") == 2) {
             tooltip.add(TextFormatting.BLUE +
-                    I18n.translateToLocal("tip.awakenpick.name2"));}
-        else{tooltip.add(TextFormatting.DARK_GREEN +
-                I18n.translateToLocal("tip.awakenpick.name0"));}
+                    I18n.translateToLocal("tip.awakenpick.name2"));
+        } else {
+            tooltip.add(TextFormatting.DARK_GREEN +
+                    I18n.translateToLocal("tip.awakenpick.name0"));
+        }
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

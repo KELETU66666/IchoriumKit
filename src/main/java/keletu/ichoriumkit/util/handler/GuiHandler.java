@@ -1,11 +1,11 @@
 package keletu.ichoriumkit.util.handler;
 
 import keletu.ichoriumkit.block.tiles.TileWarpGate;
+import keletu.ichoriumkit.client.gui.GuiPouch;
 import keletu.ichoriumkit.client.gui.GuiWarpGate;
 import keletu.ichoriumkit.client.gui.GuiWarpGateDestinations;
+import keletu.ichoriumkit.container.ContainerPouch;
 import keletu.ichoriumkit.container.ContainerWarpGate;
-import keletu.ichoriumkit.item.tools.ichorpouch.ContainerPouch;
-import keletu.ichoriumkit.item.tools.ichorpouch.GuiPouch;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;

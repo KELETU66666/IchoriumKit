@@ -10,8 +10,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class IchorBlock extends BlockSlime implements IHasModel {
-    public IchorBlock() {
+public class BlockIchorBlock extends BlockSlime implements IHasModel {
+    public BlockIchorBlock() {
         super();
         this.setSoundType(SoundType.SLIME);
         this.setRegistryName("ichor_block");

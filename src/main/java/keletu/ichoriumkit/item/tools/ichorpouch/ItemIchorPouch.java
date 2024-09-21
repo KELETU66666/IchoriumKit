@@ -18,8 +18,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import thaumcraft.common.items.casters.ItemFocusPouch;
 
-public class IchorPouch extends ItemFocusPouch implements IHasModel, IBauble {
-    public IchorPouch() {
+public class ItemIchorPouch extends ItemFocusPouch implements IHasModel, IBauble {
+    public ItemIchorPouch() {
         super();
         setCreativeTab(IchoriumKit.ITEM_TAB);
         setTranslationKey("ichor_pouch");

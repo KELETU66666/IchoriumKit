@@ -17,9 +17,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class ResourceKami extends Item implements IHasModel {
+public class ItemResourceKami extends Item implements IHasModel {
 
-    public ResourceKami() {
+    public ItemResourceKami() {
         setTranslationKey("resourcekami").setRegistryName("resourcekami").setCreativeTab(IchoriumKit.ITEM_TAB);
         setHasSubtypes(true);
         this.addPropertyOverride(new ResourceLocation("meta"), new IItemPropertyGetter() {

@@ -1,12 +1,12 @@
 /**
  * This class was created by <Vazkii>. It's distributed as part of the ThaumicTinkerer Mod.
- *
+ * <p>
  * ThaumicTinkerer is Open Source and distributed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0
  * License (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
- *
+ * <p>
  * ThaumicTinkerer is a Derivative Work on Thaumcraft 4. Thaumcraft 4 (c) Azanor 2012
  * (http://www.minecraftforum.net/topic/1585216-)
- *
+ * <p>
  * File Created @ [Jan 10, 2014, 3:56:13 PM (GMT)]
  */
 package keletu.ichoriumkit.block.tiles;
@@ -14,6 +14,7 @@ package keletu.ichoriumkit.block.tiles;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.item.ItemSkyPearl;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
@@ -29,6 +30,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.Constants;
 import thaumcraft.client.fx.FXDispatcher;
 import thaumcraft.common.lib.SoundsTC;
@@ -44,8 +47,49 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
     boolean teleportedThisTick = false;
     ItemStack[] inventorySlots = new ItemStack[10];
 
-    public TileWarpGate (){
+    public TileWarpGate() {
         Arrays.fill(inventorySlots, ItemStack.EMPTY);
+    }
+
+    public static boolean teleportEntity(EntityLivingBase player, BlockPos coords) {
+        int x = coords.getX();
+        int y = coords.getY();
+        int z = coords.getZ();
+
+        TileEntity tile = player.world.getTileEntity(coords);
+        if (tile != null && tile instanceof TileWarpGate) {
+            TileWarpGate destGate = (TileWarpGate) tile;
+            if (!destGate.locked) {
+                if (player.world.isRemote) {
+                    player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 1F);
+
+                    for (int i = 0; i < 20; i++)
+                        FXDispatcher.INSTANCE.sparkle(
+                                (float) player.posX + player.world.rand.nextFloat() - 0.5F,
+                                (float) player.posY + player.world.rand.nextFloat(),
+                                (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
+                                6, 3, 3);
+                }
+
+                player.dismountRidingEntity();
+                if (player.world instanceof WorldServer)
+                    player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
+
+                if (player.world.isRemote) {
+                    for (int i = 0; i < 20; i++)
+                        FXDispatcher.INSTANCE.sparkle(
+                                (float) player.posX + player.world.rand.nextFloat() - 0.5F,
+                                (float) player.posY + player.world.rand.nextFloat(),
+                                (float) player.posZ + player.world.rand.nextFloat() - 0.5F,
+                                6, 3, 3);
+                }
+
+                player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 0.1F);
+                return true;
+            } else if (!player.world.isRemote) player.sendMessage(new TextComponentTranslation("ichormisc.noTeleport"));
+        } else if (!player.world.isRemote) player.sendMessage(new TextComponentTranslation("ichormisc.noDest"));
+
+        return false;
     }
 
     public static boolean teleportPlayer(EntityPlayer player, BlockPos coords) {
@@ -57,7 +101,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
         if (tile != null && tile instanceof TileWarpGate) {
             TileWarpGate destGate = (TileWarpGate) tile;
             if (!destGate.locked) {
-                if(player.world.isRemote) {
+                if (player.world.isRemote) {
                     player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 1F);
 
                     for (int i = 0; i < 20; i++)
@@ -72,7 +116,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
                 if (player instanceof EntityPlayerMP)
                     player.setPositionAndUpdate(x + 0.5, y + 1.6, z + 0.5);
 
-                if(player.world.isRemote) {
+                if (player.world.isRemote) {
                     for (int i = 0; i < 20; i++)
                         FXDispatcher.INSTANCE.sparkle(
                                 (float) player.posX + player.world.rand.nextFloat() - 0.5F,
@@ -83,8 +127,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
                 player.world.playSound(null, player.getPosition(), SoundsTC.wand, SoundCategory.PLAYERS, 1F, 0.1F);
                 return true;
-            } else
-            if (!player.world.isRemote) player.sendMessage(new TextComponentString("ichormisc.noTeleport"));
+            } else if (!player.world.isRemote) player.sendMessage(new TextComponentString("ichormisc.noTeleport"));
         } else if (!player.world.isRemote) player.sendMessage(new TextComponentString("ichormisc.noDest"));
 
         return false;
@@ -92,18 +135,19 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public void update() {
-        List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(pos.getX(), pos.getY() + 1, pos.getZ(), pos.getX() + 1, pos.getY() + 1.5, pos.getZ() + 1));
-
-        if(world.isBlockLoaded(pos))
+        if (world.isBlockLoaded(pos))
             world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
 
+        List<EntityPlayer> players = world.getEntitiesWithinAABB(
+                EntityPlayer.class,
+                new AxisAlignedBB(pos.getX(), pos.getY() + 1, pos.getZ(), pos.getX() + 1, pos.getY() + 1.5, pos.getZ() + 1));
+
+        EntityPlayer clientPlayer = IchoriumKit.proxy.getClientPlayer();
         for (EntityPlayer player : players)
-            for(int i = -1;i < 1;i++)
-                for(int k = -1;k < 1;k++)
-                    if (player != null && player.isSneaking() && world.getTileEntity(player.getPosition().down().add(i, 0, k)) == this) {
-                        player.openGui(IchoriumKit.INSTANCE, 2, world, pos.getX(), pos.getY(), pos.getZ());
-                        break;
-                    }
+            if (player != null && player == clientPlayer && player.isSneaking()) {
+                player.openGui(IchoriumKit.INSTANCE, 2, world, pos.getX(), pos.getY(), pos.getZ());
+                break;
+            }
 
         teleportedThisTick = false;
     }
@@ -171,7 +215,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public boolean isEmpty() {
-        return inventorySlots==null;
+        return inventorySlots == null;
     }
 
     @Override
@@ -202,7 +246,7 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
 
     @Override
     public ItemStack removeStackFromSlot(int i) {
-        ItemStack itemStack= ItemStackHelper.getAndRemove(Arrays.asList(inventorySlots),i);
+        ItemStack itemStack = ItemStackHelper.getAndRemove(Arrays.asList(inventorySlots), i);
         return itemStack;
     }
 
@@ -223,10 +267,12 @@ public class TileWarpGate extends TileEntity implements IInventory, ITickable {
     }
 
     @Override
-    public void openInventory(EntityPlayer var1) {}
+    public void openInventory(EntityPlayer var1) {
+    }
 
     @Override
-    public void closeInventory(EntityPlayer var1) {}
+    public void closeInventory(EntityPlayer var1) {
+    }
 
     @Override
     public boolean isItemValidForSlot(int i, ItemStack itemstack) {

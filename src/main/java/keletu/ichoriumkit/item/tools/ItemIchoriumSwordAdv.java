@@ -39,11 +39,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IchoriumSwordAdv extends Item implements IHasModel
+public class ItemIchoriumSwordAdv extends Item implements IHasModel
 {
     boolean ignoreLeftClick = false;
 
-    public IchoriumSwordAdv(String name, CreativeTabs tab, ToolMaterial material) {
+    public ItemIchoriumSwordAdv(String name, CreativeTabs tab, ToolMaterial material) {
         super();
         setTranslationKey(name);
         setRegistryName(name);

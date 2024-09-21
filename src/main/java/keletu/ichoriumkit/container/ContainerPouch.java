@@ -1,5 +1,6 @@
-package keletu.ichoriumkit.item.tools.ichorpouch;
+package keletu.ichoriumkit.container;
 
+import keletu.ichoriumkit.item.tools.ichorpouch.ItemIchorPouch;
 import keletu.ichoriumkit.util.ContainerPlayerInv;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.*;
@@ -26,7 +27,7 @@ public class ContainerPouch extends ContainerPlayerInv implements IInventoryChan
 
         if (!player.world.isRemote)
             try {
-                NonNullList<ItemStack> list = ((IchorPouch) pouch.getItem()).getInventory(pouch);
+                NonNullList<ItemStack> list = ((ItemIchorPouch) pouch.getItem()).getInventory(pouch);
                 for (int i = 0; i < list.size(); i++)
                     this.inv.setInventorySlotContents(i, list.get(i));
             } catch (Exception e) {

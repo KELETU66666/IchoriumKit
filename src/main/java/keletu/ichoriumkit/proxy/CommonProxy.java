@@ -3,6 +3,7 @@ package keletu.ichoriumkit.proxy;
 import keletu.ichoriumkit.dim.ModDimensions;
 import keletu.ichoriumkit.dim.OreClusterGenerator;
 import keletu.ichoriumkit.util.handler.EventHandler;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -25,5 +26,9 @@ public class CommonProxy {
 
     public void init( FMLInitializationEvent event )
     {
+    }
+
+    public EntityPlayer getClientPlayer() {
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package keletu.ichoriumkit.item.tools.ichorpouch;
+package keletu.ichoriumkit.container;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

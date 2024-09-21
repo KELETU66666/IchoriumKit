@@ -8,8 +8,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 
-public class IchoriumPick extends ItemPickaxe implements IHasModel {
-    public IchoriumPick(String name, CreativeTabs tab, ToolMaterial material) {
+public class ItemIchoriumPick extends ItemPickaxe implements IHasModel {
+    public ItemIchoriumPick(String name, CreativeTabs tab, ToolMaterial material) {
 
         super(material);
         setTranslationKey(name);

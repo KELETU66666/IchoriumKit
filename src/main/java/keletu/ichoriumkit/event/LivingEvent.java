@@ -1,9 +1,9 @@
 package keletu.ichoriumkit.event;
 
+import keletu.ichoriumkit.container.ContainerPouch;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.item.armor.KamiArmor;
-import keletu.ichoriumkit.item.tools.IchoriumPickAdv;
-import keletu.ichoriumkit.item.tools.ichorpouch.ContainerPouch;
+import keletu.ichoriumkit.item.tools.ItemIchoriumPickAdv;
 import keletu.ichoriumkit.util.IAdvancedTool;
 import keletu.ichoriumkit.util.ToolHandler;
 import net.minecraft.block.material.Material;
@@ -63,7 +63,7 @@ public class LivingEvent {
         if (event.getHand() == EnumHand.MAIN_HAND) {
             ItemStack stack = event.getEntityPlayer().getHeldItemMainhand();
             if (event.getEntityPlayer().world.getBlockState(event.getPos()).getBlock().equals(Blocks.BEDROCK)) {
-                if (stack != null && stack.getItem() instanceof IchoriumPickAdv) {
+                if (stack != null && stack.getItem() instanceof ItemIchoriumPickAdv) {
                     stack.getItem().onBlockStartBreak(stack, event.getPos(), event.getEntityPlayer());
                 }
             }

@@ -1,6 +1,5 @@
 package keletu.ichoriumkit.item.armor;
 
-import com.google.common.collect.Multimap;
 import keletu.ichoriumkit.IchoriumKit;
 import keletu.ichoriumkit.client.ModelWings;
 import keletu.ichoriumkit.init.ModBlocks;
@@ -11,7 +10,6 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;

@@ -1,564 +1,755 @@
 {
-    "entries": [
-      {
-        "key": "DIMENSIONALSHARD",
-        "name": "ichoriumkit.research.dimensionalshard.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:resourcekami;1;0",
-          "ichoriumkit:resourcekami;1;1"
-        ],
-        "parents": [
-          "ESSENTIATRANSPORT","IMPROVEDSMELTING2","POTIONSPRAYER", "SANESOAP", "LIQUIDDEATH", "BOTTLETAINT", "ARCANESPA", "EVERFULLURN", "METALPURIFICATION", "POTIONSPRAYER",
-          "FOCUSADVANCED", "FOCUSPLAN", "FOCUSRIFT", "FOCUSSPLIT", "RECHARGEPEDESTAL", "VISAMULET", "WORKBENCHCHARGER", "FOCUSPOUCH",
-          "INFUSIONBOOST", "RUNICSHIELDING", "FORTRESSMASK", "VERDANTCHARMS", "CURIOSITYBAND", "PAVINGSTONES",
-          "JARBRAIN", "GOLEMLOGISTICS", "GOLEMVISION", "GOLEMFLYER", "GOLEMCOMBATADV", "SEALLUMBER", "SEALHARVEST", "SEALBUTCHER","SEALSTORE",
-          "FLUXCLEANUP", "RIFTCLOSER",
-          "~LEVITATOR", "~BELLOWS", "~MIRRORHAND", "~MIRRORESSENTIA", "~LAMPGROWTH",  "~LAMPFERTILITY", "~ARCANEPATTERNCRAFTER", "~ARCANEBORE", "~ADVANCEDTURRET", "~GRAPPLEGUN", "~VISGENERATOR"
-        ],"meta":["ROUND"],
-        "location": [
-          -6,
-          4
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.dimensionalshard.text",
-            "required_item": [
-              "ichoriumkit:resourcekami;1;0",
-              "ichoriumkit:resourcekami;1;1"
-            ],
-            "required_knowledge": [
-              "THEORY;BASICS;2","THEORY;ARTIFICE;1","THEORY;ALCHEMY;1","THEORY;INFUSION;1","THEORY;AUROMANCY;1"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.dimensionalshard.complete.text"
-          }
-        ]
-      },
-      {
-        "key": "ICHOR",
-        "name": "ichoriumkit.research.ichor.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:resourcekami;1;2"
-        ],
-        "parents": [
-          "DIMENSIONALSHARD"
-        ],"meta":["ROUND","HIDDEN"],
-        "location": [
-          -7,
-          5
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichor.text",
-            "required_knowledge": [
-              "THEORY;BASICS;3","THEORY;ARTIFICE;2","THEORY;INFUSION;2"
-            ],"warp" : "3"
-          },
-          {
-            "text": "ichoriumkit.research.ichor.text",
-            "required_knowledge": [
-              "THEORY;ATIFICE;2","THEORY;INFUSION;1"
-            ],
-            "required_craft":["ichoriumkit:ichor"],
-            "recipes":["ichoriumkit:ichor_block_infusion","ichoriumkit:ichor"],"warp" : "7"
-          },
-          {
-            "text": "ichoriumkit.research.ichor.complete.text",
-            "recipes":["ichoriumkit:ichor_block_infusion","ichoriumkit:ichor","ichoriumkit:ichor_cloth", "ichoriumkit:ichor_ingot"]
-          }
-        ]
-      },
-      {
-        "key": "ICHORIUMTOOLS",
-        "name": "ichoriumkit.research.ichoriumtools.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:resourcekami;1;3"
-        ],
-        "parents": [
-          "ICHOR"
-        ],"meta":["HIDDEN"],
-        "location": [
-          -9,
-          2
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichoriumtools.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2"
-            ],
-            "required_item":["ichoriumkit:ichor_ingot"],
-            "recipes":["ichoriumkit:ichor_ingot"],"warp" : "5"
-          },
-          {
-            "text": "ichoriumkit.research.ichoriumtools.complete.text",
-            "recipes":["ichoriumkit:ichor_ingot","ichoriumkit:ichorium_sword","ichoriumkit:ichorium_pick","ichoriumkit:ichorium_shovel","ichoriumkit:ichorium_axe"]
-          }
-        ]
-      },
-      {
-        "key": "ICHORARMOR",
-        "name": "ichoriumkit.research.ichorarmor.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:resourcekami;1;4"
-        ],
-        "parents": [
-          "ICHOR"
-        ],"meta":["HIDDEN"],
-        "location": [
-          -6,
-          6
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichorarmor.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2"
-            ],
-            "required_item":["ichoriumkit:ichor_cloth"],
-            "recipes":["ichoriumkit:ichor_cloth"],"warp" : "5"
-          },
-          {
-            "text": "ichoriumkit.research.ichorarmor.complete.text",
-            "recipes":["ichoriumkit:ichor_cloth","ichoriumkit:ichor_helm","ichoriumkit:ichor_chest","ichoriumkit:ichor_legs","ichoriumkit:ichor_boots"]
-          }
-        ]
-      },
-      {
-        "key": "KAMIHELM",
-        "name": "ichoriumkit.research.kamihelm.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:kami_helm"
-        ],
-        "parents": [
-          "ICHORARMOR"
-        ],"meta":["HIDDEN"],
-        "location": [
-          -9,
-          8
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.kamihelm.text",
-            "required_knowledge":["THEORY;ARTIFICE;2","THEORY;INFUSION;1"],
-            "required_craft":["ichoriumkit:ichor_helm"]
-          },
-          {
-            "text": "ichoriumkit.research.kamihelm.complete.text",
-            "recipes":["ichoriumkit:kami_helm"]
-          }
-        ]
-      },
-      {"key": "KAMICHEST",
-        "name": "ichoriumkit.research.kamichest.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:kami_chest"
-        ],
-        "parents": [
-          "ICHORARMOR"
-        ],"meta":["HIDDEN"],
-        "location": [-7,
-          8
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.kamichest.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2","THEORY;INFUSION;1"
-            ],
-            "required_craft":["ichoriumkit:ichor_chest"]
-          },
-          {
-            "text": "ichoriumkit.research.kamichest.complete.text",
-            "recipes":["ichoriumkit:kami_chest"]
-          }
-        ]
-      },
-      {
-        "key": "KAMILEGS",
-        "name": "ichoriumkit.research.kamilegs.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:kami_legs"
-        ],
-        "parents": [
-          "ICHORARMOR"
-        ],"meta":["HIDDEN"],
-        "location": [
-          -5,
-          8
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.kamilegs.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2","THEORY;INFUSION;1"
-            ],
-            "required_craft":["ichoriumkit:ichor_legs"]
-          },
-          {
-            "text": "ichoriumkit.research.kamilegs.complete.text",
-            "recipes":["ichoriumkit:kami_legs"]
-          }
-        ]
-      },
-      {
-        "key": "KAMIBOOTS",
-        "name": "ichoriumkit.research.kamiboots.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:kami_boots"
-        ],
-        "parents": [
-          "ICHORARMOR"
-        ],"meta":["HIDDEN"],
-        "location": [
-          -3,
-          8
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.kamiboots.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2","THEORY;INFUSION;1"
-            ],
-            "required_craft":["ichoriumkit:ichor_boots"]
-          },
-          {
-            "text": "ichoriumkit.research.kamiboots.complete.text",
-            "recipes":["ichoriumkit:kami_boots"]
-          }
-        ]
-      },
-      {
-        "key": "ICHOR_PICK_ADV",
-        "name": "ichoriumkit.research.ichorium_pick_adv.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:ichorium_pick_adv"
-        ],
-        "parents": [
-          "ICHORIUMTOOLS"
-        ],"meta":["HIDDEN", "REVERSE"],
-        "location": [
-          -11,
-          1
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichorium_pick_adv.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2","THEORY;INFUSION;1"
-            ],
-            "required_craft": [
-              "ichoriumkit:ichorium_pick"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.ichorium_pick_adv.complete.text",
-            "recipes":["ichoriumkit:ichorium_pick_adv"]
-          }
-        ]
-      },
-      {
-        "key": "ICHOR_SHOVEL_ADV",
-        "name": "ichoriumkit.research.ichorium_shovel_adv.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:ichorium_shovel_adv"
-        ],
-        "parents": [
-          "ICHORIUMTOOLS"
-        ],"meta":["HIDDEN", "REVERSE"],
-        "location": [
-          -11,
+  "entries": [
+    {
+      "key": "DIMENSIONALSHARD",
+      "name": "ichoriumkit.research.dimensionalshard.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:resourcekami;1;0",
+        "ichoriumkit:resourcekami;1;1"
+      ],
+      "parents": [
+        "ESSENTIATRANSPORT",
+        "IMPROVEDSMELTING2",
+        "POTIONSPRAYER",
+        "SANESOAP",
+        "LIQUIDDEATH",
+        "BOTTLETAINT",
+        "ARCANESPA",
+        "EVERFULLURN",
+        "METALPURIFICATION",
+        "POTIONSPRAYER",
+        "FOCUSADVANCED",
+        "FOCUSPLAN",
+        "FOCUSRIFT",
+        "FOCUSSPLIT",
+        "RECHARGEPEDESTAL",
+        "VISAMULET",
+        "WORKBENCHCHARGER",
+        "FOCUSPOUCH",
+        "INFUSIONBOOST",
+        "RUNICSHIELDING",
+        "FORTRESSMASK",
+        "VERDANTCHARMS",
+        "CURIOSITYBAND",
+        "PAVINGSTONES",
+        "JARBRAIN",
+        "GOLEMLOGISTICS",
+        "GOLEMVISION",
+        "GOLEMFLYER",
+        "GOLEMCOMBATADV",
+        "SEALLUMBER",
+        "SEALHARVEST",
+        "SEALBUTCHER",
+        "SEALSTORE",
+        "FLUXCLEANUP",
+        "RIFTCLOSER",
+        "~LEVITATOR",
+        "~BELLOWS",
+        "~MIRRORHAND",
+        "~MIRRORESSENTIA",
+        "~LAMPGROWTH",
+        "~LAMPFERTILITY",
+        "~ARCANEPATTERNCRAFTER",
+        "~ARCANEBORE",
+        "~ADVANCEDTURRET",
+        "~GRAPPLEGUN",
+        "~VISGENERATOR"
+      ],
+      "meta": [
+        "ROUND"
+      ],
+      "location": [
+        -6,
+        4
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.dimensionalshard.text",
+          "required_item": [
+            "ichoriumkit:resourcekami;1;0",
+            "ichoriumkit:resourcekami;1;1"
+          ],
+          "required_knowledge": [
+            "THEORY;BASICS;2",
+            "THEORY;ARTIFICE;1",
+            "THEORY;ALCHEMY;1",
+            "THEORY;INFUSION;1",
+            "THEORY;AUROMANCY;1"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.dimensionalshard.complete.text"
+        }
+      ]
+    },
+    {
+      "key": "ICHOR",
+      "name": "ichoriumkit.research.ichor.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:resourcekami;1;2"
+      ],
+      "parents": [
+        "DIMENSIONALSHARD"
+      ],
+      "meta": [
+        "ROUND",
+        "HIDDEN"
+      ],
+      "location": [
+        -7,
+        5
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichor.text",
+          "required_knowledge": [
+            "THEORY;BASICS;3",
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;2"
+          ],
+          "warp": "3"
+        },
+        {
+          "text": "ichoriumkit.research.ichor.text",
+          "required_knowledge": [
+            "THEORY;ATIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichor"
+          ],
+          "recipes": [
+            "ichoriumkit:ichor_block_infusion",
+            "ichoriumkit:ichor"
+          ],
+          "warp": "7"
+        },
+        {
+          "text": "ichoriumkit.research.ichor.complete.text",
+          "recipes": [
+            "ichoriumkit:ichor_block_infusion",
+            "ichoriumkit:ichor",
+            "ichoriumkit:ichor_cloth",
+            "ichoriumkit:ichor_ingot"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ICHORIUMTOOLS",
+      "name": "ichoriumkit.research.ichoriumtools.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:resourcekami;1;3"
+      ],
+      "parents": [
+        "ICHOR"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -9,
+        2
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichoriumtools.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2"
+          ],
+          "required_item": [
+            "ichoriumkit:ichor_ingot"
+          ],
+          "recipes": [
+            "ichoriumkit:ichor_ingot"
+          ],
+          "warp": "5"
+        },
+        {
+          "text": "ichoriumkit.research.ichoriumtools.complete.text",
+          "recipes": [
+            "ichoriumkit:ichor_ingot",
+            "ichoriumkit:ichorium_sword",
+            "ichoriumkit:ichorium_pick",
+            "ichoriumkit:ichorium_shovel",
+            "ichoriumkit:ichorium_axe"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ICHORARMOR",
+      "name": "ichoriumkit.research.ichorarmor.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:resourcekami;1;4"
+      ],
+      "parents": [
+        "ICHOR"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -6,
+        6
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichorarmor.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2"
+          ],
+          "required_item": [
+            "ichoriumkit:ichor_cloth"
+          ],
+          "recipes": [
+            "ichoriumkit:ichor_cloth"
+          ],
+          "warp": "5"
+        },
+        {
+          "text": "ichoriumkit.research.ichorarmor.complete.text",
+          "recipes": [
+            "ichoriumkit:ichor_cloth",
+            "ichoriumkit:ichor_helm",
+            "ichoriumkit:ichor_chest",
+            "ichoriumkit:ichor_legs",
+            "ichoriumkit:ichor_boots"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "KAMIHELM",
+      "name": "ichoriumkit.research.kamihelm.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:kami_helm"
+      ],
+      "parents": [
+        "ICHORARMOR"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -9,
+        8
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.kamihelm.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichor_helm"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.kamihelm.complete.text",
+          "recipes": [
+            "ichoriumkit:kami_helm"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "KAMICHEST",
+      "name": "ichoriumkit.research.kamichest.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:kami_chest"
+      ],
+      "parents": [
+        "ICHORARMOR"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -7,
+        8
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.kamichest.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichor_chest"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.kamichest.complete.text",
+          "recipes": [
+            "ichoriumkit:kami_chest"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "KAMILEGS",
+      "name": "ichoriumkit.research.kamilegs.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:kami_legs"
+      ],
+      "parents": [
+        "ICHORARMOR"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -5,
+        8
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.kamilegs.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichor_legs"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.kamilegs.complete.text",
+          "recipes": [
+            "ichoriumkit:kami_legs"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "KAMIBOOTS",
+      "name": "ichoriumkit.research.kamiboots.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:kami_boots"
+      ],
+      "parents": [
+        "ICHORARMOR"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "location": [
+        -3,
+        8
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.kamiboots.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichor_boots"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.kamiboots.complete.text",
+          "recipes": [
+            "ichoriumkit:kami_boots"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ICHOR_PICK_ADV",
+      "name": "ichoriumkit.research.ichorium_pick_adv.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:ichorium_pick_adv"
+      ],
+      "parents": [
+        "ICHORIUMTOOLS"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -11,
+        1
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichorium_pick_adv.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichorium_pick"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.ichorium_pick_adv.complete.text",
+          "recipes": [
+            "ichoriumkit:ichorium_pick_adv"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ICHOR_SHOVEL_ADV",
+      "name": "ichoriumkit.research.ichorium_shovel_adv.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:ichorium_shovel_adv"
+      ],
+      "parents": [
+        "ICHORIUMTOOLS"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -11,
         3
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichorium_shovel_adv.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2","THEORY;INFUSION;1"
-            ],
-            "required_craft": [
-              "ichoriumkit:ichorium_shovel"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.ichorium_shovel_adv.complete.text",
-            "recipes":["ichoriumkit:ichorium_shovel_adv"]
-          }
-        ]
-      },
-      {
-        "key": "ICHOR_AXE_ADV",
-        "name": "ichoriumkit.research.ichorium_axe_adv.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:ichorium_axe_adv"
-        ],
-        "parents": [
-          "ICHORIUMTOOLS"
-        ],"meta":["HIDDEN", "REVERSE"],
-        "location": [
-          -11,
-          -1
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichorium_axe_adv.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2","THEORY;INFUSION;1"
-            ],
-            "required_craft": [
-              "ichoriumkit:ichorium_axe"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.ichorium_axe_adv.complete.text",
-            "recipes":["ichoriumkit:ichorium_axe_adv"]
-          }
-        ]
-      },
-      {
-        "key": "ICHOR_SWORD_ADV",
-        "name": "ichoriumkit.research.ichorium_sword_adv.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:ichorium_sword_adv"
-        ],
-        "parents": [
-          "ICHORIUMTOOLS"
-        ],
-        "meta": [
-          "HIDDEN",
-          "REVERSE"
-        ],
-        "location": [
-          -11,
-          5
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichorium_sword_adv.text",
-            "required_knowledge": [
-              "THEORY;ARTIFICE;2",
-              "THEORY;INFUSION;1"
-            ],
-            "required_craft": [
-              "ichoriumkit:ichorium_sword"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.ichorium_sword_adv.complete.text",
-            "recipes": [
-              "ichoriumkit:ichorium_sword_adv"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "BLACKHOLE_RING",
-        "name": "ichoriumkit.research.blackhole_ring.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:block_talisman"
-        ],
-        "parents": [
-          "ICHOR_PICK_ADV"
-        ],
-        "meta": [
-          "REVERSE"
-        ],
-        "location": [
-          -13,
-          0
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.blackhole_ring.text",
-            "required_knowledge": [
-              "THEORY;INFUSION;2"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.blackhole_ring.complete.text",
-            "recipes": [
-              "ichoriumkit:blackhole_ring"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "PROTO_CLAY",
-        "name": "ichoriumkit.research.proto_clay.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:proto_clay"
-        ],
-        "parents": [
-          "ICHOR_PICK_ADV"
-        ],
-        "meta": [
-          "REVERSE"
-        ],
-        "location": [
-          -13,
-          2
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.proto_clay.text",
-            "required_knowledge": [
-              "OBSERVATION;BASICS;1"
-            ],
-            "required_craft": ["ichoriumkit:ichorium_pick_adv", "ichoriumkit:ichorium_axe_adv", "ichoriumkit:ichorium_shovel_adv" ]
-          },
-          {
-            "text": "ichoriumkit.research.proto_clay.complete.text",
-            "recipes": [
-              "ichoriumkit:proto_clay"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "ICHOR_POUCH",
-        "name": "ichoriumkit.research.ichorpouch.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:focus_pouch"
-        ],
-        "parents": [
-          "ICHOR"
-        ],
-        "location": [
-          -7,
-          3
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.ichorpouch.text",
-            "required_knowledge": [
-              "OBSERVATION;AUROMANCY;1"
-            ],
-            "required_item": [
-              "thaumcraft:focus_pouch"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.ichorpouch.complete.text",
-            "recipes": [
-              "ichoriumkit:ichor_pouch"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "CAT_AMULET",
-        "name": "ichoriumkit.research.cat_amulet.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:cat_amulet"
-        ],
-        "parents": [
-          "ICHOR"
-        ],
-        "location": [
-          -10,
-          7
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.cat_amulet.text",
-            "required_knowledge": [
-              "THEORY;INFUSION;1"
-            ],
-            "required_research": [
-              "!Ocelot;ichoriumkit:textures/misc/ocelot.png"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.cat_amulet.complete.text",
-            "recipes": [
-              "ichoriumkit:cat_amulet"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "PLACEMENT_MIRROR",
-        "name": "ichoriumkit.research.placement_mirror.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:placement_mirror"
-        ],
-        "parents": [
-          "BLACKHOLE_RING"
-        ],
-        "location": [
-          -15,
-          0
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.placement_mirror.text",
-            "required_knowledge": [
-              "THEORY;INFUSION;2"
-            ],
-            "required_item": [
-              "thaumcraft:thaumometer"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.placement_mirror.complete.text",
-            "recipes": [
-              "ichoriumkit:placement_mirror"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "WARP_SERIES",
-        "name": "ichoriumkit.research.warp_series.title",
-        "category": "ARTIFICE",
-        "icons": [
-          "ichoriumkit:sky_pearl"
-        ],
-        "parents": [
-          "ICHOR"
-        ],
-        "location": [
-          -5,
-          5
-        ],
-        "stages": [
-          {
-            "text": "ichoriumkit.research.warp_series.text",
-            "recipes": [
-              "ichoriumkit:sky_pearl"
-            ],
-            "required_knowledge": [
-              "THEORY;INFUSION;1"
-            ],
-            "required_craft": [
-              "ichoriumkit:sky_pearl"
-            ]
-          },
-          {
-            "text": "ichoriumkit.research.warp_series.complete.text",
-            "recipes": [
-              "ichoriumkit:sky_pearl", "ichoriumkit:warp_gate"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichorium_shovel_adv.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichorium_shovel"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.ichorium_shovel_adv.complete.text",
+          "recipes": [
+            "ichoriumkit:ichorium_shovel_adv"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ICHOR_AXE_ADV",
+      "name": "ichoriumkit.research.ichorium_axe_adv.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:ichorium_axe_adv"
+      ],
+      "parents": [
+        "ICHORIUMTOOLS"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -11,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichorium_axe_adv.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichorium_axe"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.ichorium_axe_adv.complete.text",
+          "recipes": [
+            "ichoriumkit:ichorium_axe_adv"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ICHOR_SWORD_ADV",
+      "name": "ichoriumkit.research.ichorium_sword_adv.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:ichorium_sword_adv"
+      ],
+      "parents": [
+        "ICHORIUMTOOLS"
+      ],
+      "meta": [
+        "HIDDEN",
+        "REVERSE"
+      ],
+      "location": [
+        -11,
+        5
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichorium_sword_adv.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2",
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichorium_sword"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.ichorium_sword_adv.complete.text",
+          "recipes": [
+            "ichoriumkit:ichorium_sword_adv"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "BLACKHOLE_RING",
+      "name": "ichoriumkit.research.blackhole_ring.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:block_talisman"
+      ],
+      "parents": [
+        "ICHOR_PICK_ADV"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "location": [
+        -13,
+        0
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.blackhole_ring.text",
+          "required_knowledge": [
+            "THEORY;INFUSION;2"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.blackhole_ring.complete.text",
+          "recipes": [
+            "ichoriumkit:blackhole_ring"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PROTO_CLAY",
+      "name": "ichoriumkit.research.proto_clay.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:proto_clay"
+      ],
+      "parents": [
+        "ICHOR_PICK_ADV"
+      ],
+      "meta": [
+        "REVERSE"
+      ],
+      "location": [
+        -13,
+        2
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.proto_clay.text",
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:ichorium_pick_adv",
+            "ichoriumkit:ichorium_axe_adv",
+            "ichoriumkit:ichorium_shovel_adv"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.proto_clay.complete.text",
+          "recipes": [
+            "ichoriumkit:proto_clay"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ICHOR_POUCH",
+      "name": "ichoriumkit.research.ichorpouch.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:focus_pouch"
+      ],
+      "parents": [
+        "ICHOR"
+      ],
+      "location": [
+        -7,
+        3
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.ichorpouch.text",
+          "required_knowledge": [
+            "OBSERVATION;AUROMANCY;1"
+          ],
+          "required_item": [
+            "thaumcraft:focus_pouch"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.ichorpouch.complete.text",
+          "recipes": [
+            "ichoriumkit:ichor_pouch"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CAT_AMULET",
+      "name": "ichoriumkit.research.cat_amulet.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:cat_amulet"
+      ],
+      "parents": [
+        "ICHOR"
+      ],
+      "location": [
+        -10,
+        7
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.cat_amulet.text",
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ],
+          "required_research": [
+            "!Ocelot;ichoriumkit:textures/misc/ocelot.png"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.cat_amulet.complete.text",
+          "recipes": [
+            "ichoriumkit:cat_amulet"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PLACEMENT_MIRROR",
+      "name": "ichoriumkit.research.placement_mirror.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:placement_mirror"
+      ],
+      "parents": [
+        "BLACKHOLE_RING"
+      ],
+      "location": [
+        -15,
+        0
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.placement_mirror.text",
+          "required_knowledge": [
+            "THEORY;INFUSION;2"
+          ],
+          "required_item": [
+            "thaumcraft:thaumometer"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.placement_mirror.complete.text",
+          "recipes": [
+            "ichoriumkit:placement_mirror"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "WARP_SERIES",
+      "name": "ichoriumkit.research.warp_series.title",
+      "category": "ARTIFICE",
+      "icons": [
+        "ichoriumkit:sky_pearl"
+      ],
+      "parents": [
+        "ICHOR"
+      ],
+      "location": [
+        -5,
+        5
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.warp_series.text",
+          "recipes": [
+            "ichoriumkit:sky_pearl"
+          ],
+          "required_knowledge": [
+            "THEORY;INFUSION;1"
+          ],
+          "required_craft": [
+            "ichoriumkit:sky_pearl"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.warp_series.complete.text",
+          "recipes": [
+            "ichoriumkit:sky_pearl",
+            "ichoriumkit:sky_pearl_dupe",
+            "ichoriumkit:warp_gate"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CELESTIAL_TELEPORT",
+      "name": "ichoriumkit.research.celestial_teleport.title",
+      "icons": [
+        "focus:ichoriumkit.celestialteleport"
+      ],
+      "meta": [
+        "HIDDEN"
+      ],
+      "category": "ARTIFICE",
+      "location": [
+        -5,
+        3
+      ],
+      "parents": [
+        "BASEAUROMANCY",
+        "WARP_SERIES"
+      ],
+      "stages": [
+        {
+          "text": "ichoriumkit.research.celestial_teleport.text",
+          "required_knowledge": [
+            "THEORY;AUROMANCY;2",
+            "THEORY;ARTIFICE;2"
+          ],
+          "required_item": [
+            "ichoriumkit:sky_pearl"
+          ]
+        },
+        {
+          "text": "ichoriumkit.research.celestial_teleport.complete.text"
+        }
+      ]
+    }
+  ]
+}

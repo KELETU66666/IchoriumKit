@@ -2,6 +2,7 @@ package keletu.ichoriumkit;
 
 import keletu.ichoriumkit.block.tiles.TileWarpGate;
 import keletu.ichoriumkit.client.RenderTileWarpGate;
+import keletu.ichoriumkit.foci.FocusCelestialTeleport;
 import keletu.ichoriumkit.init.InitRecipes;
 import keletu.ichoriumkit.init.InitResearch;
 import keletu.ichoriumkit.proxy.CommonProxy;
@@ -12,6 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -24,6 +26,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.api.casters.FocusEngine;
 import thaumcraft.api.research.ScanEntity;
 import thaumcraft.api.research.ScanningManager;
 import thaumcraft.common.config.ConfigItems;
@@ -62,6 +65,7 @@ public class IchoriumKit {
         InitRecipes.initRecipes();
         InitResearch.registerResearch();
         ScanningManager.addScannableThing(new ScanEntity("!Ocelot", EntityOcelot.class, true));
+        FocusEngine.registerElement(FocusCelestialTeleport.class, new ResourceLocation(Reference.MOD_ID, "textures/foci_icons/celestial_teleport.png"),  0x22F5FF);
         proxy.registerDisplayInformationInit();
     }
 

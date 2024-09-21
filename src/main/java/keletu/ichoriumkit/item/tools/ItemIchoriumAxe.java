@@ -5,13 +5,13 @@ import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 
-public class IchoriumSword extends ItemSword implements IHasModel {
-    public IchoriumSword(String name, CreativeTabs tab, ToolMaterial material) {
+public class ItemIchoriumAxe extends ItemAxe implements IHasModel{
+    public ItemIchoriumAxe(String name, CreativeTabs tab, ToolMaterial material) {
 
-        super(material);
+        super(material,10.0F,-3.0F);
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(tab);

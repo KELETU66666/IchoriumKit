@@ -32,4 +32,8 @@ public class ModConfig {
         @Config.RangeInt(min = 2)
         @Config.RequiresMcRestart
         public static int AwakenIchorSwordShieldmodDamage = 6;
+
+        @Config.Comment("Can Energetic Nitor and Kami Leggings glow")
+        @Config.Name("Enable Nitor Vapor")
+        public static boolean EnableNitorVapor = true;
 }

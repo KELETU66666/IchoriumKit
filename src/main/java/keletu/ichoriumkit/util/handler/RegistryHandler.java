@@ -6,6 +6,7 @@ import keletu.ichoriumkit.block.tiles.TileWarpGate;
 import keletu.ichoriumkit.init.ModBlocks;
 import keletu.ichoriumkit.init.ModItems;
 import keletu.ichoriumkit.util.IHasModel;
+import keletu.ichoriumkit.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -23,16 +24,17 @@ import thaumcraft.api.aspects.AspectEventProxy;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.AspectRegistryEvent;
 
-@Mod.EventBusSubscriber
-
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class RegistryHandler {
     public static void preInitRegistries() {
         NetworkRegistry.INSTANCE.registerGuiHandler(IchoriumKit.INSTANCE, new GuiHandler());
     }
+
     @SubscribeEvent
-    public static void onItemRegister( RegistryEvent.Register<Item> event ) {
+    public static void onItemRegister(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
     }
+
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
         event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
@@ -42,18 +44,15 @@ public class RegistryHandler {
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public static void onModelRegister( ModelRegistryEvent event )
-    {
-        for ( Item item : ModItems.ITEMS ) {
+    public static void onModelRegister(ModelRegistryEvent event) {
+        for (Item item : ModItems.ITEMS) {
             if (item instanceof IHasModel) {
                 ((IHasModel) item).registerModels();
             }
         }
-        for (Block block: ModBlocks.BLOCKS)
-        {
-            if (block instanceof IHasModel)
-            {
-                ((IHasModel)block).registerModels();
+        for (Block block : ModBlocks.BLOCKS) {
+            if (block instanceof IHasModel) {
+                ((IHasModel) block).registerModels();
             }
         }
 
@@ -67,10 +66,9 @@ public class RegistryHandler {
     }
 
     @SubscribeEvent
-    public static void OreRegister(RegistryEvent.Register<Enchantment> event)
-    {
+    public static void OreRegister(RegistryEvent.Register<Enchantment> event) {
         OreDictionary.registerOre("ingotIchorium", new ItemStack(ModItems.ResourceKami, 1, 3));
-        OreDictionary.registerOre("itemIchorFabric", new ItemStack(ModItems.ResourceKami,1,4));
+        OreDictionary.registerOre("itemIchorFabric", new ItemStack(ModItems.ResourceKami, 1, 4));
         OreDictionary.registerOre("nuggetIchorium", new ItemStack(ModItems.ResourceKami, 1, 5));
     }
 }

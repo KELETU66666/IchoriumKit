@@ -1,5 +1,6 @@
 package keletu.ichoriumkit.proxy;
 
+import keletu.ichoriumkit.util.ClientHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,5 +29,10 @@ public class ClientProxy extends CommonProxy {
     public void init( FMLInitializationEvent event )
     {
         //MinecraftForge.EVENT_BUS.register(new PlacementMirrorPredictionRenderer());
+    }
+
+    @Override
+    public EntityPlayer getClientPlayer() {
+        return ClientHelper.clientPlayer();
     }
 }

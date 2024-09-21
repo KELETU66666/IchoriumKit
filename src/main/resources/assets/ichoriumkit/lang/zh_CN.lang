@@ -109,6 +109,26 @@ ichoriumkit.research.kamiboots.title=地平线盾牌之靴
 ichoriumkit.research.kamiboots.text=我使用龙驹汗血的珍宝,做了大量的实验,难道就是为了一件永不磨损的靴子?<BR>不!这绝对不是我想要的!
 ichoriumkit.research.kamiboots.complete.text=通过一系列极端手段艰苦奋斗了几日,终于将其内部觉醒之潜力开发出来.<BR>新的靴子不仅让我无视一切掉落伤害,还能让我步伐矫健,甚至能轻易登上一格高的台阶.不仅如此,穿着靴子还能让走过的泥土焕发春意变成草地.
 
+ichoriumkit.research.blackhole_ring.title=黑洞指环
+ichoriumkit.research.blackhole_ring.text=虽然挖矿并非难事，但如果有太多无用的圆石堆积在地上，那就很恼人了，即使有更大的背包容量，这仍然是个大麻烦。<BR>肯定有办法解决这个问题……
+ichoriumkit.research.blackhole_ring.complete.text=终于完成了！这枚强大的指环能够被用来压缩放置任意类型的方块. 手持它拿着某种方块右击即可建立绑定关系。之后，我可以潜行右击以激活它，使得多余的方块直接存入指环，我可以在任何地方右键单击来放置它。<BR>这个环可以容纳超过20亿个同类方块块！然而，它也有一个限制，指环一次只能绑定一种方块，但是如果排空戒指，我就可以绑定别的方块。
+
+ichoriumkit.research.proto_clay.title=息壤
+ichoriumkit.research.proto_clay.text=你真的厌倦了为挖掘不同方块不断更换工具。
+ichoriumkit.research.proto_clay.complete.text=你真的厌倦了为挖掘不同方块不断更换工具。<BR><BR>这团混有次元碎片的物质,能够在你使用错误工具进行操作时自动将手持工具切换为合适的觉醒灵宝工具.<BR><BR>例如,一旦你试图用觉醒灵宝镐挖土,而物品栏里却有觉醒灵宝铲时,手持工具会马上自动替换成觉醒灵宝铲,以便让你更快速地挖下泥土.
+
+ichoriumkit.research.cat_amulet.title=猫神护身符
+ichoriumkit.research.cat_amulet.text=用不了多久你就会讨厌起苦力怕……他们偷偷摸摸的跟着你，炸毁你的房屋。
+ichoriumkit.research.cat_amulet.complete.text=用不了多久你就会讨厌起苦力怕……他们偷偷摸摸的跟着你，炸毁你的房屋。<BR>最终,利用爬行者畏惧猫的知识,你设计出了一枚能让爬行者避之如虎的护身符.不仅如此,这些可怜的家伙吓得发愣,都聚集不起火力自爆了.太棒了!不过它必须装备在坠饰槽位才有效.
+
+ichoriumkit.research.warp_series.title=仙域之门
+ichoriumkit.research.warp_series.text=在深入探索奥术的奥秘时，你偶然发现了一个有巨大的潜力的物件。你开始思考末影珍珠是否可以用于超远距离传送。它们的独特性质能否被改进增强，用以创造一种强大的传送设备？这个问题推动了你的研究的进展，在你的神秘学领域中开启了新的可能性。
+ichoriumkit.research.warp_series.complete.text=你取得了非凡的进展。仙域珍珠——这些被蕴含魔法的珍珠，通过灵液和末影碎片的注入，它被赋予了非凡的传送能力。然而，要正确发挥它的功能，还需要一个专门的设备: 仙域之门。<BR>仙域之门是仙域珍珠的控制中心，能够实现复杂而精确的远程传送。<BR>每颗珍珠都必须与某一位置的仙域之门建立链接。要建立链接，手持它们按住shift右击仙域之门即可标记其位置。<BR>一旦建立链接，珍珠就可以放置在仙域之门中。右键单击仙域之门，能够在10个槽中放入一颗珍珠。<BR>站在仙域之门的上方潜行蹲下即可进入传送界面。此界面允许你选择或是管理珍珠标记的目的地。<BR>你可以使用数字键在界面中快速选取目的地。如果选定了目的地，通过shift +左键点击来启动传送。<BR>每颗仙域珍珠都可以用铁砧重命名。自定义名称将显示在仙域之门的传送界面中，使你可以分辨不同的目的地。
+
+ichoriumkit.research.placement_mirror.title=世界塑造者的观察镜
+ichoriumkit.research.placement_mirror.text=通过研究塑造世界之理，你设想了一个镜片，能够使你随心所欲的一次性放置大量的方块。
+ichoriumkit.research.placement_mirror.complete.text=通过研究塑造世界之理，你制造了一个观察镜，能够使你随心所欲的一次性放置大量的方块。<BR>要选取即将放置的方块，可以手持观察镜潜行右键目标方块。可以手持观察镜对着空中潜行右键则会调整放置方块的范围。<BR>放置方块前会生成预览幻象。右击将会消耗方块并放置，方块的来源既可以是物品栏,也可以是黑洞护身符,只要装有足够数量的指定方块即可。
+
 tip.awakenpick.name0=方块模式
 tip.awakenpick.name1=正方模式
 tip.awakenpick.name2=线性模式
